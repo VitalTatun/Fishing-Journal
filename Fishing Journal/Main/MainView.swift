@@ -8,8 +8,47 @@
 import SwiftUI
 
 struct MainView: View {
+    
+   
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                FishingItem()
+                FishingItem()
+                FishingItem()
+                FishingItem()
+            }
+            .listStyle(.plain)
+            .scrollIndicators(.hidden)
+            .navigationTitle("Fishing Journal")
+            .toolbar {
+                // Filtering Button
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                    }
+                }
+                // New Fishing Log Button
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+            }
+        }
+    }
+    
+    func formatDate(date: Date) -> String {
+        let date = Date.now
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
     }
 }
 
