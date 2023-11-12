@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Fishing_JournalApp: App {
+    
+    @StateObject private var fishingData = FishingData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(fishingData)
         }
     }
 }

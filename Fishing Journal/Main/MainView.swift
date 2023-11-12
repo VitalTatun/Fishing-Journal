@@ -9,15 +9,22 @@ import SwiftUI
 
 struct MainView: View {
     
+    @EnvironmentObject var fishingData: FishingData
    
     
     var body: some View {
         NavigationStack {
             List {
-                FishingItem()
-                FishingItem()
-                FishingItem()
-                FishingItem()
+                ForEach(fishingData.mockFishings) { fishing in
+                    FishingItem(fishing: fishing)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                fishingData.delete(fishing)
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                        }
+                }
             }
             .listStyle(.plain)
             .scrollIndicators(.hidden)
@@ -54,4 +61,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(FishingData())
 }

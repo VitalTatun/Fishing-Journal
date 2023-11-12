@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct FishingItem: View {
+    
+    let fishing: Fishing
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Image("6")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 157)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
+            if let photo = fishing.photo[0] {
+                Image(photo)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 157)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+            }
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Смеркалось...")
+                Text(fishing.name)
                     .font(.system(.title3, design: .default, weight: .semibold))
                     .foregroundStyle(.black)
                 HStack(alignment: .center, spacing: 2) {
@@ -27,7 +32,7 @@ struct FishingItem: View {
                         .lineLimit(1)
                     Text("•")
                         .foregroundColor(Color.secondary)
-                    Text("Минское Море")
+                    Text(fishing.water.waterName)
                         .font(.footnote)
                         .foregroundColor(Color.secondary)
                         .lineLimit(1)
@@ -35,7 +40,7 @@ struct FishingItem: View {
                 }
             }
             HStack(alignment: .center, spacing: 5, content: {
-                Text("Трофей")
+                Text(fishing.type.name)
                     .foregroundStyle(Color(red: 61/255, green: 83/255, blue: 59/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -46,7 +51,7 @@ struct FishingItem: View {
                             .inset(by: 0.5)
                             .stroke(Color(red: 61/255, green: 83/255, blue: 59/255))
                     }
-                Text("Спиннинг")
+                Text(fishing.fishingMethod.nameRussian)
                     .foregroundStyle(Color(red: 62/255, green: 84/255, blue: 129/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -57,7 +62,7 @@ struct FishingItem: View {
                             .inset(by: 0.5)
                             .stroke(Color(red: 62/255, green: 84/255, blue: 129/255))
                     }
-                Text("Окунь")
+                Text(fishing.fish[0].name)
                     .foregroundStyle(Color(red: 62/255, green: 84/255, blue: 129/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -75,5 +80,5 @@ struct FishingItem: View {
 }
 
 #Preview {
-    FishingItem()
+    FishingItem(fishing: Fishing.example)
 }

@@ -13,6 +13,14 @@
 		96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96121CF52B00B9D100CC7AAF /* Preview Assets.xcassets */; };
 		96121D012B00DC6500CC7AAF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D002B00DC6500CC7AAF /* MainView.swift */; };
 		96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D032B00EC8D00CC7AAF /* FishingItem.swift */; };
+		96121D072B011C6200CC7AAF /* Fishing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D062B011C6200CC7AAF /* Fishing.swift */; };
+		96121D092B011C9800CC7AAF /* Bait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D082B011C9800CC7AAF /* Bait.swift */; };
+		96121D0B2B011CD200CC7AAF /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D0A2B011CD200CC7AAF /* Water.swift */; };
+		96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D0C2B011D0200CC7AAF /* FishingType.swift */; };
+		96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D0E2B011D3600CC7AAF /* Fish.swift */; };
+		96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D102B011D4F00CC7AAF /* FishingMethod.swift */; };
+		96121D132B011D8600CC7AAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D122B011D8600CC7AAF /* User.swift */; };
+		96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D142B011EBD00CC7AAF /* FishingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +31,14 @@
 		96121CF52B00B9D100CC7AAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		96121D002B00DC6500CC7AAF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		96121D032B00EC8D00CC7AAF /* FishingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingItem.swift; sourceTree = "<group>"; };
+		96121D062B011C6200CC7AAF /* Fishing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishing.swift; sourceTree = "<group>"; };
+		96121D082B011C9800CC7AAF /* Bait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bait.swift; sourceTree = "<group>"; };
+		96121D0A2B011CD200CC7AAF /* Water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
+		96121D0C2B011D0200CC7AAF /* FishingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingType.swift; sourceTree = "<group>"; };
+		96121D0E2B011D3600CC7AAF /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
+		96121D102B011D4F00CC7AAF /* FishingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethod.swift; sourceTree = "<group>"; };
+		96121D122B011D8600CC7AAF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96121D142B011EBD00CC7AAF /* FishingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				96121CEE2B00B9D000CC7AAF /* Fishing_JournalApp.swift */,
+				96121D052B011C5200CC7AAF /* Models */,
 				96121CFC2B00DBEE00CC7AAF /* Main */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
@@ -111,6 +128,21 @@
 				96121D032B00EC8D00CC7AAF /* FishingItem.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		96121D052B011C5200CC7AAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96121D062B011C6200CC7AAF /* Fishing.swift */,
+				96121D122B011D8600CC7AAF /* User.swift */,
+				96121D082B011C9800CC7AAF /* Bait.swift */,
+				96121D0A2B011CD200CC7AAF /* Water.swift */,
+				96121D0C2B011D0200CC7AAF /* FishingType.swift */,
+				96121D0E2B011D3600CC7AAF /* Fish.swift */,
+				96121D102B011D4F00CC7AAF /* FishingMethod.swift */,
+				96121D142B011EBD00CC7AAF /* FishingData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +216,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				96121CF12B00B9D000CC7AAF /* ContentView.swift in Sources */,
+				96121D0B2B011CD200CC7AAF /* Water.swift in Sources */,
+				96121D092B011C9800CC7AAF /* Bait.swift in Sources */,
 				96121D012B00DC6500CC7AAF /* MainView.swift in Sources */,
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
+				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
+				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
+				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
+				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
+				96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */,
+				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

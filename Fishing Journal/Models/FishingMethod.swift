@@ -1,0 +1,35 @@
+//
+//  FishingMethod.swift
+//  Fishing Journal
+//
+//  Created by Виталий Татун on 12.11.23.
+//
+
+import Foundation
+
+enum FishingMethod: String, CaseIterable, Identifiable {
+    case bobber
+    case spinning
+    case feeder
+    case flyFishing
+    
+    var nameRussian: String {
+        switch self {
+        case .bobber:
+            return "Поплавок"
+        case .spinning:
+            return "Спиннинг"
+        case .feeder:
+            return "Фидер"
+        case .flyFishing:
+            return "Нахлыст"
+        }
+    }
+    
+    var name: String {
+        rawValue
+    }
+    var id: String {
+        name
+    }
+}
