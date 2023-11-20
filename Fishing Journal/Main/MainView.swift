@@ -10,20 +10,18 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
-   
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(fishingData.mockFishings) { fishing in
-                    FishingItem(fishing: fishing)
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                fishingData.delete(fishing)
-                            } label: {
-                                Image(systemName: "trash")
-                            }
+                    ZStack {
+                        FishingItem(fishingData: fishing)
+                        NavigationLink(destination: DetailFishingView(fishing: fishing)) {
+                            EmptyView()
                         }
+                        .opacity(0)
+                    }
                 }
             }
             .listStyle(.plain)
@@ -39,7 +37,7 @@ struct MainView: View {
                             .symbolRenderingMode(.hierarchical)
                     }
                 }
-                // New Fishing Log Button
+                // Add new Fishing Log Button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         
@@ -50,6 +48,7 @@ struct MainView: View {
             }
         }
     }
+    
     
     func formatDate(date: Date) -> String {
         let date = Date.now

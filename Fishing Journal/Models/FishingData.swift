@@ -52,9 +52,11 @@ class FishingData: ObservableObject {
             fishingMethod: .spinning,
             bait: .bloodworm,
             user: User(image: "", name: "Никита Белозерцев", nickName: "Lucky", email: "nikita.belozercev@gmail.com"))
-        ]
+    ]
     
-    func delete(_ fishing: Fishing) {
-        mockFishings.removeAll { $0.id == fishing.id }
+    func delete(_ indexSet: IndexSet) {
+        guard let index = indexSet.first else {return}
+        mockFishings.remove(atOffsets: indexSet)
     }
 }
+

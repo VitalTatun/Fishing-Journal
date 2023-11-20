@@ -9,11 +9,11 @@ import SwiftUI
 
 struct FishingItem: View {
     
-    let fishing: Fishing
+    let fishingData: Fishing
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            if let photo = fishing.photo[0] {
+            if let photo = fishingData.photo[0] {
                 Image(photo)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -22,7 +22,7 @@ struct FishingItem: View {
             }
             
             VStack(alignment: .leading, spacing: 2) {
-                Text(fishing.name)
+                Text(fishingData.name)
                     .font(.system(.title3, design: .default, weight: .semibold))
                     .foregroundStyle(.black)
                 HStack(alignment: .center, spacing: 2) {
@@ -32,7 +32,7 @@ struct FishingItem: View {
                         .lineLimit(1)
                     Text("•")
                         .foregroundColor(Color.secondary)
-                    Text(fishing.water.waterName)
+                    Text(fishingData.water.waterName)
                         .font(.footnote)
                         .foregroundColor(Color.secondary)
                         .lineLimit(1)
@@ -40,7 +40,9 @@ struct FishingItem: View {
                 }
             }
             HStack(alignment: .center, spacing: 5, content: {
-                Text(fishing.type.name)
+                Text(fishingData.type.name)
+                    .font(.footnote)
+                    .fontWeight(.medium)
                     .foregroundStyle(Color(red: 61/255, green: 83/255, blue: 59/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -51,7 +53,9 @@ struct FishingItem: View {
                             .inset(by: 0.5)
                             .stroke(Color(red: 61/255, green: 83/255, blue: 59/255))
                     }
-                Text(fishing.fishingMethod.nameRussian)
+                Text(fishingData.fishingMethod.nameRussian)
+                    .font(.footnote)
+                    .fontWeight(.medium)
                     .foregroundStyle(Color(red: 62/255, green: 84/255, blue: 129/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -62,7 +66,10 @@ struct FishingItem: View {
                             .inset(by: 0.5)
                             .stroke(Color(red: 62/255, green: 84/255, blue: 129/255))
                     }
-                Text(fishing.fish[0].name)
+                
+                Text(fishingData.fish[0].name)
+                    .font(.footnote)
+                    .fontWeight(.medium)
                     .foregroundStyle(Color(red: 62/255, green: 84/255, blue: 129/255))
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
@@ -73,12 +80,14 @@ struct FishingItem: View {
                             .inset(by: 0.5)
                             .stroke(Color(red: 62/255, green: 84/255, blue: 129/255))
                     }
+                Spacer()
+                Image(systemName: "bookmark.fill")
+                    .foregroundStyle(.red)
             })
-            
         }
     }
 }
 
 #Preview {
-    FishingItem(fishing: Fishing.example)
+    FishingItem(fishingData: Fishing.example)
 }
