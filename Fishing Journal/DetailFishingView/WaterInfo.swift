@@ -15,7 +15,8 @@ struct WaterInfo: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Водоем")
-                .foregroundColor(.secondary)
+                .font(.headline)
+                .foregroundColor(.primaryDeepBlue)
             mapLayer
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
@@ -24,7 +25,7 @@ struct WaterInfo: View {
                         .foregroundColor(.black)
                     Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.primaryDeepBlue)
                 }
                 Spacer()
                 Image(systemName: "doc.on.doc.fill")

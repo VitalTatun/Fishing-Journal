@@ -25,9 +25,17 @@ enum FishingType: String, CaseIterable, Identifiable {
     var backgroundColor: Color {
         switch self {
         case .fishingLog:
-            return Color(red: 179/255, green: 219/255, blue: 154/255)
+            return Color.fishingTypeLogBackground
         case .haul:
-            return Color(red: 255/255, green: 215/255, blue: 29/255)
+            return Color.fishingTypeHaulBackground
+        }
+    }
+    var accentColor: Color {
+        switch self {
+        case .fishingLog:
+            return Color.fishingTypeLogAccent
+        case .haul:
+            return Color.fishingTypeHaulAccent
         }
     }
     var id: String {

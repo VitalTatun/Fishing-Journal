@@ -10,17 +10,19 @@ import SwiftUI
 struct Comment: View {
     
     let fishing: Fishing
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if !fishing.comment.isEmpty {
-                    Text("Комментарий:")
-                        .foregroundColor(.secondary)
-                    Text(fishing.comment)
+                Text("Комментарий")
+                    .font(.headline)
+                    .foregroundColor(.primaryDeepBlue)
+                Text(fishing.comment)
                     .font(.callout)
                     .padding(.vertical,10)
             }
         }
+        .padding(10)
     }
 }
 

@@ -34,15 +34,15 @@ struct Header: View {
                 Text(fishing.type.name)
                     .font(.footnote)
                     .fontWeight(.medium)
-                    .foregroundStyle(Color(red: 61/255, green: 83/255, blue: 59/255))
+                    .foregroundStyle(fishing.type.accentColor)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 6)
-                    .background(Color(red: 179/255, green: 219/255, blue: 154/255))
+                    .background(fishing.type.backgroundColor)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay {
                         RoundedRectangle(cornerRadius: 20)
                             .inset(by: 0.5)
-                            .stroke(Color(red: 61/255, green: 83/255, blue: 59/255))
+                            .stroke(fishing.type.accentColor)
                     }
             }
 //            Caught fishes
@@ -60,12 +60,12 @@ struct Header: View {
                                 .padding(5)
                                 .frame(width: 30, height: 30, alignment: .center)
                                 .background(.white)
-                                .foregroundStyle(Color.accentColor)
+                                .foregroundStyle(.primaryDeepBlue)
                                 .clipShape(Circle())
                         }
                         .frame(height: 36)
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 3))
-                        .background(.blue)
+                        .background(.primaryDeepBlue)
                         .clipShape(RoundedRectangle(cornerRadius: 18))
                     }
                 }
