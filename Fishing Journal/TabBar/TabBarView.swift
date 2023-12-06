@@ -42,3 +42,7 @@ struct TabBarView: View {
         }
     }
 }
+#Preview {
+    TabBarView()
+        .environmentObject(FishingData())
+}

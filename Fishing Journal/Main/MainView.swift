@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
+    @State private var showDetailView = false
     
     var body: some View {
         NavigationStack {
@@ -22,7 +23,13 @@ struct MainView: View {
                         }
                         .opacity(0)
                     }
+                    .listRowBackground(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .padding(2))
                 }
+                .onDelete(perform: { indexSet in
+                    fishingData.delete(indexSet)
+                })
             }
             .listStyle(.plain)
             .scrollIndicators(.hidden)

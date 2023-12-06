@@ -27,6 +27,12 @@
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
 		962F59192B0B8023001678A0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59182B0B8023001678A0 /* FeedView.swift */; };
 		962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F591A2B0B8034001678A0 /* ProfileView.swift */; };
+		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
+		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
+		96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */; };
+		96E1C5E22B20806600E88C7D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E12B20806600E88C7D /* Comment.swift */; };
+		96E1C5E42B20836500E88C7D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E32B20836500E88C7D /* Images.swift */; };
+		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,12 @@
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		962F59182B0B8023001678A0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		962F591A2B0B8034001678A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
+		96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInfo.swift; sourceTree = "<group>"; };
+		96E1C5E12B20806600E88C7D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		96E1C5E32B20836500E88C7D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,7 @@
 				96121CEE2B00B9D000CC7AAF /* Fishing_JournalApp.swift */,
 				96121D052B011C5200CC7AAF /* Models */,
 				96121CFC2B00DBEE00CC7AAF /* Main */,
+				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
 				96121CFF2B00DC0F00CC7AAF /* Profile */,
@@ -110,7 +123,6 @@
 			children = (
 				96121D022B00EC1C00CC7AAF /* Components */,
 				96121D002B00DC6500CC7AAF /* MainView.swift */,
-				960919A22B015B4400F12CA9 /* DetailFishingView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -169,6 +181,20 @@
 				962F59142B0B7F41001678A0 /* TabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		96E1C5DA2B207FFF00E88C7D /* DetailFishingView */ = {
+			isa = PBXGroup;
+			children = (
+				960919A22B015B4400F12CA9 /* DetailFishingView.swift */,
+				96E1C5E32B20836500E88C7D /* Images.swift */,
+				96E1C5DB2B20804700E88C7D /* Header.swift */,
+				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
+				96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */,
+				96E1C5E12B20806600E88C7D /* Comment.swift */,
+				96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */,
+			);
+			path = DetailFishingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */,
+				96E1C5DC2B20804700E88C7D /* Header.swift in Sources */,
 				96121CF12B00B9D000CC7AAF /* ContentView.swift in Sources */,
 				962F59172B0B7FD0001678A0 /* MapView.swift in Sources */,
 				96121D0B2B011CD200CC7AAF /* Water.swift in Sources */,
@@ -248,13 +276,17 @@
 				96121D012B00DC6500CC7AAF /* MainView.swift in Sources */,
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
+				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
+				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
+				96E1C5E42B20836500E88C7D /* Images.swift in Sources */,
 				962F59192B0B8023001678A0 /* FeedView.swift in Sources */,
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
+				96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */,
 				96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */,
 				960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,

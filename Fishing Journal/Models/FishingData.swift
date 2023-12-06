@@ -55,7 +55,6 @@ class FishingData: ObservableObject {
     ]
     
     func delete(_ indexSet: IndexSet) {
-        guard let index = indexSet.first else {return}
         mockFishings.remove(atOffsets: indexSet)
     }
 }

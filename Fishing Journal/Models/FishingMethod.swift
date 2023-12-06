@@ -25,11 +25,7 @@ enum FishingMethod: String, CaseIterable, Identifiable {
             return "Нахлыст"
         }
     }
-    
-    var name: String {
-        rawValue
-    }
     var id: String {
-        name
+        rawValue
     }
 }

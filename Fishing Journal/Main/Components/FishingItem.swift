@@ -35,7 +35,7 @@ struct FishingItem: View {
                     Text(fishingData.water.waterName)
                         .font(.footnote)
                         .foregroundColor(Color.secondary)
-                        .lineLimit(1)
+                        .lineLimit(2)
                     Spacer()
                 }
             }
