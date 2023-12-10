@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Header: View {
     let fishing: Fishing
+    @State private var isFavorite = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -19,16 +20,14 @@ struct Header: View {
                     .frame(width: 40, height: 40, alignment: .center)
                     .clipShape(Circle())
                     
+                    
                 VStack(alignment: .leading, spacing: 0) {
                     Text(fishing.name)
-                        .font(.system(.title2, design: .rounded, weight: .semibold))
+                        .font(.system(.headline, design: .rounded, weight: .semibold))
                         .foregroundColor(.black)
-                    HStack(spacing:10 ){
-                        if let userName = fishing.user.name{
-                            Text(userName)
-                        }
-                        Text(fishing.user.nickName)
-                    }
+                    Text(fishing.user.name)
+                        .font(.footnote)
+                    
                 }
                 Spacer()
                 Text(fishing.type.name)
@@ -44,6 +43,17 @@ struct Header: View {
                             .inset(by: 0.5)
                             .stroke(fishing.type.accentColor)
                     }
+                // Add to Favorites Button
+                Button {
+                    isFavorite.toggle()
+                } label: {
+                    Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
+                        .frame(width: 36, height: 36, alignment: .center)
+                        .foregroundStyle(isFavorite ? .white : .primaryDeepBlue)
+                        .background( isFavorite ? .primaryDeepBlue : .lightBlue)
+                        .clipShape(Circle())
+                }
+
             }
 //            Caught fishes
             ScrollView(.horizontal, showsIndicators: false) {

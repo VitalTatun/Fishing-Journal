@@ -42,5 +42,7 @@ struct DetailFishingView: View {
 }
 
 #Preview {
-    DetailFishingView(fishing: Fishing.example)
+    NavigationStack {
+        DetailFishingView(fishing: Fishing.example)
+    }
 }

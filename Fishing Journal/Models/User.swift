@@ -10,14 +10,12 @@ import Foundation
 class User {
     let id: UUID = UUID()
     let image: String
-    let name: String?
-    let nickName: String
+    let name: String
     let email: String
     
-    init(image: String, name: String?, nickName: String, email: String) {
+    init(image: String, name: String, email: String) {
         self.image = image
         self.name = name
-        self.nickName = nickName
         self.email = email
     }
 }
