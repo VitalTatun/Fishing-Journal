@@ -25,7 +25,7 @@ struct Fishing: Identifiable {
         type: .fishingLog,
         name: "На Карася",
         water: Water(waterName: "Минское Море", latitude: 53.95644, longitude: 27.36064),
-        photo: ["6"],
+        photo: ["6", "7", "8"],
         fishingTime: .now,
         fish: [.init(name: "Карась", count: 2)],
         fishingMethod: .bobber,

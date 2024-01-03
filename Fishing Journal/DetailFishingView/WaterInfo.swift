@@ -17,7 +17,27 @@ struct WaterInfo: View {
             Text("Водоем")
                 .font(.headline)
                 .foregroundColor(.primaryDeepBlue)
-            mapLayer
+            ZStack(alignment: .bottom) {
+                mapLayer
+                Button(action: {
+                    
+                }, label: {
+                    HStack(spacing: 10) {
+                        Text("Open Map")
+                            .font(.system(.body, design: .default, weight: .medium))
+                        Image(systemName: "map")
+                            .font(.system(.body, design: .default, weight: .medium))
+                        
+                    }
+                    .foregroundStyle(.primaryDeepBlue)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background()
+                    .backgroundStyle(.thickMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                })
+                .padding(.bottom, 10)
+            }
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(fishing.water.waterName)
@@ -28,7 +48,14 @@ struct WaterInfo: View {
                         .foregroundColor(.primaryDeepBlue)
                 }
                 Spacer()
-                Image(systemName: "doc.on.doc.fill")
+                Button {
+                    let pasteboard = UIPasteboard.general
+                    let coordinates = String(fishing.water.latitude) + " " + String(fishing.water.longitude)
+                    pasteboard.string = coordinates
+                } label: {
+                    Image(systemName: "square.filled.on.square")
+                        .foregroundStyle(.primaryDeepBlue)
+                }
             }
         }
         .padding(10)
@@ -48,6 +75,7 @@ extension WaterInfo {
                 annotationItems: [fishing]) { location in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
             }
+            
                 .frame(height: 157)
                 .cornerRadius(10)
                 .disabled(true)

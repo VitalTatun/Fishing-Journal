@@ -27,6 +27,7 @@
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
 		962F59192B0B8023001678A0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59182B0B8023001678A0 /* FeedView.swift */; };
 		962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F591A2B0B8034001678A0 /* ProfileView.swift */; };
+		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
 		96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */; };
@@ -57,6 +58,7 @@
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		962F59182B0B8023001678A0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		962F591A2B0B8034001678A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
 		96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInfo.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				960919A22B015B4400F12CA9 /* DetailFishingView.swift */,
+				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
 				96E1C5E32B20836500E88C7D /* Images.swift */,
 				96E1C5DB2B20804700E88C7D /* Header.swift */,
 				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
@@ -275,6 +278,7 @@
 				96121D092B011C9800CC7AAF /* Bait.swift in Sources */,
 				96121D012B00DC6500CC7AAF /* MainView.swift in Sources */,
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
+				96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
 				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,

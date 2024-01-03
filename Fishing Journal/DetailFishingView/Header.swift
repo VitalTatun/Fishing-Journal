@@ -43,17 +43,6 @@ struct Header: View {
                             .inset(by: 0.5)
                             .stroke(fishing.type.accentColor)
                     }
-                // Add to Favorites Button
-                Button {
-                    isFavorite.toggle()
-                } label: {
-                    Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
-                        .frame(width: 36, height: 36, alignment: .center)
-                        .foregroundStyle(isFavorite ? .white : .primaryDeepBlue)
-                        .background( isFavorite ? .primaryDeepBlue : .lightBlue)
-                        .clipShape(Circle())
-                }
-
             }
 //            Caught fishes
             ScrollView(.horizontal, showsIndicators: false) {
