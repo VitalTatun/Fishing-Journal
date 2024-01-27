@@ -10,9 +10,10 @@ import SwiftUI
 struct OvalTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .padding(10)
-            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-
+        .font(.body)
+        .padding(10)
+        .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+        .shadow(radius: 10)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

@@ -14,8 +14,9 @@ struct Fishing_JournalApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabBarView()
-                .environmentObject(fishingData)
+            Authentication()
+//            TabBarView()
+//                .environmentObject(fishingData)
         }
     }
 }

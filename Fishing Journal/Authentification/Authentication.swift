@@ -8,36 +8,47 @@
 import SwiftUI
 
 struct Authentication: View {
+    
+    @State private var showSignUpView = false
+    @State private var showLoginView = false
+
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center, content: {
+            VStack(alignment: .center) {
                 Spacer()
                 Text("Fishing Journal")
                     .foregroundStyle(.primaryDeepBlue)
                     .font(.system(.title, design: .default, weight: .bold))
                 Spacer()
-                NavigationLink {
+                
+                Button(action: {
+                    showLoginView = true
+                }, label: {
+                    Text("Login")
+                        .font(.system(.body, design: .default, weight: .medium))
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                })
+                .navigationDestination(isPresented: $showLoginView, destination: {
                     LoginView()
-                } label: {
-                        Text("Login")
-                            .font(.system(.body, design: .default, weight: .medium))
-                            .frame(maxWidth: .infinity, maxHeight: 50)
-                }
+                })
                 .tint(.primaryDeepBlue)
                 .buttonStyle(.borderedProminent)
                 .padding(.horizontal)
                 
-                NavigationLink {
+                Button(action: {
+                    showSignUpView = true
+                }, label: {
+                    Text("Sign Up")
+                        .font(.system(.body, design: .default, weight: .medium))
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                })
+                .navigationDestination(isPresented: $showSignUpView, destination: {
                     SignUpView()
-                } label: {
-                        Text("Sign Up")
-                            .font(.system(.body, design: .default, weight: .medium))
-                            .frame(maxWidth: .infinity, maxHeight: 50)
-                }
+                })
                 .tint(.primaryDeepBlue)
                 .buttonStyle(.bordered)
-                .padding(.horizontal)
-            })
+                .padding([.horizontal, .bottom])
+            }
         }
     }
 }

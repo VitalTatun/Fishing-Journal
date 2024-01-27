@@ -34,6 +34,7 @@ struct MainView: View {
             .listStyle(.plain)
             .scrollIndicators(.hidden)
             .navigationTitle("Fishing Journal")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 // Filtering Button
                 ToolbarItem(placement: .topBarTrailing) {

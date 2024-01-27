@@ -11,7 +11,7 @@
 		960267CD2B45CBAC009CBC03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CC2B45CBAC009CBC03 /* LoginView.swift */; };
 		960267CF2B45CE15009CBC03 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CE2B45CE15009CBC03 /* SignUpView.swift */; };
 		960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */; };
-		960267D62B45D2F9009CBC03 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267D52B45D2F9009CBC03 /* InputView.swift */; };
+		960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267D52B45D2F9009CBC03 /* AuthTextField.swift */; };
 		960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960919A22B015B4400F12CA9 /* DetailFishingView.swift */; };
 		96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121CEE2B00B9D000CC7AAF /* Fishing_JournalApp.swift */; };
 		96121CF12B00B9D000CC7AAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121CF02B00B9D000CC7AAF /* ContentView.swift */; };
@@ -32,6 +32,8 @@
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
 		962F59192B0B8023001678A0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59182B0B8023001678A0 /* FeedView.swift */; };
 		962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F591A2B0B8034001678A0 /* ProfileView.swift */; };
+		96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */; };
+		96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A0A2B4A91E8008EDE6E /* Validator.swift */; };
 		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
@@ -46,7 +48,7 @@
 		960267CC2B45CBAC009CBC03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		960267CE2B45CE15009CBC03 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextFieldStyle.swift; sourceTree = "<group>"; };
-		960267D52B45D2F9009CBC03 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		960267D52B45D2F9009CBC03 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		960919A22B015B4400F12CA9 /* DetailFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFishingView.swift; sourceTree = "<group>"; };
 		96121CEB2B00B9D000CC7AAF /* Fishing Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fishing Journal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96121CEE2B00B9D000CC7AAF /* Fishing_JournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fishing_JournalApp.swift; sourceTree = "<group>"; };
@@ -68,6 +70,8 @@
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		962F59182B0B8023001678A0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		962F591A2B0B8034001678A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSecuredTextField.swift; sourceTree = "<group>"; };
+		96972A0A2B4A91E8008EDE6E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
@@ -118,7 +122,9 @@
 		960267D42B45D2AD009CBC03 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				960267D52B45D2F9009CBC03 /* InputView.swift */,
+				96972A0A2B4A91E8008EDE6E /* Validator.swift */,
+				960267D52B45D2F9009CBC03 /* AuthTextField.swift */,
+				96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				96121D0B2B011CD200CC7AAF /* Water.swift in Sources */,
 				96121D092B011C9800CC7AAF /* Bait.swift in Sources */,
 				96121D012B00DC6500CC7AAF /* MainView.swift in Sources */,
+				96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */,
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
 				96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
@@ -332,6 +339,7 @@
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
 				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
+				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
 				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
@@ -344,7 +352,7 @@
 				96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */,
 				960267CF2B45CE15009CBC03 /* SignUpView.swift in Sources */,
 				960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */,
-				960267D62B45D2F9009CBC03 /* InputView.swift in Sources */,
+				960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 			);

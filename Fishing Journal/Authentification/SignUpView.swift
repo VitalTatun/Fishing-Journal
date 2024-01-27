@@ -12,45 +12,53 @@ struct SignUpView: View {
     @State private var name = ""
     @State private var email = ""
     @State private var password = ""
-    @State private var confirmPassword = ""
     
+    @State private var showMainView = false
+    @State private var isPasswordVisible = false
+        
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Sign Up to add your fishing logs")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                Divider()
-                InputView(text: $name,
-                          title: "Name",
-                          placeholder: "Enter your name")
-                InputView(text: $email,
-                          title: "Email",
-                          placeholder: "name@example.com")
-                InputView(text: $password,
-                          title: "Password",
-                          placeholder: "Enter your password",
-                          isSecureField: true)
-                InputView(text: $confirmPassword,
-                          title: "Confirm Password",
-                          placeholder: "Enter your password",
-                          isSecureField: true)
-                Spacer()
-                NavigationLink {
-                    MainView()
-                        .environmentObject(FishingData())
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("Sign Up")
-                        .font(.system(.body, design: .default, weight: .medium))
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+            ScrollView(.vertical) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Group {
+                        Text("Sign Up to add your fishing logs")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Divider()
+                            .padding(.bottom, 10)
+                        AuthTextField(text: $name,
+                                    title: "Name",
+                                    placeholder: "Enter your name")
+                        AuthTextField(text: $email,
+                                    title: "Email",
+                                    placeholder: "name@example.com")
+                        AuthSecuredTextField(text: $password,
+                                            isPasswordVisible: $isPasswordVisible,
+                                            title: "Password",
+                                            placeholder: "Enter your password")
+                    }
+                    Button {
+                        showMainView = true
+                    } label: {
+                        Text("Sign Up")
+                            .font(.system(.body, design: .default, weight: .medium))
+                            .frame(maxWidth: .infinity, minHeight: 50, idealHeight: 56)
+                    }
+                    .padding(.top, 30)
+                    .tint(.primaryDeepBlue)
+                    .buttonStyle(.borderedProminent)
+                    .disabled(password.isEmpty)
+                    .navigationDestination(isPresented: $showMainView) {
+                        MainView()
+                            .environmentObject(FishingData())
+                            .navigationBarBackButtonHidden()
+                    }
                 }
-                .tint(.primaryDeepBlue)
-                .buttonStyle(.borderedProminent)
             }
             .padding()
             .navigationTitle("Sign Up")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }
