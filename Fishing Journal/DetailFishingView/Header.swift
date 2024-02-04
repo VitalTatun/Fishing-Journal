@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Header: View {
     let fishing: Fishing
-    @State private var isFavorite = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -20,18 +19,19 @@ struct Header: View {
                     .frame(width: 40, height: 40, alignment: .center)
                     .clipShape(Circle())
                     
-                    
                 VStack(alignment: .leading, spacing: 0) {
                     Text(fishing.name)
                         .font(.system(.headline, design: .rounded, weight: .semibold))
                         .foregroundColor(.black)
+                        .lineLimit(2)
                     Text(fishing.user.name)
                         .font(.footnote)
-                    
+                        .lineLimit(1)
                 }
                 Spacer()
                 Text(fishing.type.name)
                     .font(.footnote)
+                    .lineLimit(1)
                     .fontWeight(.medium)
                     .foregroundStyle(fishing.type.accentColor)
                     .padding(.horizontal, 14)
@@ -51,6 +51,7 @@ struct Header: View {
                         HStack {
                             Text(fish.name)
                                 .font(.body)
+                                .lineLimit(1)
                                 .fontWeight(.medium)
                                 .foregroundColor(.white)
                             Text("\(fish.count)")

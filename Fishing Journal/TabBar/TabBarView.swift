@@ -40,6 +40,7 @@ struct TabBarView: View {
                     Text(TabBar.settings.description)
                 }
         }
+        .tint(.primaryDeepBlue)
     }
 }
 #Preview {

@@ -34,5 +34,5 @@ struct FishingInfoRow: View {
 }
 
 #Preview {
-    FishingInfoRow(name: "", element: "")
+    FishingInfoRow(name: "Fishing Method", element: "Bopper")
 }

@@ -14,38 +14,14 @@ struct WaterInfo: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Водоем")
-                .font(.headline)
-                .foregroundColor(.primaryDeepBlue)
-            ZStack(alignment: .bottom) {
-                mapLayer
-                Button(action: {
-                    
-                }, label: {
-                    HStack(spacing: 10) {
-                        Text("Open Map")
-                            .font(.system(.body, design: .default, weight: .medium))
-                        Image(systemName: "map")
-                            .font(.system(.body, design: .default, weight: .medium))
-                        
-                    }
-                    .foregroundStyle(.primaryDeepBlue)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .background()
-                    .backgroundStyle(.thickMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                })
-                .padding(.bottom, 10)
-            }
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(fishing.water.waterName)
-                        .font(.system(.headline, design: .rounded))
+                        .font(.system(.body, design: .rounded))
                         .foregroundColor(.black)
                     Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
                         .font(.subheadline)
-                        .foregroundColor(.primaryDeepBlue)
+                        .foregroundColor(.secondary)
                 }
                 Spacer()
                 Button {
@@ -53,17 +29,29 @@ struct WaterInfo: View {
                     let coordinates = String(fishing.water.latitude) + " " + String(fishing.water.longitude)
                     pasteboard.string = coordinates
                 } label: {
-                    Image(systemName: "square.filled.on.square")
+                    Image(systemName: "square.on.square")
                         .foregroundStyle(.primaryDeepBlue)
+                        .frame(width: 34, height: 34, alignment: .center)
                 }
+                Button {
+                    
+                } label: {
+                    Image(systemName: "map")
+                        .frame(width: 34, height: 34, alignment: .center)
+                        .background(.lightBlue)
+                        .foregroundStyle(.primaryDeepBlue)
+                        .clipShape(Circle())
+                }
+
             }
+            mapLayer
         }
         .padding(10)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .inset(by: 1)
                 .stroke(lineWidth: 1)
-                .foregroundColor(.secondary)
+                .foregroundColor(.black.opacity(0.18))
         }
     }
 }
@@ -75,9 +63,8 @@ extension WaterInfo {
                 annotationItems: [fishing]) { location in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
             }
-            
-                .frame(height: 157)
-                .cornerRadius(10)
+                .frame(height: 170)
+                .clipShape(RoundedRectangle(cornerRadius: 5))
                 .disabled(true)
         }
     }

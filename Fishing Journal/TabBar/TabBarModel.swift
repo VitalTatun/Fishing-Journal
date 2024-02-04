@@ -34,7 +34,7 @@ enum TabBar {
         case .feed:
             return "lineweight"
         case .settings:
-            return "slider.horizontal.3"
+            return "person"
         }
     }
 }

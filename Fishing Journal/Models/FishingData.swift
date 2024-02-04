@@ -22,7 +22,7 @@ class FishingData: ObservableObject {
             user: User(image: "", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com")),
         Fishing(
             type: .fishingLog,
-            name: "На Карпа",
+            name: "На Карпа c рання и до вечера",
             water: Water(waterName: "Хмелевские пруды.Заславль", latitude: 54.02409, longitude: 27.24313),
             photo: ["6", "7", "9"],
             fishingTime: .now,

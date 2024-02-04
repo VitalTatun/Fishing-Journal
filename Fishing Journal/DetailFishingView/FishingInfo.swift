@@ -39,7 +39,7 @@ struct FishingInfo: View {
             RoundedRectangle(cornerRadius: 10)
                 .inset(by: 1)
                 .stroke(lineWidth: 1)
-                .foregroundColor(.secondary)
+                .foregroundColor(.black.opacity(0.18))
         }
     }
 }
