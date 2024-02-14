@@ -27,6 +27,7 @@
 		96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D102B011D4F00CC7AAF /* FishingMethod.swift */; };
 		96121D132B011D8600CC7AAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D122B011D8600CC7AAF /* User.swift */; };
 		96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D142B011EBD00CC7AAF /* FishingData.swift */; };
+		961401772B7CF7BD00FB5331 /* EditFishingViewImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401762B7CF7BD00FB5331 /* EditFishingViewImages.swift */; };
 		962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59122B0B7ECC001678A0 /* TabBarModel.swift */; };
 		962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59142B0B7F41001678A0 /* TabBarView.swift */; };
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
@@ -68,6 +69,7 @@
 		96121D102B011D4F00CC7AAF /* FishingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethod.swift; sourceTree = "<group>"; };
 		96121D122B011D8600CC7AAF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96121D142B011EBD00CC7AAF /* FishingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingData.swift; sourceTree = "<group>"; };
+		961401762B7CF7BD00FB5331 /* EditFishingViewImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingViewImages.swift; sourceTree = "<group>"; };
 		962F59122B0B7ECC001678A0 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		962F59142B0B7F41001678A0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
 				96B2A8C62B7CA36600F78CBC /* EditFishingViewHeader.swift */,
+				961401762B7CF7BD00FB5331 /* EditFishingViewImages.swift */,
 				96B2A8C82B7CA39900F78CBC /* FishingTypePicker.swift */,
 			);
 			path = EditFishing;
@@ -365,6 +368,7 @@
 				962F59192B0B8023001678A0 /* FeedView.swift in Sources */,
 				960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */,
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
+				961401772B7CF7BD00FB5331 /* EditFishingViewImages.swift in Sources */,
 				960267CD2B45CBAC009CBC03 /* LoginView.swift in Sources */,
 				96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */,
 				96B2A8C72B7CA36600F78CBC /* EditFishingViewHeader.swift in Sources */,

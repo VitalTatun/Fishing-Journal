@@ -19,6 +19,7 @@ struct EditFishingView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 10) {
                 EditFishingViewHeader(fishing: $fishing)
+                EditFishingViewImages(fishing: $fishing)
             }
             .padding(10)
         }
