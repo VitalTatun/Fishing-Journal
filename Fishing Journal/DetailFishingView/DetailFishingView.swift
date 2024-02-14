@@ -9,11 +9,13 @@ import SwiftUI
 
 struct DetailFishingView: View {
     
-    let fishing: Fishing
+    @Binding var fishing: Fishing
     @State private var selectedImage: String?
     
     @State private var isPresentingEditView = false
     @State private var isPresentingPhotoView = false
+    
+    @State private var fishingToEdit = Fishing.emptyFishing
     
     @State private var isFavorite = false
     
@@ -64,6 +66,7 @@ struct DetailFishingView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isPresentingEditView = true
+                    fishingToEdit = fishing
                 } label: {
                     Text("Изменить")
                 }
@@ -79,11 +82,17 @@ struct DetailFishingView: View {
                 }
             }
         }
+        .sheet(isPresented: $isPresentingEditView) {
+            NavigationStack {
+                EditFishingView(fishing: $fishing)
+                    
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        DetailFishingView(fishing: Fishing.example)
+        DetailFishingView(fishing: .constant(Fishing.example))
     }
 }

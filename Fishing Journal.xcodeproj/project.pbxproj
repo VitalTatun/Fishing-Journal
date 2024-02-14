@@ -34,6 +34,9 @@
 		962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F591A2B0B8034001678A0 /* ProfileView.swift */; };
 		96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */; };
 		96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A0A2B4A91E8008EDE6E /* Validator.swift */; };
+		96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */; };
+		96B2A8C72B7CA36600F78CBC /* EditFishingViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C62B7CA36600F78CBC /* EditFishingViewHeader.swift */; };
+		96B2A8C92B7CA39900F78CBC /* FishingTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C82B7CA39900F78CBC /* FishingTypePicker.swift */; };
 		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
@@ -72,6 +75,9 @@
 		962F591A2B0B8034001678A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSecuredTextField.swift; sourceTree = "<group>"; };
 		96972A0A2B4A91E8008EDE6E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingView.swift; sourceTree = "<group>"; };
+		96B2A8C62B7CA36600F78CBC /* EditFishingViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingViewHeader.swift; sourceTree = "<group>"; };
+		96B2A8C82B7CA39900F78CBC /* FishingTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingTypePicker.swift; sourceTree = "<group>"; };
 		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				96121D052B011C5200CC7AAF /* Models */,
 				96121CFC2B00DBEE00CC7AAF /* Main */,
 				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
+				96B2A8C32B7B536E00F78CBC /* EditFishing */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
 				96121CFF2B00DC0F00CC7AAF /* Profile */,
@@ -236,6 +243,16 @@
 				962F59142B0B7F41001678A0 /* TabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		96B2A8C32B7B536E00F78CBC /* EditFishing */ = {
+			isa = PBXGroup;
+			children = (
+				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
+				96B2A8C62B7CA36600F78CBC /* EditFishingViewHeader.swift */,
+				96B2A8C82B7CA39900F78CBC /* FishingTypePicker.swift */,
+			);
+			path = EditFishing;
 			sourceTree = "<group>";
 		};
 		96E1C5DA2B207FFF00E88C7D /* DetailFishingView */ = {
@@ -341,6 +358,7 @@
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
 				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
+				96B2A8C92B7CA39900F78CBC /* FishingTypePicker.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
 				96E1C5E42B20836500E88C7D /* Images.swift in Sources */,
@@ -349,11 +367,13 @@
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
 				960267CD2B45CBAC009CBC03 /* LoginView.swift in Sources */,
 				96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */,
+				96B2A8C72B7CA36600F78CBC /* EditFishingViewHeader.swift in Sources */,
 				96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */,
 				960267CF2B45CE15009CBC03 /* SignUpView.swift in Sources */,
 				960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */,
 				960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,
+				96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

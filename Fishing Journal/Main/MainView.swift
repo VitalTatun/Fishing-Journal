@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
@@ -15,10 +16,10 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(fishingData.mockFishings) { fishing in
+                ForEach($fishingData.mockFishings) { $fishing in
                     ZStack {
                         FishingItem(fishingData: fishing)
-                        NavigationLink(destination: DetailFishingView(fishing: fishing)) {
+                        NavigationLink(destination: DetailFishingView(fishing: $fishing)) {
                             EmptyView()
                         }
                         .opacity(0)
@@ -42,7 +43,9 @@ struct MainView: View {
                         
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                            .font(.title2)
                             .symbolRenderingMode(.hierarchical)
+                            .tint(.primaryDeepBlue)
                     }
                 }
                 // Add new Fishing Log Button
@@ -50,7 +53,10 @@ struct MainView: View {
                     Button(action: {
                         
                     }, label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "plus.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title2)
+                            .tint(.primaryDeepBlue)
                     })
                 }
             }

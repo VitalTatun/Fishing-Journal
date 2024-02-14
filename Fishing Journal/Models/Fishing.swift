@@ -33,4 +33,21 @@ struct Fishing: Identifiable {
         comment: "Для рыбалки замешал три пачки корма: Ультра Лещ, Река Биг Фиш и Карп Кукуруза, в последствии пожалел, что не остановился на двух пачках. Когда рыба стала плотно на точку и ловилась на каждом забросе, я просто ждал когда закончится корм. Фидербай как всегда рулит.",
         user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com")
     )
+    
+    static let emptyFishing = Fishing(
+        type: .fishingLog,
+        name: "",
+        water: Water(
+            waterName: "",
+            latitude: 53.96485,
+            longitude: 27.19577),
+        photo: [],
+        fishingTime: .now,
+        fish: [],
+        fishingMethod: .bobber,
+        bait: .worm,
+        user: User(
+            image: "userExample",
+            name: "",
+            email: ""))
 }
