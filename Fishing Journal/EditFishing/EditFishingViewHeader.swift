@@ -19,11 +19,14 @@ struct EditFishingViewHeader: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.primary)
-            TextField("Название",text: $fishing.name)
-                .textFieldStyle(OvalTextFieldStyle())
-            Text("Придумайте название, например - На Карася или Смеркалось...")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+                .padding(.bottom, 5)
+            Group {
+                TextField("Название",text: $fishing.name)
+                    .textFieldStyle(OvalTextFieldStyle())
+                Text("Придумайте название, например - На Карася или Смеркалось...")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
             Divider()
             HStack(spacing: 0) {
                 Text("Тип")

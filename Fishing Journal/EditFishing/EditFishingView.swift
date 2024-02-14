@@ -20,6 +20,7 @@ struct EditFishingView: View {
             VStack(alignment: .leading, spacing: 10) {
                 EditFishingViewHeader(fishing: $fishing)
                 EditFishingViewImages(fishing: $fishing)
+                EditFish(fishing: $fishing, isFishListShowed: $isFishListShowed)
             }
             .padding(10)
         }
@@ -36,6 +37,11 @@ struct EditFishingView: View {
                     
                     dismiss()
                 }
+            }
+        }
+        .sheet(isPresented: $isFishListShowed) {
+            NavigationStack {
+                EditNewFishView(fishing: $fishing)
             }
         }
     }
