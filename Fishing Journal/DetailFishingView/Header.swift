@@ -23,7 +23,7 @@ struct Header: View {
                     Text(fishing.name)
                         .font(.system(.headline, design: .rounded, weight: .semibold))
                         .foregroundColor(.black)
-                        .lineLimit(2)
+                        .lineLimit(1)
                     Text(fishing.user.name)
                         .font(.footnote)
                         .lineLimit(1)

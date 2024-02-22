@@ -22,6 +22,7 @@ struct EditFishingView: View {
                 EditFishingViewImages(fishing: $fishing)
                 EditFish(fishing: $fishing, isFishListShowed: $isFishListShowed)
             }
+            .shadow(color: .gray, radius: 4, x: 0, y: 2)
             .padding(10)
         }
         .background(Color(red: 242/255, green: 242/255, blue: 247/255))

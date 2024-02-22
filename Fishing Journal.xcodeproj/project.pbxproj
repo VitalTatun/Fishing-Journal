@@ -31,6 +31,7 @@
 		961401792B7D0FBC00FB5331 /* EditFish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401782B7D0FBC00FB5331 /* EditFish.swift */; };
 		9614017B2B7D118C00FB5331 /* EditNewFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614017A2B7D118C00FB5331 /* EditNewFishView.swift */; };
 		9614017D2B7D11EA00FB5331 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614017C2B7D11EA00FB5331 /* CustomStepper.swift */; };
+		961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401802B810D7C00FB5331 /* FishingPhotos.swift */; };
 		962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59122B0B7ECC001678A0 /* TabBarModel.swift */; };
 		962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59142B0B7F41001678A0 /* TabBarView.swift */; };
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
@@ -46,7 +47,6 @@
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
 		96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */; };
 		96E1C5E22B20806600E88C7D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E12B20806600E88C7D /* Comment.swift */; };
-		96E1C5E42B20836500E88C7D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E32B20836500E88C7D /* Images.swift */; };
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +76,7 @@
 		961401782B7D0FBC00FB5331 /* EditFish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFish.swift; sourceTree = "<group>"; };
 		9614017A2B7D118C00FB5331 /* EditNewFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNewFishView.swift; sourceTree = "<group>"; };
 		9614017C2B7D11EA00FB5331 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		961401802B810D7C00FB5331 /* FishingPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingPhotos.swift; sourceTree = "<group>"; };
 		962F59122B0B7ECC001678A0 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		962F59142B0B7F41001678A0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
 		96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInfo.swift; sourceTree = "<group>"; };
 		96E1C5E12B20806600E88C7D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		96E1C5E32B20836500E88C7D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,8 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				960919A22B015B4400F12CA9 /* DetailFishingView.swift */,
+				961401802B810D7C00FB5331 /* FishingPhotos.swift */,
 				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
-				96E1C5E32B20836500E88C7D /* Images.swift */,
 				96E1C5DB2B20804700E88C7D /* Header.swift */,
 				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
 				96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */,
@@ -363,6 +363,7 @@
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
 				96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
+				961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */,
 				960267CB2B45B311009CBC03 /* Authentication.swift in Sources */,
 				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
 				9614017B2B7D118C00FB5331 /* EditNewFishView.swift in Sources */,
@@ -375,7 +376,6 @@
 				96B2A8C92B7CA39900F78CBC /* FishingTypePicker.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
-				96E1C5E42B20836500E88C7D /* Images.swift in Sources */,
 				962F59192B0B8023001678A0 /* FeedView.swift in Sources */,
 				960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */,
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
@@ -449,7 +449,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -506,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

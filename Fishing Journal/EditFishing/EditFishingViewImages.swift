@@ -45,7 +45,7 @@ struct EditFishingViewImages: View {
                         .foregroundColor(.primaryDeepBlue)
                 }
             }
-                    ScrollView(.horizontal, showsIndicators: false, content: {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 5) {
                             ForEach(fishing.photo, id: \.self) { item in
                                 if let photo = item {
@@ -59,8 +59,8 @@ struct EditFishingViewImages: View {
                                 }
                             }
                         }
-                    })
-            HStack(alignment: .center, spacing: 10, content: {
+                    }
+            HStack(alignment: .center, spacing: 10) {
                 Button {
                         
                     } label: {
@@ -90,9 +90,7 @@ struct EditFishingViewImages: View {
                             .cornerRadius(5)
                     }
                     .buttonStyle(.plain)
-
-            })
-            
+            }
         }
         .padding(10)
         .background(.white)

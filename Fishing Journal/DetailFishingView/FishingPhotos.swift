@@ -1,15 +1,18 @@
 //
-//  Images.swift
+//  FishingPhotos.swift
 //  Fishing Journal
 //
-//  Created by Виталий Татун on 6.12.23.
+//  Created by Виталий Татун on 17.02.24.
 //
 
 import SwiftUI
 
-struct Images: View {
+struct FishingPhotos: View {
     
     let fishing: Fishing
+    
+    @Binding var selectedImage: String?
+    @Binding var isPresentingPhotoView: Bool
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
@@ -23,6 +26,10 @@ struct Images: View {
                                    height: 197,
                                    alignment: .leading)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .onTapGesture {
+                                selectedImage = item
+                                isPresentingPhotoView = true
+                            }
                     }
                 }
             }
@@ -30,6 +37,7 @@ struct Images: View {
     }
 }
 
+
 #Preview {
-    Images(fishing: Fishing.example)
+    FishingPhotos(fishing: Fishing.example, selectedImage: .constant(Fishing.example.photo[1]), isPresentingPhotoView: .constant(true))
 }

@@ -63,7 +63,6 @@ struct MainView: View {
         }
     }
     
-    
     func formatDate(date: Date) -> String {
         let date = Date.now
         let formatter = DateFormatter()

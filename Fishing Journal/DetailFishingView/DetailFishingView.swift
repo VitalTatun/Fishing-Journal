@@ -24,25 +24,7 @@ struct DetailFishingView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    ScrollView(.horizontal, showsIndicators: false, content: {
-                        HStack(spacing: 5) {
-                            ForEach(fishing.photo, id: \.self) { item in
-                                if let photo = item {
-                                    Image(photo)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: UIScreen.main.bounds.width - 50,
-                                               height: 197,
-                                               alignment: .leading)
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .onTapGesture {
-                                            selectedImage = item
-                                            isPresentingPhotoView = true
-                                        }
-                                }
-                            }
-                        }
-                    })
+                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $isPresentingPhotoView)
                     Header(fishing: fishing)
                     FishingInfo(fishing: fishing)
                     WaterInfo(fishing: fishing)
@@ -96,3 +78,4 @@ struct DetailFishingView: View {
         DetailFishingView(fishing: .constant(Fishing.example))
     }
 }
+

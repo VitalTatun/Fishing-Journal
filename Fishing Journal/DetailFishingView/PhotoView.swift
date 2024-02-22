@@ -18,8 +18,6 @@ struct PhotoView: View {
     private let minZoomScale: CGFloat = 1.0
     private let maxZoomScale: CGFloat = 3.0
     
-    @State private var location: CGPoint = .zero
-    
     let fishing: Fishing
     
     @Binding var selectedImage: String?
