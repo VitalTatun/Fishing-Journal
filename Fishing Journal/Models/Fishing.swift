@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct Fishing: Identifiable {
+struct Fishing: Identifiable, Equatable {
+    static func == (lhs: Fishing, rhs: Fishing) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: UUID = UUID()
     var type: FishingType
     var name: String

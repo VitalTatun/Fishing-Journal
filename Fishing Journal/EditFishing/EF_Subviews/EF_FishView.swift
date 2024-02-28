@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditFish: View {
+struct EF_FishView: View {
     
     @Binding var fishing: Fishing
     @Binding var isFishListShowed: Bool
@@ -69,5 +69,5 @@ struct EditFish: View {
 }
 
 #Preview {
-    EditFish(fishing: .constant(Fishing.example), isFishListShowed: .constant(false))
+    EF_FishView(fishing: .constant(Fishing.example), isFishListShowed: .constant(false))
 }

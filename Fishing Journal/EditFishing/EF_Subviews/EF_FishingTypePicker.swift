@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct FishingTypePicker: View {
+struct EF_FishingTypePicker: View {
     
     @Binding var selection: FishingType
     
@@ -19,11 +19,11 @@ struct FishingTypePicker: View {
                     .tag(type)
             }
         }
-        .foregroundColor(.accentColor)
         .pickerStyle(.automatic)
+        .tint(.primaryDeepBlue)
     }
 }
 
 #Preview {
-    FishingTypePicker(selection: .constant(.fishingLog))
+    EF_FishingTypePicker(selection: .constant(.fishingLog))
 }

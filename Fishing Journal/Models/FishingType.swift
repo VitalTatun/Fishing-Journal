@@ -22,6 +22,15 @@ enum FishingType: String, CaseIterable, Identifiable {
         }
     }
     
+    var annotationMark: String {
+        switch self {
+        case .fishingLog:
+            return "annotationMarkLogSelected"
+        case .haul:
+            return "annotationMarkHaulSelected"
+        }
+    }
+    
     var backgroundColor: Color {
         switch self {
         case .fishingLog:

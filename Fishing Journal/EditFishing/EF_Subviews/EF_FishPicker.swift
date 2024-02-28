@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditNewFishView: View {
+struct EF_FishPicker: View {
     
     @Environment(\.dismiss) var dismiss
 
@@ -57,5 +57,5 @@ struct EditNewFishView: View {
 }
 
 #Preview {
-    EditNewFishView(fishing: .constant(Fishing.example))
+    EF_FishPicker(fishing: .constant(Fishing.example))
 }

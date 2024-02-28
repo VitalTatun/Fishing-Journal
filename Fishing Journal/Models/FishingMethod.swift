@@ -25,6 +25,18 @@ enum FishingMethod: String, CaseIterable, Identifiable {
             return "Нахлыст"
         }
     }
+    var icon: String {
+        switch self {
+        case .bobber:
+            return "Bobber"
+        case .spinning:
+            return "Spinning"
+        case .feeder:
+            return "Feeder"
+        case .flyFishing:
+            return "Flyfishing"
+        }
+    }
     var id: String {
         rawValue
     }

@@ -26,11 +26,11 @@ struct FishingInfo: View {
         VStack(alignment: .leading, spacing: 8) {
             FishingInfoRow(name: "Fishing Method", element: fishing.fishingMethod.nameRussian)
                 Divider()
+            FishingInfoRow(name: "Bait", element: fishing.bait.nameRussian)
+                Divider()
             FishingInfoRow(name: "Date", element: dateFormatter.string(from: fishing.fishingTime))
                 Divider()
             FishingInfoRow(name: "Time", element: timeFormatter.string(from: fishing.fishingTime))
-                Divider()
-            FishingInfoRow(name: "Bait", element: fishing.bait.nameRussian)
                 Divider()
             FishingInfoRow(name: "Weight", element: fishing.weight > 0 ? String(format: "%.1f", fishing.weight) + " кг." : "Не указан")
         }

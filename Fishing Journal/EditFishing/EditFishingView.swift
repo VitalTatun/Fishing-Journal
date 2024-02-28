@@ -9,42 +9,33 @@ import Foundation
 import SwiftUI
 
 struct EditFishingView: View {
-    @Binding var fishing: Fishing
     
-    @Environment(\.dismiss) var dismiss
-        
+    @Binding var fishing: Fishing
     @State private var isFishListShowed = false
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 10) {
-                EditFishingViewHeader(fishing: $fishing)
-                EditFishingViewImages(fishing: $fishing)
-                EditFish(fishing: $fishing, isFishListShowed: $isFishListShowed)
-            }
-            .shadow(color: .gray, radius: 4, x: 0, y: 2)
-            .padding(10)
-        }
-        .background(Color(red: 242/255, green: 242/255, blue: 247/255))
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Отмена") {
-                    dismiss()
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 10) {
+                    EF_HeaderView(fishing: $fishing)
+                    EF_ImagesView(fishing: $fishing)
+                    EF_FishView(fishing: $fishing, isFishListShowed: $isFishListShowed)
+                    EF_FishingInfo(fishing: $fishing)
+                    EF_WaterInfo(fishing: $fishing)
+                    EF_CommentView(fishing: $fishing)
                 }
+                .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                .padding(10)
             }
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Готово") {
-                    
-                    dismiss()
-                }
-            }
-        }
+            .navigationTitle(fishing.name)
+            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+            .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isFishListShowed) {
             NavigationStack {
-                EditNewFishView(fishing: $fishing)
+                EF_FishPicker(fishing: $fishing)
             }
         }
+        
+
     }
 }
 

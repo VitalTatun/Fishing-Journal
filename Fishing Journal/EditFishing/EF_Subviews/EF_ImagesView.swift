@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditFishingViewImages: View {
+struct EF_ImagesView: View {
     @Binding var fishing: Fishing
     
     let maxCount = 6
@@ -100,5 +100,5 @@ struct EditFishingViewImages: View {
 }
 
 #Preview {
-    EditFishingViewImages(fishing: .constant(Fishing.example))
+    EF_ImagesView(fishing: .constant(Fishing.example))
 }

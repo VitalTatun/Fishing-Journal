@@ -10,13 +10,11 @@ import SwiftUI
 struct DetailFishingView: View {
     
     @Binding var fishing: Fishing
-    @State private var selectedImage: String?
     
+    @State private var selectedImage: String?
     @State private var isPresentingEditView = false
     @State private var isPresentingPhotoView = false
-    
-    @State private var fishingToEdit = Fishing.emptyFishing
-    
+    @State private var editingFishing = Fishing.emptyFishing
     @State private var isFavorite = false
     
     
@@ -26,6 +24,7 @@ struct DetailFishingView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $isPresentingPhotoView)
                     Header(fishing: fishing)
+                    FishCaught(fishing: fishing)
                     FishingInfo(fishing: fishing)
                     WaterInfo(fishing: fishing)
                     Comment(fishing: fishing)
@@ -35,39 +34,48 @@ struct DetailFishingView: View {
             .navigationTitle(fishing.name)
             .navigationBarTitleDisplayMode(.inline)
             .scrollIndicators(.hidden)
-            
-            .fullScreenCover(isPresented: $isPresentingPhotoView, content: {
-                NavigationStack {
-                    PhotoView(fishing: fishing, selectedImage: $selectedImage)
-                }
-            })
-            
         }
-//        Edit Fishing Button
+        .fullScreenCover(isPresented: $isPresentingPhotoView, content: {
+            NavigationStack {
+                PhotoView(fishing: fishing, selectedImage: $selectedImage)
+            }
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isPresentingEditView = true
-                    fishingToEdit = fishing
+                    editingFishing = fishing
                 } label: {
                     Text("Изменить")
-                }
-            }
-//        Add to Favorites Button
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    isFavorite.toggle()
-                } label: {
-                    Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
-                        .font(.callout)
-                        .foregroundStyle(isFavorite ? .red : .primaryDeepBlue)
                 }
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
             NavigationStack {
-                EditFishingView(fishing: $fishing)
-                    
+                EditFishingView(fishing: $editingFishing)
+                    .navigationTitle(fishing.name)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button(action: {
+                                
+                            }, label: {
+                                Image(systemName: "bookmark")
+                            })
+                        }
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Отмена") {
+                                isPresentingEditView = false
+                            }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Готово") {
+                                isPresentingEditView = false
+                                fishing = editingFishing
+                            }
+                            .disabled(editingFishing.fish.isEmpty)
+                        }
+                    }
             }
         }
     }

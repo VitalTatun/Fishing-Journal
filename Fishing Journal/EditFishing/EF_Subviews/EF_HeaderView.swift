@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditFishingViewHeader: View {
+struct EF_HeaderView: View {
     
     @Binding var fishing: Fishing
     
@@ -32,7 +32,8 @@ struct EditFishingViewHeader: View {
                 Text("Тип")
                     .foregroundColor(.secondary)
                 Spacer()
-                FishingTypePicker(selection: $fishing.type)
+                EF_FishingTypePicker(selection: $fishing.type)
+
             }
         }
         .padding(paddingInsets)
@@ -42,5 +43,5 @@ struct EditFishingViewHeader: View {
 }
 
 #Preview {
-    EditFishingViewHeader(fishing: .constant(Fishing.example))
+    EF_HeaderView(fishing: .constant(Fishing.example))
 }
