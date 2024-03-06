@@ -22,15 +22,17 @@ struct EF_FishingInfo: View {
         formatter.maximumFractionDigits = 2
         return formatter
     }
+    let rowHeight: CGFloat = 45
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 0) {
                 Text("Способ ловли")
                     .foregroundColor(.secondary)
                 Spacer()
                 EF_FishingMethodPicker(selection: $fishingMethod)
             }
+            .frame(height: rowHeight)
             Divider()
             HStack(spacing: 0) {
                 Text("Наживка")
@@ -38,28 +40,39 @@ struct EF_FishingInfo: View {
                 Spacer()
                 EF_BaitPicker(selection: $bait)
             }
+            .frame(height: rowHeight)
+            
             Divider()
             HStack(spacing: 0) {
                 DatePicker("Дата", selection: $fishingTime, in: ...Date(), displayedComponents: .date)
                     .foregroundColor(.secondary)
             }
+            .frame(height: rowHeight)
+            
             Divider()
             HStack(spacing: 0) {
                 DatePicker("Время", selection: $fishingTime, in: ...Date(), displayedComponents: .hourAndMinute)
                     .foregroundColor(.secondary)
             }
-            Divider()
+            .frame(height: rowHeight)
             
+            Divider()
             HStack(spacing: 0) {
                 Text("Вес")
                     .foregroundColor(.secondary)
                 Slider(value: $fishWeight, in: 0...10, step: 0.1)
                     .padding(.horizontal)
+                    .tint(.primaryDeepBlue)
+
                 Text(fishWeight as NSNumber, formatter: decimalFormatter)
+                    .contentTransition(.interpolate)
                 Text("кг.")
+                
             }
+            .frame(height: 50)
+            
         }
-        .padding(10)
+        .padding(.horizontal, 10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }

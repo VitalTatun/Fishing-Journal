@@ -19,6 +19,7 @@ struct EF_FishingMethodPicker: View {
                     .tag(method)
             }
         }
+        .tint(.primaryDeepBlue)
         .pickerStyle(.menu)
     }
 }

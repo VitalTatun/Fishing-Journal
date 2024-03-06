@@ -41,22 +41,23 @@ struct EF_FishView: View {
                         ForEach(fishing.fish, id: \.id) { fish in
                             HStack {
                                 Text(fish.name)
-                                    .font(.body)
+                                    .font(.callout)
                                     .fontWeight(.medium)
-                                    .foregroundColor(.white)
-                                Text("\(fish.count)")
+                                    .foregroundColor(.primaryDeepBlue)
+                                Text("\(fish.count) шт.")
                                     .font(.callout)
                                     .fontWeight(.semibold)
-                                    .padding(5)
-                                    .frame(width: 30, height: 30, alignment: .center)
-                                    .background(.white)
                                     .foregroundStyle(.primaryDeepBlue)
-                                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                             }
-                            .frame(height: 36)
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 3))
-                            .background(.primaryDeepBlue)
-                            .clipShape(RoundedRectangle(cornerRadius: 18))
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 8)
+                            .background(.lightBlue)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .inset(by: 0.5)
+                                    .stroke(Color(red: 182/255, green: 192/255, blue: 229/255))
+                            }
                         }
                     }
                 }

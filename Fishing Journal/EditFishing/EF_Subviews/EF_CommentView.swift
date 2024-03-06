@@ -17,6 +17,7 @@ struct EF_CommentView: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.primary)
+                .padding(.bottom, 5)
             TextField(
                 "Добавьте детальное описание",
                 text: $fishing.comment,

@@ -17,7 +17,7 @@ struct EF_BaitPicker: View {
                     .tag(bait)
             }
         }
-        .foregroundColor(.accentColor)
+        .tint(.primaryDeepBlue)
         .pickerStyle(.automatic)
     }
 }

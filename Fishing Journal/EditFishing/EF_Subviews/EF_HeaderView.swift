@@ -16,31 +16,31 @@ struct EF_HeaderView: View {
     let paddingInsets = EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10)
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Название отчета")
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundColor(.primary)
-                .padding(.bottom, 5)
-            Group {
-                TextField("Название",text: $fishingName)
-                    .textFieldStyle(OvalTextFieldStyle())
-                Text("Придумайте название, например - На Карася или Смеркалось...")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-            }
-            Divider()
-            HStack(spacing: 0) {
-                Text("Тип")
-                    .foregroundColor(.secondary)
-                Spacer()
-                EF_FishingTypePicker(selection: $fishingType)
-
-            }
-        }
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Название отчета")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.primary)
+                        .padding(.bottom, 5)
+                    Group {
+                        TextField("Название",text: $fishingName)
+                            .textFieldStyle(OvalTextFieldStyle())
+                        Text("Придумайте название, например - На Карася или Смеркалось...")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
+                    Divider()
+                    HStack(spacing: 0) {
+                        Text("Тип")
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        EF_FishingTypePicker(selection: $fishingType)
+                    }
+                }
         .padding(paddingInsets)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        
     }
 }
 

@@ -25,6 +25,8 @@ struct EditFishingView: View {
     @State private var bait: Bait = .worm
     @State private var fishWeight: Double = 0
     
+    let shadowColor = Color(white: 0, opacity: 0.1)
+    
     init(fishing: Binding<Fishing>, showEditView: Binding<Bool>) {
         self._fishing = fishing
         self._fishingName = State(initialValue: fishing.wrappedValue.name)
@@ -45,7 +47,7 @@ struct EditFishingView: View {
                     EF_CommentView(fishing: $fishing)
 
                 }
-                .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
                 .padding(10)
             }
             .background(Color(red: 242/255, green: 242/255, blue: 247/255))
@@ -83,4 +85,8 @@ struct EditFishingView: View {
             }
         }
     }
+}
+
+#Preview {
+    EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
 }
