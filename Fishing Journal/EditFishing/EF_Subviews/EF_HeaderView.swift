@@ -10,6 +10,8 @@ import SwiftUI
 struct EF_HeaderView: View {
     
     @Binding var fishing: Fishing
+    @Binding var fishingName: String
+    @Binding var fishingType: FishingType
     
     let paddingInsets = EdgeInsets(top: 10, leading: 10, bottom: 5, trailing: 10)
     
@@ -21,7 +23,7 @@ struct EF_HeaderView: View {
                 .foregroundColor(.primary)
                 .padding(.bottom, 5)
             Group {
-                TextField("Название",text: $fishing.name)
+                TextField("Название",text: $fishingName)
                     .textFieldStyle(OvalTextFieldStyle())
                 Text("Придумайте название, например - На Карася или Смеркалось...")
                     .font(.footnote)
@@ -32,7 +34,7 @@ struct EF_HeaderView: View {
                 Text("Тип")
                     .foregroundColor(.secondary)
                 Spacer()
-                EF_FishingTypePicker(selection: $fishing.type)
+                EF_FishingTypePicker(selection: $fishingType)
 
             }
         }
@@ -43,5 +45,5 @@ struct EF_HeaderView: View {
 }
 
 #Preview {
-    EF_HeaderView(fishing: .constant(Fishing.example))
+    EF_HeaderView(fishing: .constant(Fishing.example), fishingName: .constant(Fishing.example.name), fishingType: .constant(Fishing.example.type))
 }

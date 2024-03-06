@@ -10,11 +10,10 @@ import SwiftUI
 struct DetailFishingView: View {
     
     @Binding var fishing: Fishing
-    
+
     @State private var selectedImage: String?
-    @State private var isPresentingEditView = false
-    @State private var isPresentingPhotoView = false
-    @State private var editingFishing = Fishing.emptyFishing
+    @State private var showEditView = false
+    @State private var showPhotoView = false
     @State private var isFavorite = false
     
     
@@ -22,7 +21,7 @@ struct DetailFishingView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $isPresentingPhotoView)
+                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showPhotoView)
                     Header(fishing: fishing)
                     FishCaught(fishing: fishing)
                     FishingInfo(fishing: fishing)
@@ -35,7 +34,7 @@ struct DetailFishingView: View {
             .navigationBarTitleDisplayMode(.inline)
             .scrollIndicators(.hidden)
         }
-        .fullScreenCover(isPresented: $isPresentingPhotoView, content: {
+        .fullScreenCover(isPresented: $showPhotoView, content: {
             NavigationStack {
                 PhotoView(fishing: fishing, selectedImage: $selectedImage)
             }
@@ -43,39 +42,15 @@ struct DetailFishingView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    isPresentingEditView = true
-                    editingFishing = fishing
+                    showEditView = true
                 } label: {
                     Text("Изменить")
                 }
             }
         }
-        .sheet(isPresented: $isPresentingEditView) {
+        .sheet(isPresented: $showEditView) {
             NavigationStack {
-                EditFishingView(fishing: $editingFishing)
-                    .navigationTitle(fishing.name)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(systemName: "bookmark")
-                            })
-                        }
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Отмена") {
-                                isPresentingEditView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Готово") {
-                                isPresentingEditView = false
-                                fishing = editingFishing
-                            }
-                            .disabled(editingFishing.fish.isEmpty)
-                        }
-                    }
+                EditFishingView(fishing: $fishing, showEditView: $showEditView)
             }
         }
     }

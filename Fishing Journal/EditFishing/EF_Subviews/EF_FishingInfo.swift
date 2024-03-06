@@ -10,6 +10,10 @@ import SwiftUI
 struct EF_FishingInfo: View {
     
     @Binding var fishing: Fishing
+    @Binding var fishingMethod: FishingMethod
+    @Binding var fishingTime: Date
+    @Binding var bait: Bait
+    @Binding var fishWeight: Double
     
     var decimalFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -25,32 +29,33 @@ struct EF_FishingInfo: View {
                 Text("Способ ловли")
                     .foregroundColor(.secondary)
                 Spacer()
-                EF_FishingMethodPicker(selection: $fishing.fishingMethod)
-            }
-            Divider()
-            HStack(spacing: 0) {
-                DatePicker("Дата", selection: $fishing.fishingTime, in: ...Date(), displayedComponents: .date)
-                    .foregroundColor(.secondary)
-            }
-            Divider()
-            HStack(spacing: 0) {
-                DatePicker("Время", selection: $fishing.fishingTime, in: ...Date(), displayedComponents: .hourAndMinute)
-                    .foregroundColor(.secondary)
+                EF_FishingMethodPicker(selection: $fishingMethod)
             }
             Divider()
             HStack(spacing: 0) {
                 Text("Наживка")
                     .foregroundColor(.secondary)
                 Spacer()
-                EF_BaitPicker(selection: $fishing.bait)
+                EF_BaitPicker(selection: $bait)
             }
             Divider()
             HStack(spacing: 0) {
+                DatePicker("Дата", selection: $fishingTime, in: ...Date(), displayedComponents: .date)
+                    .foregroundColor(.secondary)
+            }
+            Divider()
+            HStack(spacing: 0) {
+                DatePicker("Время", selection: $fishingTime, in: ...Date(), displayedComponents: .hourAndMinute)
+                    .foregroundColor(.secondary)
+            }
+            Divider()
+            
+            HStack(spacing: 0) {
                 Text("Вес")
                     .foregroundColor(.secondary)
-                Slider(value: $fishing.weight, in: 0...10, step: 0.1)
+                Slider(value: $fishWeight, in: 0...10, step: 0.1)
                     .padding(.horizontal)
-                Text(fishing.weight as NSNumber, formatter: decimalFormatter)
+                Text(fishWeight as NSNumber, formatter: decimalFormatter)
                 Text("кг.")
             }
         }
@@ -61,5 +66,10 @@ struct EF_FishingInfo: View {
 }
 
 #Preview {
-    EF_FishingInfo(fishing: .constant(Fishing.example))
+    EF_FishingInfo(
+        fishing: .constant(Fishing.example),
+        fishingMethod: .constant(Fishing.example.fishingMethod),
+        fishingTime: .constant(Fishing.example.fishingTime),
+        bait: .constant(Fishing.example.bait),
+        fishWeight: .constant(Fishing.example.weight))
 }

@@ -57,5 +57,11 @@ class FishingData: ObservableObject {
     func delete(_ indexSet: IndexSet) {
         mockFishings.remove(atOffsets: indexSet)
     }
+    
+    func updateFishing(fishing: Fishing) {
+        if let index = mockFishings.firstIndex(where: { $0.id == fishing.id }) {
+            mockFishings[index] = fishing.updateComplition()
+        }
+    }
 }
 

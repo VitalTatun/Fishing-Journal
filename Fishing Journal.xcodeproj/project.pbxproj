@@ -273,14 +273,14 @@
 			isa = PBXGroup;
 			children = (
 				96B2A8C62B7CA36600F78CBC /* EF_HeaderView.swift */,
-				967994102B8F077D008CE318 /* EF_WaterInfo.swift */,
-				9679940A2B8F062B008CE318 /* EF_FishingInfo.swift */,
-				9679940E2B8F070D008CE318 /* EF_BaitPicker.swift */,
-				9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */,
 				961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */,
 				961401782B7D0FBC00FB5331 /* EF_FishView.swift */,
-				9614017A2B7D118C00FB5331 /* EF_FishPicker.swift */,
+				9679940A2B8F062B008CE318 /* EF_FishingInfo.swift */,
+				967994102B8F077D008CE318 /* EF_WaterInfo.swift */,
 				967994132B8F6493008CE318 /* EF_CommentView.swift */,
+				9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */,
+				9679940E2B8F070D008CE318 /* EF_BaitPicker.swift */,
+				9614017A2B7D118C00FB5331 /* EF_FishPicker.swift */,
 				96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */,
 			);
 			path = EF_Subviews;

@@ -10,7 +10,7 @@ import SwiftUI
 struct EF_FishView: View {
     
     @Binding var fishing: Fishing
-    @Binding var isFishListShowed: Bool
+    @Binding var showFishView: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -27,7 +27,7 @@ struct EF_FishView: View {
                 Spacer()
                 // Edit Caught Fish Button
                 Button {
-                    isFishListShowed = true
+                    showFishView = true
                 } label: {
                     Image(systemName: "plus")
                         .font(.title3)
@@ -69,5 +69,5 @@ struct EF_FishView: View {
 }
 
 #Preview {
-    EF_FishView(fishing: .constant(Fishing.example), isFishListShowed: .constant(false))
+    EF_FishView(fishing: .constant(Fishing.example), showFishView: .constant(false))
 }

@@ -7,23 +7,40 @@
 
 import SwiftUI
 
-struct Fishing: Identifiable, Equatable {
-    static func == (lhs: Fishing, rhs: Fishing) -> Bool {
-        return lhs.id == rhs.id
-    }
+struct Fishing: Identifiable {
     
-    let id: UUID = UUID()
+    let id: UUID
     var type: FishingType
     var name: String
     var water: Water
     var photo: [String?]
     var fishingTime: Date
-    var weight: Double = 0
+    var weight: Double
     var fish: [Fish]
     var fishingMethod: FishingMethod
     var bait: Bait
-    var comment: String = ""
+    var comment: String
     let user: User
+    
+    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [String?], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User) {
+        self.id = id
+        self.type = type
+        self.name = name
+        self.water = water
+        self.photo = photo
+        self.fishingTime = fishingTime
+        self.fish = fish
+        self.fishingMethod = fishingMethod
+        self.bait = bait
+        self.comment = comment
+        self.user = user
+        self.weight = weight
+    }
+    
+    func updateComplition() -> Fishing {
+        return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user)
+    }
+    
     
     static let example = Fishing(
         type: .fishingLog,
@@ -38,7 +55,7 @@ struct Fishing: Identifiable, Equatable {
         user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com")
     )
     
-    static let emptyFishing = Fishing(
+    static var emptyFishing = Fishing(
         type: .fishingLog,
         name: "",
         water: Water(
