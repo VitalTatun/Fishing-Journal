@@ -22,7 +22,7 @@ struct LocationFishingDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showImageView)
-                    FishCaught(fishing: fishing)
+                    FishCaught(fishing: $fishing)
                     FishingInfo(fishing: fishing)
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {

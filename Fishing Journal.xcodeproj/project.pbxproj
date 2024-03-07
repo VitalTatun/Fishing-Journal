@@ -27,7 +27,6 @@
 		96121D132B011D8600CC7AAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D122B011D8600CC7AAF /* User.swift */; };
 		96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D142B011EBD00CC7AAF /* FishingData.swift */; };
 		961401772B7CF7BD00FB5331 /* EF_ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */; };
-		961401792B7D0FBC00FB5331 /* EF_FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401782B7D0FBC00FB5331 /* EF_FishView.swift */; };
 		9614017B2B7D118C00FB5331 /* EF_FishPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614017A2B7D118C00FB5331 /* EF_FishPicker.swift */; };
 		9614017D2B7D11EA00FB5331 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614017C2B7D11EA00FB5331 /* CustomStepper.swift */; };
 		961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401802B810D7C00FB5331 /* FishingPhotos.swift */; };
@@ -49,6 +48,8 @@
 		96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */; };
 		96B2A8C72B7CA36600F78CBC /* EF_HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C62B7CA36600F78CBC /* EF_HeaderView.swift */; };
 		96B2A8C92B7CA39900F78CBC /* EF_FishingTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */; };
+		96B7D7D82B99952B00313754 /* FishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D72B99952B00313754 /* FishItem.swift */; };
+		96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D92B99968D00313754 /* EF_FishView.swift */; };
 		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
@@ -79,7 +80,6 @@
 		96121D122B011D8600CC7AAF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96121D142B011EBD00CC7AAF /* FishingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingData.swift; sourceTree = "<group>"; };
 		961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_ImagesView.swift; sourceTree = "<group>"; };
-		961401782B7D0FBC00FB5331 /* EF_FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishView.swift; sourceTree = "<group>"; };
 		9614017A2B7D118C00FB5331 /* EF_FishPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishPicker.swift; sourceTree = "<group>"; };
 		9614017C2B7D11EA00FB5331 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		961401802B810D7C00FB5331 /* FishingPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingPhotos.swift; sourceTree = "<group>"; };
@@ -101,6 +101,8 @@
 		96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingView.swift; sourceTree = "<group>"; };
 		96B2A8C62B7CA36600F78CBC /* EF_HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_HeaderView.swift; sourceTree = "<group>"; };
 		96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingTypePicker.swift; sourceTree = "<group>"; };
+		96B7D7D72B99952B00313754 /* FishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishItem.swift; sourceTree = "<group>"; };
+		96B7D7D92B99968D00313754 /* EF_FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishView.swift; sourceTree = "<group>"; };
 		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				960267D12B45D046009CBC03 /* UI */,
 				9614017C2B7D11EA00FB5331 /* CustomStepper.swift */,
+				96B7D7D72B99952B00313754 /* FishItem.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -274,8 +277,8 @@
 			children = (
 				96B2A8C62B7CA36600F78CBC /* EF_HeaderView.swift */,
 				961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */,
-				961401782B7D0FBC00FB5331 /* EF_FishView.swift */,
 				9679940A2B8F062B008CE318 /* EF_FishingInfo.swift */,
+				96B7D7D92B99968D00313754 /* EF_FishView.swift */,
 				967994102B8F077D008CE318 /* EF_WaterInfo.swift */,
 				967994132B8F6493008CE318 /* EF_CommentView.swift */,
 				9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */,
@@ -395,6 +398,7 @@
 				96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
 				961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */,
+				96B7D7D82B99952B00313754 /* FishItem.swift in Sources */,
 				960267CB2B45B311009CBC03 /* Authentication.swift in Sources */,
 				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
 				9614017B2B7D118C00FB5331 /* EF_FishPicker.swift in Sources */,
@@ -404,7 +408,6 @@
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
 				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
-				961401792B7D0FBC00FB5331 /* EF_FishView.swift in Sources */,
 				96B2A8C92B7CA39900F78CBC /* EF_FishingTypePicker.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
@@ -423,6 +426,7 @@
 				967994142B8F6493008CE318 /* EF_CommentView.swift in Sources */,
 				960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,
+				96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */,
 				967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */,
 				96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,

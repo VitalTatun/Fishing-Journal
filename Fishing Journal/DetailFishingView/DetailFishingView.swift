@@ -23,7 +23,7 @@ struct DetailFishingView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showPhotoView)
                     Header(fishing: fishing)
-                    FishCaught(fishing: fishing)
+                    FishCaught(fishing: $fishing)
                     FishingInfo(fishing: fishing)
                     WaterInfo(fishing: fishing)
                     Comment(fishing: fishing)

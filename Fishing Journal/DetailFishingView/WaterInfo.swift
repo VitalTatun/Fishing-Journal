@@ -20,8 +20,12 @@ struct WaterInfo: View {
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(.black)
                     Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .font(.footnote)
+                        .foregroundColor(.primaryDeepBlue)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 2)
+                        .background(.lightBlue)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
                 Spacer()
                 Button {
@@ -32,19 +36,24 @@ struct WaterInfo: View {
                     Image(systemName: "square.on.square")
                         .foregroundStyle(.primaryDeepBlue)
                         .frame(width: 34, height: 34, alignment: .center)
-                }
-                Button {
-                    
-                } label: {
-                    Image(systemName: "map")
-                        .frame(width: 34, height: 34, alignment: .center)
                         .background(.lightBlue)
-                        .foregroundStyle(.primaryDeepBlue)
                         .clipShape(Circle())
                 }
-
             }
             mapLayer
+            Button {
+                } label: {
+                    Text("Показать на карте")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .padding(.horizontal, 8)
+                        .frame(height: 36)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(.primaryDeepBlue)
+                        .cornerRadius(5)
+                }
+                .buttonStyle(.plain)
         }
         .padding(10)
         .overlay {

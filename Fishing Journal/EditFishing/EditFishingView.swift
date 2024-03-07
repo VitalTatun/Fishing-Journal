@@ -44,6 +44,7 @@ struct EditFishingView: View {
                     EF_ImagesView(fishing: $fishing)
                     EF_FishView(fishing: $fishing, showFishView: $showFishView)
                     EF_FishingInfo(fishing: $fishing, fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
+                    EF_WaterInfo(fishing: $fishing)
                     EF_CommentView(fishing: $fishing)
 
                 }
@@ -54,13 +55,6 @@ struct EditFishingView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(fishing.name)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "bookmark")
-                    })
-                }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Отмена") {
                         showEditView = false

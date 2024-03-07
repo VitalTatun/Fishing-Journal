@@ -23,6 +23,7 @@ struct EF_WaterInfo: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.primary)
+                .padding(.bottom, 5)
             TextField("Напишите сюда название водоема",text: $fishing.water.waterName)
                 .textFieldStyle(OvalTextFieldStyle())
             Text("Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт.")
