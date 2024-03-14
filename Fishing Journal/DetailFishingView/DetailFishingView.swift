@@ -16,7 +16,6 @@ struct DetailFishingView: View {
     @State private var showPhotoView = false
     @State private var isFavorite = false
     
-    
     var body: some View {
         NavigationStack {
             ScrollView {

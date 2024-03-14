@@ -18,8 +18,8 @@ struct FishingPhotos: View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             HStack(spacing: 5) {
                 ForEach(fishing.photo, id: \.self) { item in
-                    if let photo = item {
-                        Image(photo)
+                    if let item {
+                        Image(item)
                             .resizable()
                             .scaledToFill()
                             .frame(width: UIScreen.main.bounds.width - 50,

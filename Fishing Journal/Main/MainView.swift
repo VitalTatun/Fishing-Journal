@@ -53,10 +53,7 @@ struct MainView: View {
                     Button(action: {
                         
                     }, label: {
-                        Image(systemName: "plus.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
-                            .font(.title2)
-                            .tint(.primaryDeepBlue)
+                        Image(systemName: "plus")
                     })
                 }
             }

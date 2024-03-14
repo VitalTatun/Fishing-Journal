@@ -45,6 +45,7 @@ struct Header: View {
                             .stroke(fishing.type.accentColor)
                     }
             }
+            Divider()
         }
     }
 }

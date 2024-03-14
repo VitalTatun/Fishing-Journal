@@ -11,11 +11,9 @@ import MapKit
 struct EF_WaterInfo: View {
     
     @Binding var fishing: Fishing
-    @State private var activeMark: Bool = false
+    @Binding var showMapSheet: Bool
 
-    static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 53.95446, longitude: 27.36887)
-    }
+    @State private var activeMark: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -36,13 +34,14 @@ struct EF_WaterInfo: View {
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundColor(.primary)
-                    Text(String(fishing.water.latitude) + " - " + String(fishing.water.longitude))
+                    Text(String(format: "%.5f", fishing.water.latitude) + " - " + String(format: "%.5f", fishing.water.longitude))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
                 Spacer()
                 Button {
                   // TODO: Edit coordinates
+                    showMapSheet = true
                 } label: {
                     Image(systemName: "plus")
                         .font(.title3)
@@ -73,5 +72,5 @@ struct EF_WaterInfo: View {
 }
 
 #Preview {
-    EF_WaterInfo(fishing: .constant(Fishing.example))
+    EF_WaterInfo(fishing: .constant(Fishing.example), showMapSheet: .constant(false))
 }

@@ -13,18 +13,17 @@ struct MapView: View {
     @Environment(\.dismiss) var dismiss
 
     @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
-    @State private var showDetails = false
+    @State private var showFishingLocationDetails = false
     @State private var selectedFishing: Fishing = .emptyFishing
-    @State private var activeMark: Bool = false
     
     var body: some View {
         Map(position: $cameraPosition) {
             ForEach(fishingData.mockFishings) { fishing in
                 Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude)) {
-                    AnnotationMark(fishing: fishing, active: $activeMark)
+                    AnnotationMark(fishing: fishing)
                     .onTapGesture(perform: {
                         selectedFishing = fishing
-                        showDetails = true
+                        showFishingLocationDetails = true
                     })
                 }
 
@@ -33,9 +32,8 @@ struct MapView: View {
         .mapControls {
             MapUserLocationButton()
         }
-        .sheet(isPresented: $showDetails, content: {
-            LocationFishingDetailsView(fishing: $selectedFishing, showLocationDetail: $showDetails)
-                .presentationBackgroundInteraction(.enabled)
+        .sheet(isPresented: $showFishingLocationDetails, content: {
+            LocationFishingDetailsView(fishing: $selectedFishing, showLocationDetail: $showFishingLocationDetails)
                 .presentationDragIndicator(.visible)
         })
     }

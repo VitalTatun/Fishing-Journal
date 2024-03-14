@@ -19,7 +19,7 @@ struct WaterInfo: View {
                     Text(fishing.water.waterName)
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(.black)
-                    Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
+                    Text(String(format: "%.5f", fishing.water.latitude) + " • " + String(format: "%.5f", fishing.water.longitude))
                         .font(.footnote)
                         .foregroundColor(.primaryDeepBlue)
                         .padding(.horizontal, 10)
@@ -30,7 +30,7 @@ struct WaterInfo: View {
                 Spacer()
                 Button {
                     let pasteboard = UIPasteboard.general
-                    let coordinates = String(fishing.water.latitude) + " " + String(fishing.water.longitude)
+                    let coordinates = String(format: "%.5f", fishing.water.latitude) + " " + String(format: "%.5f", fishing.water.longitude)
                     pasteboard.string = coordinates
                 } label: {
                     Image(systemName: "square.on.square")
@@ -40,7 +40,13 @@ struct WaterInfo: View {
                         .clipShape(Circle())
                 }
             }
-            mapLayer
+            Map(position: .constant(MapCameraPosition.region(.init(center: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), latitudinalMeters: 3000, longitudinalMeters: 3000))), content: {
+                Marker("", coordinate:  CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
+            })
+            
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .frame(height: 157)
+            .disabled(true)
             Button {
                 } label: {
                     Text("Показать на карте")
@@ -64,21 +70,6 @@ struct WaterInfo: View {
         }
     }
 }
-
-extension WaterInfo {
-    private var mapLayer: some View {
-        HStack {
-            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))),
-                annotationItems: [fishing]) { location in
-                MapMarker(coordinate: CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
-            }
-                .frame(height: 170)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .disabled(true)
-        }
-    }
-}
-
 
 #Preview {
     WaterInfo(fishing: Fishing.example)

@@ -15,15 +15,16 @@ struct EditFishingView: View {
     @Binding var fishing: Fishing
     @Binding var showEditView: Bool
     @State private var showFishView = false
+    @State private var showMapSheet = false
     
     //Edit Fishing States
     @State private var fishingName: String = ""
     @State private var fishingType: FishingType = .fishingLog
-    
     @State private var fishingMethod: FishingMethod = .bobber
     @State private var fishingTime: Date = .now
     @State private var bait: Bait = .worm
     @State private var fishWeight: Double = 0
+    @State private var waterCoordinates: Water = Water(waterName: "", latitude: .zero, longitude: .zero)
     
     let shadowColor = Color(white: 0, opacity: 0.1)
     
@@ -36,6 +37,7 @@ struct EditFishingView: View {
         self._fishingTime = State(initialValue: fishing.wrappedValue.fishingTime)
         self._fishWeight = State(initialValue: fishing.wrappedValue.weight)
         self._showEditView = showEditView
+        self._waterCoordinates = State(initialValue: fishing.wrappedValue.water)
     }
     var body: some View {
             ScrollView(.vertical, showsIndicators: false) {
@@ -44,7 +46,7 @@ struct EditFishingView: View {
                     EF_ImagesView(fishing: $fishing)
                     EF_FishView(fishing: $fishing, showFishView: $showFishView)
                     EF_FishingInfo(fishing: $fishing, fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
-                    EF_WaterInfo(fishing: $fishing)
+                    EF_WaterInfo(fishing: $fishing, showMapSheet: $showMapSheet)
                     EF_CommentView(fishing: $fishing)
 
                 }
@@ -68,6 +70,7 @@ struct EditFishingView: View {
                         fishing.bait = bait
                         fishing.fishingTime = fishingTime
                         fishing.weight = fishWeight
+                        
                         fishingData.updateFishing(fishing: fishing)
                         showEditView = false
                     }
@@ -78,6 +81,9 @@ struct EditFishingView: View {
                 EF_FishPicker(fishing: $fishing)
             }
         }
+        .sheet(isPresented: $showMapSheet, content: {
+            EF_EditLocationMapView(fishing: $fishing, waterCoordinates: $waterCoordinates)
+        })
     }
 }
 

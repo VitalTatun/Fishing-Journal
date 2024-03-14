@@ -22,6 +22,7 @@ struct LocationFishingDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showImageView)
+                    Header(fishing: fishing)
                     FishCaught(fishing: $fishing)
                     FishingInfo(fishing: fishing)
                     VStack(alignment: .leading, spacing: 10) {
@@ -58,37 +59,14 @@ struct LocationFishingDetailsView: View {
                 .padding(10)
             }
             .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(fishing.name)
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text(fishing.name)
-                            .font(.system(.headline, design: .rounded, weight: .semibold))
-                            .foregroundColor(.black)
-                            .lineLimit(1)
-                        Text(fishing.user.name)
-                            .font(.footnote)
-                            .lineLimit(1)
+                    Button("Назад") {
+                        showLocationDetail = false
                     }
-                    .layoutPriority(2)
-
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    HStack {
-                        Text(fishing.type.name)
-                            .font(.footnote)
-                            .lineLimit(1)
-                            .fontWeight(.medium)
-                            .foregroundStyle(fishing.type.accentColor)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 6)
-                            .background(fishing.type.backgroundColor)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .inset(by: 0.5)
-                                    .stroke(fishing.type.accentColor)
-                            }
-                            .layoutPriority(1)
                         Button {
                             favorite.toggle()
                         } label: {
@@ -96,21 +74,7 @@ struct LocationFishingDetailsView: View {
                                 .font(.callout)
                                 .foregroundStyle(favorite ? .red : .primaryDeepBlue)
                         }
-                        
-                    }
                 }
-                
-//                ToolbarItem(placement: .principal) {
-//                        VStack(alignment: .leading, spacing: 0) {
-//                            Text(fishing.name)
-//                                .font(.system(.headline, design: .rounded, weight: .semibold))
-//                                .foregroundColor(.black)
-//                                .lineLimit(1)
-//                            Text(fishing.user.name)
-//                                .font(.footnote)
-//                                .lineLimit(1)
-//                        }
-//                }
             })
             .scrollIndicators(.hidden)
             .fullScreenCover(isPresented: $showImageView, content: {
