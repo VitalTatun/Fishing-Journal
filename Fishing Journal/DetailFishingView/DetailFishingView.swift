@@ -14,6 +14,7 @@ struct DetailFishingView: View {
     @State private var selectedImage: String?
     @State private var showEditView = false
     @State private var showPhotoView = false
+    @State private var showOnMap = false
     @State private var isFavorite = false
     
     var body: some View {
@@ -24,7 +25,7 @@ struct DetailFishingView: View {
                     Header(fishing: fishing)
                     FishCaught(fishing: $fishing)
                     FishingInfo(fishing: fishing)
-                    WaterInfo(fishing: fishing)
+                    WaterInfo(fishing: fishing, showOnMap: $showOnMap)
                     Comment(fishing: fishing)
                 }
                 .padding(10)
@@ -52,6 +53,9 @@ struct DetailFishingView: View {
                 EditFishingView(fishing: $fishing, showEditView: $showEditView)
             }
         }
+        .sheet(isPresented: $showOnMap, content: {
+            LocationMapView(fishing: $fishing, waterCoordinates: $fishing.water)
+        })
     }
 }
 

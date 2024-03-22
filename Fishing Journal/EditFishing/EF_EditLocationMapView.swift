@@ -37,7 +37,7 @@ struct EF_EditLocationMapView: View {
                 }
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
-                         newLocation = Water(waterName: fishing.name, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                        newLocation = Water(waterName: fishing.water.waterName, latitude: coordinate.latitude, longitude: coordinate.longitude)
                         let newRegion = MKCoordinateRegion(center: coordinate, span: mapSpan)
                         withAnimation(.smooth) {
                             cameraPosition = .region(newRegion)

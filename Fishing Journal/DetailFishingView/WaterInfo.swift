@@ -11,6 +11,7 @@ import MapKit
 struct WaterInfo: View {
     
     let fishing: Fishing
+    @Binding var showOnMap: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -48,6 +49,7 @@ struct WaterInfo: View {
             .frame(height: 157)
             .disabled(true)
             Button {
+                showOnMap.toggle()
                 } label: {
                     Text("Показать на карте")
                         .font(.subheadline)
@@ -59,7 +61,6 @@ struct WaterInfo: View {
                         .background(.primaryDeepBlue)
                         .cornerRadius(5)
                 }
-                .buttonStyle(.plain)
         }
         .padding(10)
         .overlay {
@@ -72,6 +73,6 @@ struct WaterInfo: View {
 }
 
 #Preview {
-    WaterInfo(fishing: Fishing.example)
+    WaterInfo(fishing: Fishing.example, showOnMap: .constant(false))
 }
 
