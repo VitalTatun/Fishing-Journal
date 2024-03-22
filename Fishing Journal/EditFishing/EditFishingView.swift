@@ -14,6 +14,7 @@ struct EditFishingView: View {
 
     @Binding var fishing: Fishing
     @Binding var showEditView: Bool
+    
     @State private var showFishView = false
     @State private var showMapSheet = false
     

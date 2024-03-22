@@ -43,6 +43,7 @@ struct EF_EditLocationMapView: View {
                             cameraPosition = .region(newRegion)
                         }
                     }
+                    findCoordinateName()
                 }
                 .onMapCameraChange(frequency: .continuous) { ctx in 
                     mapSpan = ctx.region.span
@@ -71,6 +72,17 @@ struct EF_EditLocationMapView: View {
             .navigationTitle(fishing.name)
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    func findCoordinateName() {
+        Task {
+            let location = CLLocation(latitude: newLocation.latitude, longitude: newLocation.longitude)
+            let decoder = CLGeocoder()
+            if let name = try? await decoder.reverseGeocodeLocation(location).first?.inlandWater {
+                newLocation.waterName = name
+            }
+            
+        }
+        
     }
 }
 

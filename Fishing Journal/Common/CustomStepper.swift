@@ -29,7 +29,8 @@ struct CustomStepper: View {
                 .frame(width: 50, height: 36, alignment: .center)
                 .font(.body)
                 .fontWeight(.medium)
-//                .background(.secondary)
+                .contentTransition(.numericText(value: Double(number)))
+                .animation(.snappy, value: number)
                 .foregroundStyle(.primaryDeepBlue)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
             Button(action: {

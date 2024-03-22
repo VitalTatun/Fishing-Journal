@@ -15,8 +15,10 @@ struct AnnotationMark: View {
         ZStack {
             Image(fishing.type.annotationMark)
             Image(fishing.fishingMethod.icon)
-                .offset(y: -8)
-        }        
+                .renderingMode(.template)
+                .foregroundColor(fishing.type.iconColor)
+                .offset(y: -6)
+        }
     }
 }
 

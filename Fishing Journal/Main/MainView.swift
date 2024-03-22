@@ -32,6 +32,11 @@ struct MainView: View {
                     fishingData.delete(indexSet)
                 })
             }
+            .overlay {
+                if fishingData.mockFishings.isEmpty {
+                    ContentUnavailableView("Вы пока не сохраняли отчеты", image: "EmptyViewImagePlaceholder", description: Text("Возможно сегодня именно тот день, когда стоит съездить на рыбалку"))
+                }
+            }
             .listStyle(.plain)
             .scrollIndicators(.hidden)
             .navigationTitle("Fishing Journal")
@@ -54,6 +59,9 @@ struct MainView: View {
                         
                     }, label: {
                         Image(systemName: "plus")
+                            .foregroundStyle(.primaryDeepBlue)
+                            .imageScale(.large)
+                            .fontWeight(.semibold)
                     })
                 }
             }
