@@ -13,18 +13,19 @@ struct EF_EditLocationMapView: View {
     @EnvironmentObject var fishingData: FishingData
     @Environment(\.dismiss) var dismiss
 
-    var region = MKCoordinateRegion()
     @Binding var fishing: Fishing
-    @Binding var waterCoordinates: Water
+    @Binding var water: Water
+    @Binding var previewCamera: MapCameraPosition
     
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var mapSpan: MKCoordinateSpan = .init()
     @State private var newLocation: Water = .init(waterName: "", latitude: 0, longitude: 0)
     
-    init(fishing: Binding<Fishing>, waterCoordinates: Binding<Water>) {
+    init(fishing: Binding<Fishing>, water: Binding<Water>, previewCamera: Binding<MapCameraPosition>) {
         self._fishing = fishing
         self._newLocation = State(initialValue: fishing.wrappedValue.water)
-        self._waterCoordinates = waterCoordinates
+        self._water = water
+        self._previewCamera = previewCamera
     }
     
     var body: some View {
@@ -50,16 +51,13 @@ struct EF_EditLocationMapView: View {
                 }
             }
             .onAppear(perform: {
-                let location = fishing.water
-                let locationSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                let locationRegion = MKCoordinateRegion(center: .init(latitude: location.latitude, longitude: location.longitude), span: locationSpan)
-                cameraPosition = .region(locationRegion)
+                cameraPosition = .updateCameraPosition(fishing: fishing)
             })
-            .toolbar(content: {
+            .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Добавить") {
-                        fishing.water = newLocation
-                        fishingData.updateFishing(fishing: fishing)
+                        water = newLocation
+                        previewCamera = cameraPosition
                         dismiss()
                     }
                 }
@@ -68,11 +66,12 @@ struct EF_EditLocationMapView: View {
                         dismiss()
                     }
                 }
-            })
+            }
             .navigationTitle(fishing.name)
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
     func findCoordinateName() {
         Task {
             let location = CLLocation(latitude: newLocation.latitude, longitude: newLocation.longitude)
@@ -80,12 +79,10 @@ struct EF_EditLocationMapView: View {
             if let name = try? await decoder.reverseGeocodeLocation(location).first?.inlandWater {
                 newLocation.waterName = name
             }
-            
         }
-        
     }
 }
 
 #Preview {
-    EF_EditLocationMapView(fishing: .constant(Fishing.example), waterCoordinates: .constant(Fishing.example.water))
+    EF_EditLocationMapView(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), previewCamera: .constant(.automatic))
 }

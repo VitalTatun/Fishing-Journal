@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EF_HeaderView: View {
     
-    @Binding var fishing: Fishing
     @Binding var fishingName: String
     @Binding var fishingType: FishingType
     
@@ -45,5 +44,5 @@ struct EF_HeaderView: View {
 }
 
 #Preview {
-    EF_HeaderView(fishing: .constant(Fishing.example), fishingName: .constant(Fishing.example.name), fishingType: .constant(Fishing.example.type))
+    EF_HeaderView(fishingName: .constant(Fishing.example.name), fishingType: .constant(Fishing.example.type))
 }

@@ -12,6 +12,7 @@ struct WaterInfo: View {
     
     let fishing: Fishing
     @Binding var showOnMap: Bool
+    @State private var cameraPosition: MapCameraPosition = .automatic
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -41,10 +42,18 @@ struct WaterInfo: View {
                         .clipShape(Circle())
                 }
             }
-            Map(position: .constant(MapCameraPosition.region(.init(center: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), latitudinalMeters: 3000, longitudinalMeters: 3000))), content: {
-                Marker("", coordinate:  CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
+
+            Map(position: $cameraPosition) {
+                Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), anchor: .bottom) {
+                    AnnotationMark(fishing: fishing)
+                }
+            }
+            .onChange(of: fishing.water.id, {
+                cameraPosition = .updateCameraPosition(fishing: fishing)
             })
-            
+            .onAppear(perform: {
+                cameraPosition = .updateCameraPosition(fishing: fishing)
+            })
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(height: 157)
             .disabled(true)

@@ -30,10 +30,8 @@ struct EF_FishPicker: View {
             HStack {
                 TextField("Название", text: $text)
                 Button(action: {
-                    withAnimation {
-                        let fish = Fish(name: text, count: 1)
-                        fishing.fish.append(fish)
-                        self.text = ""
+                    withAnimation(.easeIn) {
+                        addNewFish(text: text)
                     }
                 }, label: {
                     Image(systemName: "plus.circle.fill")
@@ -53,6 +51,12 @@ struct EF_FishPicker: View {
                 }
             }
         })
+    }
+    
+    private func addNewFish(text: String) {
+        let fish = Fish(name: text, count: 1)
+        fishing.fish.append(fish)
+        self.text = ""
     }
 }
 

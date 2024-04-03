@@ -12,6 +12,7 @@ struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
     @State private var showDetailView = false
+    @State private var showNewFishingView = false
     
     var body: some View {
         NavigationStack {
@@ -56,7 +57,7 @@ struct MainView: View {
                 // Add new Fishing Log Button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        showNewFishingView = true
                     }, label: {
                         Image(systemName: "plus")
                             .foregroundStyle(.primaryDeepBlue)
@@ -65,6 +66,9 @@ struct MainView: View {
                     })
                 }
             }
+            .fullScreenCover(isPresented: $showNewFishingView, content: {
+                AddFishingView(showAddFishingView: $showNewFishingView)
+            })
         }
     }
     

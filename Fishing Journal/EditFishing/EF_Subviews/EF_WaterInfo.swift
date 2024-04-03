@@ -11,9 +11,9 @@ import MapKit
 struct EF_WaterInfo: View {
     
     @Binding var fishing: Fishing
+    @Binding var water: Water
     @Binding var showMapSheet: Bool
-
-    @State private var activeMark: Bool = false
+    @Binding var cameraPosition: MapCameraPosition
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -22,25 +22,28 @@ struct EF_WaterInfo: View {
                 .fontWeight(.medium)
                 .foregroundColor(.primary)
                 .padding(.bottom, 5)
-            TextField("Напишите сюда название водоема",text: $fishing.water.waterName)
+            TextField("Напишите сюда название водоема",text: $water.waterName)
                 .textFieldStyle(OvalTextFieldStyle())
             Text("Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт.")
                 .font(.footnote)
                 .foregroundColor(.secondary)
             Divider()
             HStack(spacing: 2) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text("Координаты")
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundColor(.primary)
-                    Text(String(format: "%.5f", fishing.water.latitude) + " - " + String(format: "%.5f", fishing.water.longitude))
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    Text(String(format: "%.5f", water.latitude) + " - " + String(format: "%.5f", water.longitude))
+                        .font(.footnote)
+                        .foregroundColor(.primaryDeepBlue)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 2)
+                        .background(.lightBlue)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
                 Spacer()
                 Button {
-                  // TODO: Edit coordinates
                     showMapSheet = true
                 } label: {
                     Image(systemName: "plus")
@@ -50,17 +53,19 @@ struct EF_WaterInfo: View {
                 }
             }
             
-            Map(position: .constant(MapCameraPosition.region(.init(center: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), latitudinalMeters: 3000, longitudinalMeters: 3000))), content: {
-                Marker("", coordinate:  CLLocationCoordinate2D(latitude: fishing.water.latitude, longitude: fishing.water.longitude))
-            })
             
+            Map(position: $cameraPosition) {
+                Annotation(water.waterName, coordinate: .init(latitude: water.latitude, longitude: water.longitude), anchor: .bottom) {
+                    AnnotationMark(fishing: fishing)
+                }
+            }
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(height: 157)
             .disabled(true)
             Text("Нажмите чтобы указать место ловли. Необязательно указывать точное место, можно просто указать водоем.")
                 .font(.footnote)
                 .foregroundColor(.secondary)
-
+            
         }
         .padding(10)
         .background(.white)
@@ -72,5 +77,5 @@ struct EF_WaterInfo: View {
 }
 
 #Preview {
-    EF_WaterInfo(fishing: .constant(Fishing.example), showMapSheet: .constant(false))
+    EF_WaterInfo(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), showMapSheet: .constant(false), cameraPosition: .constant(.automatic))
 }

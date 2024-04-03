@@ -67,8 +67,5 @@ struct Fishing: Identifiable {
         fish: [],
         fishingMethod: .bobber,
         bait: .worm,
-        user: User(
-            image: "userExample",
-            name: "",
-            email: ""))
+        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"))
 }

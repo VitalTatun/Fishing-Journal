@@ -32,8 +32,12 @@ struct LocationFishingDetailsView: View {
                                     .font(.system(.body, design: .rounded))
                                     .foregroundColor(.black)
                                 Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                                    .font(.footnote)
+                                    .foregroundColor(.primaryDeepBlue)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 2)
+                                    .background(.lightBlue)
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
                             }
                             Spacer()
                             Button {

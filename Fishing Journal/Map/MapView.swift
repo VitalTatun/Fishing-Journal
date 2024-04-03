@@ -19,7 +19,7 @@ struct MapView: View {
     var body: some View {
         Map(position: $cameraPosition) {
             ForEach(fishingData.mockFishings) { fishing in
-                Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude)) {
+                Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), anchor: .bottom) {
                     AnnotationMark(fishing: fishing)
                     .onTapGesture(perform: {
                         selectedFishing = fishing
@@ -27,9 +27,6 @@ struct MapView: View {
                     })
                 }
             }
-        }
-        .mapControls {
-            MapUserLocationButton()
         }
         .sheet(isPresented: $showFishingLocationDetails, content: {
             LocationFishingDetailsView(fishing: $selectedFishing, showLocationDetail: $showFishingLocationDetails)
@@ -46,8 +43,8 @@ extension CLLocationCoordinate2D {
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(center: .userLocation,
-                     latitudinalMeters: 10000,
-                     longitudinalMeters: 10000)
+                     latitudinalMeters: 3000,
+                     longitudinalMeters: 3000)
     }
 }
 

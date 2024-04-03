@@ -15,7 +15,7 @@ struct Header: View {
         VStack(alignment: .leading, spacing: 10) {
 //            User Info
             HStack {
-                Image("userExample")
+                Image(fishing.user.image)
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .center)
                     .clipShape(Circle())

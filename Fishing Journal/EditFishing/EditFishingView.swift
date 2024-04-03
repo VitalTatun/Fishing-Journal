@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 struct EditFishingView: View {
     
@@ -25,35 +26,36 @@ struct EditFishingView: View {
     @State private var fishingTime: Date = .now
     @State private var bait: Bait = .worm
     @State private var fishWeight: Double = 0
-    @State private var waterCoordinates: Water = Water(waterName: "", latitude: .zero, longitude: .zero)
+    @State private var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
+    @State private var cameraPosition: MapCameraPosition = .automatic
+    
     
     let shadowColor = Color(white: 0, opacity: 0.1)
     
-    init(fishing: Binding<Fishing>, showEditView: Binding<Bool>) {
-        self._fishing = fishing
-        self._fishingName = State(initialValue: fishing.wrappedValue.name)
-        self._fishingType = State(initialValue: fishing.wrappedValue.type)
-        self._fishingMethod = State(initialValue: fishing.wrappedValue.fishingMethod)
-        self._bait = State(initialValue: fishing.wrappedValue.bait)
-        self._fishingTime = State(initialValue: fishing.wrappedValue.fishingTime)
-        self._fishWeight = State(initialValue: fishing.wrappedValue.weight)
-        self._showEditView = showEditView
-        self._waterCoordinates = State(initialValue: fishing.wrappedValue.water)
-    }
     var body: some View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 10) {
-                    EF_HeaderView(fishing: $fishing, fishingName: $fishingName, fishingType: $fishingType)
+                    EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
                     EF_ImagesView(fishing: $fishing)
                     EF_FishView(fishing: $fishing, showFishView: $showFishView)
                     EF_FishingInfo(fishing: $fishing, fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
-                    EF_WaterInfo(fishing: $fishing, showMapSheet: $showMapSheet)
+                    EF_WaterInfo(fishing: $fishing, water: $water, showMapSheet: $showMapSheet, cameraPosition: $cameraPosition)
                     EF_CommentView(fishing: $fishing)
-
                 }
                 .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
                 .padding(10)
             }
+            .interactiveDismissDisabled()
+            .onAppear(perform: {
+                fishingName = fishing.name
+                fishingType = fishing.type
+                fishingMethod = fishing.fishingMethod
+                fishingTime = fishing.fishingTime
+                bait = fishing.bait
+                fishWeight = fishing.weight
+                water = fishing.water
+                cameraPosition = .updateCameraPosition(fishing: fishing)
+            })
             .background(Color(red: 242/255, green: 242/255, blue: 247/255))
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(fishing.name)
@@ -71,6 +73,7 @@ struct EditFishingView: View {
                         fishing.bait = bait
                         fishing.fishingTime = fishingTime
                         fishing.weight = fishWeight
+                        fishing.water = water
                         
                         fishingData.updateFishing(fishing: fishing)
                         showEditView = false
@@ -81,10 +84,22 @@ struct EditFishingView: View {
             NavigationStack {
                 EF_FishPicker(fishing: $fishing)
             }
+            .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showMapSheet, content: {
-            EF_EditLocationMapView(fishing: $fishing, waterCoordinates: $waterCoordinates)
+            EF_EditLocationMapView(fishing: $fishing, water: $water, previewCamera: $cameraPosition)
+                .interactiveDismissDisabled()
+
         })
+    }
+}
+
+extension MapCameraPosition {
+    static func updateCameraPosition(fishing: Fishing) -> MapCameraPosition {
+        let location = fishing.water
+        let locationSpan = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+        let locationRegion = MKCoordinateRegion(center: .init(latitude: location.latitude, longitude: location.longitude), span: locationSpan)
+        return self.region(locationRegion)
     }
 }
 

@@ -13,12 +13,14 @@ struct FishingItem: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            if let photo = fishingData.photo[0] {
-                Image(photo)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 157)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
+            if !fishingData.photo.isEmpty {
+                if let photo = fishingData.photo[0] {
+                    Image(photo)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 157)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                }
             }
             
             VStack(alignment: .leading, spacing: 2) {
