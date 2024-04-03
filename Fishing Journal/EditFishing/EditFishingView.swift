@@ -18,6 +18,7 @@ struct EditFishingView: View {
     
     @State private var showFishView = false
     @State private var showMapSheet = false
+    @State private var showCommentView = false
     
     //Edit Fishing States
     @State private var fishingName: String = ""
@@ -28,6 +29,7 @@ struct EditFishingView: View {
     @State private var fishWeight: Double = 0
     @State private var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
     @State private var cameraPosition: MapCameraPosition = .automatic
+    @State private var comment: String = ""
     
     
     let shadowColor = Color(white: 0, opacity: 0.1)
@@ -40,7 +42,7 @@ struct EditFishingView: View {
                     EF_FishView(fishing: $fishing, showFishView: $showFishView)
                     EF_FishingInfo(fishing: $fishing, fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
                     EF_WaterInfo(fishing: $fishing, water: $water, showMapSheet: $showMapSheet, cameraPosition: $cameraPosition)
-                    EF_CommentView(fishing: $fishing)
+                    EF_Comment(comment: $comment, showCommentView: $showCommentView)
                 }
                 .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
                 .padding(10)
@@ -55,6 +57,7 @@ struct EditFishingView: View {
                 fishWeight = fishing.weight
                 water = fishing.water
                 cameraPosition = .updateCameraPosition(fishing: fishing)
+                comment = fishing.comment
             })
             .background(Color(red: 242/255, green: 242/255, blue: 247/255))
             .navigationBarTitleDisplayMode(.inline)
@@ -74,6 +77,7 @@ struct EditFishingView: View {
                         fishing.fishingTime = fishingTime
                         fishing.weight = fishWeight
                         fishing.water = water
+                        fishing.comment = comment
                         
                         fishingData.updateFishing(fishing: fishing)
                         showEditView = false
@@ -89,8 +93,14 @@ struct EditFishingView: View {
         .sheet(isPresented: $showMapSheet, content: {
             EF_EditLocationMapView(fishing: $fishing, water: $water, previewCamera: $cameraPosition)
                 .interactiveDismissDisabled()
-
         })
+        .sheet(isPresented: $showCommentView, content: {
+            NavigationStack {
+                CommentView(comment: $comment)
+                    .interactiveDismissDisabled()
+            }
+        })
+        
     }
 }
 
