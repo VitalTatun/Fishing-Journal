@@ -17,15 +17,7 @@ struct EF_FishView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .center, spacing: 10) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Улов")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                    Text("Отредактируйте список пойманной рыбы")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
+                EF_Section(title: "Улов", secondary: "Отредактируйте список пойманной рыбы")
                 Spacer()
                 // Edit Caught Fish Button
                 Button {

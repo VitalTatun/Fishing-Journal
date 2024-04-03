@@ -16,56 +16,51 @@ struct EF_WaterInfo: View {
     @Binding var cameraPosition: MapCameraPosition
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Информация о водоеме")
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundColor(.primary)
-                .padding(.bottom, 5)
-            TextField("Напишите сюда название водоема",text: $water.waterName)
-                .textFieldStyle(OvalTextFieldStyle())
-            Text("Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт.")
-                .font(.footnote)
-                .foregroundColor(.secondary)
-            Divider()
-            HStack(spacing: 2) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Координаты")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                    Text(String(format: "%.5f", water.latitude) + " - " + String(format: "%.5f", water.longitude))
-                        .font(.footnote)
-                        .foregroundColor(.primaryDeepBlue)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 2)
-                        .background(.lightBlue)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
+        VStack(alignment: .leading, spacing: 10) {
+            EF_Section(title: "Информация о водоеме", secondary: "Название и координаты на карте")
+            VStack(alignment: .leading, spacing: 5) {
+                TextField("Напишите сюда название водоема",text: $water.waterName)
+                    .textFieldStyle(OvalTextFieldStyle())
+                Text("Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт.")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                Divider()
+                HStack(spacing: 2) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Координаты")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                        Text(String(format: "%.5f", water.latitude) + " - " + String(format: "%.5f", water.longitude))
+                            .font(.footnote)
+                            .foregroundColor(.primaryDeepBlue)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 2)
+                            .background(.lightBlue)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                    }
+                    Spacer()
+                    Button {
+                        showMapSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primaryDeepBlue)
+                    }
                 }
-                Spacer()
-                Button {
-                    showMapSheet = true
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primaryDeepBlue)
+                Map(position: $cameraPosition) {
+                    Annotation(water.waterName, coordinate: .init(latitude: water.latitude, longitude: water.longitude), anchor: .bottom) {
+                        AnnotationMark(fishing: fishing)
+                    }
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 5))
+                .frame(height: 157)
+                .disabled(true)
+                Text("Нажмите чтобы указать место ловли. Необязательно указывать точное место, можно просто указать водоем.")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
             }
-            
-            
-            Map(position: $cameraPosition) {
-                Annotation(water.waterName, coordinate: .init(latitude: water.latitude, longitude: water.longitude), anchor: .bottom) {
-                    AnnotationMark(fishing: fishing)
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-            .frame(height: 157)
-            .disabled(true)
-            Text("Нажмите чтобы указать место ловли. Необязательно указывать точное место, можно просто указать водоем.")
-                .font(.footnote)
-                .foregroundColor(.secondary)
-            
         }
         .padding(10)
         .background(.white)

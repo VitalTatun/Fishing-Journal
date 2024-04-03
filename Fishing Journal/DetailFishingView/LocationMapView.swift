@@ -46,7 +46,7 @@ struct LocationMapView: View {
             })
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Отмена", role: .destructive) {
+                    Button("Назад") {
                         dismiss()
                     }
                 }

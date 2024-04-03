@@ -54,6 +54,7 @@
 		96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D92B99968D00313754 /* EF_FishView.swift */; };
 		96C6D6042BAEC1C4009EC16A /* AddFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */; };
 		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
+		96DF7FCC2BBDA02700A6EE33 /* EF_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
 		96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */; };
@@ -110,6 +111,7 @@
 		96B7D7D92B99968D00313754 /* EF_FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishView.swift; sourceTree = "<group>"; };
 		96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFishingView.swift; sourceTree = "<group>"; };
 		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Section.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
 		96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInfo.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				9679940E2B8F070D008CE318 /* EF_BaitPicker.swift */,
 				9614017A2B7D118C00FB5331 /* EF_FishPicker.swift */,
 				96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */,
+				96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */,
 			);
 			path = EF_Subviews;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */,
 				967994142B8F6493008CE318 /* EF_CommentView.swift in Sources */,
 				960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */,
+				96DF7FCC2BBDA02700A6EE33 /* EF_Section.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,
 				96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */,
 				967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */,

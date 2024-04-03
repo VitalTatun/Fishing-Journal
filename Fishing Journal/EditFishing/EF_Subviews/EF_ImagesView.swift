@@ -15,16 +15,7 @@ struct EF_ImagesView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .center, spacing: 10) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Фотографии")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                    Text("Добавьте фотографии")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
-                .padding(0)
+                EF_Section(title: "Фотографии", secondary: "Добавьте фотографии")
                 Spacer()
                 if !fishing.photo.isEmpty {
                     Text("\(fishing.photo.count)/6")

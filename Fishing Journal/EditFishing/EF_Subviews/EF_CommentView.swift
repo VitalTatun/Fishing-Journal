@@ -12,17 +12,13 @@ struct EF_CommentView: View {
     @Binding var fishing: Fishing
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Комментарий:")
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundColor(.primary)
-                .padding(.bottom, 5)
+        VStack(alignment: .leading, spacing: 10) {
+            EF_Section(title: "Комментарий", secondary: "Отредактируйте комментарий")
             TextField(
                 "Добавьте детальное описание",
                 text: $fishing.comment,
                 axis: .vertical)
-            .textFieldStyle(OvalTextFieldStyle())
+                .textFieldStyle(OvalTextFieldStyle())
         }
         .padding(10)
         .background(.white)
