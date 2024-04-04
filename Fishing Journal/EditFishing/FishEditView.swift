@@ -13,7 +13,8 @@ struct FishEditView: View {
 
     @Binding var fish: [Fish]
     @State private var fishToEdit: [Fish] = []
-    @State private var text: String = ""
+    @State private var textFieldText: String = ""
+    @State private var showAlert: Bool = false
     
     var body: some View {
         List {
@@ -26,25 +27,37 @@ struct FishEditView: View {
                 .padding(.vertical, 0)
             }
             .onDelete { indexSet in
-                fish.remove(atOffsets: indexSet)
+                fishToEdit.remove(atOffsets: indexSet)
             }
             HStack {
-                TextField("Название", text: $text)
+                TextField("Название", text: $textFieldText)
                 Button(action: {
-                    withAnimation(.easeIn) {
-                        addNewFish(text: text)
+                    if fishToEdit.contains(where: { $0.name == textFieldText }) {
+                        showAlert = true
+                    } else {
+                        withAnimation(.easeIn) {
+                            addNewFish(text: textFieldText)
+                        }
                     }
                 }, label: {
                     Image(systemName: "plus.circle.fill")
                         .font(.system(size: 30))
                 })
                 .buttonStyle(.borderless)
-                .disabled(text.isEmpty)
+                .disabled(textFieldText.isEmpty)
             }
+            
         }
         .onAppear {
             fishToEdit = fish
         }
+        .alert("Упс", isPresented: $showAlert, actions: {
+            Button("Ок") {
+                    textFieldText = ""
+            }
+        }, message: {
+            Text("Эта рыба уже есть в списке. Просто отредактируйте количество.")
+        })
         .listStyle(.automatic)
         .navigationTitle("Пойманная рыба")
         .navigationBarTitleDisplayMode(.inline)
@@ -54,6 +67,7 @@ struct FishEditView: View {
                     fish = fishToEdit
                     dismiss()
                 }
+                .disabled(fishToEdit.isEmpty)
             }
             ToolbarItem(placement: .topBarLeading) {
                 Button("Отмена") {
@@ -66,7 +80,7 @@ struct FishEditView: View {
     private func addNewFish(text: String) {
         let newFish = Fish(name: text, count: 1)
         fishToEdit.append(newFish)
-        self.text = ""
+        self.textFieldText = ""
     }
 }
 

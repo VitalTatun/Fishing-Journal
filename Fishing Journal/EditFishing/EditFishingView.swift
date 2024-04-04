@@ -32,7 +32,6 @@ struct EditFishingView: View {
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var comment: String = ""
     
-    
     let shadowColor = Color(white: 0, opacity: 0.1)
     
     var body: some View {
@@ -50,16 +49,7 @@ struct EditFishingView: View {
             }
             .interactiveDismissDisabled()
             .onAppear(perform: {
-                fishingName = fishing.name
-                fishingType = fishing.type
-                fish = fishing.fish
-                fishingMethod = fishing.fishingMethod
-                fishingTime = fishing.fishingTime
-                bait = fishing.bait
-                fishWeight = fishing.weight
-                water = fishing.water
-                cameraPosition = .updateCameraPosition(fishing: fishing)
-                comment = fishing.comment
+                setInitialFishingData()
             })
             .background(Color(red: 242/255, green: 242/255, blue: 247/255))
             .navigationBarTitleDisplayMode(.inline)
@@ -72,17 +62,7 @@ struct EditFishingView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Готово") {
-                        fishing.name = fishingName
-                        fishing.type = fishingType
-                        fishing.fish = fish
-                        fishing.fishingMethod = fishingMethod
-                        fishing.bait = bait
-                        fishing.fishingTime = fishingTime
-                        fishing.weight = fishWeight
-                        fishing.water = water
-                        fishing.comment = comment
-                        
-                        fishingData.updateFishing(fishing: fishing)
+                        updateFishingData()
                         showEditView = false
                     }
                 }
@@ -104,6 +84,31 @@ struct EditFishingView: View {
             }
         })
         
+    }
+    private func setInitialFishingData() {
+        fishingName = fishing.name
+        fishingType = fishing.type
+        fish = fishing.fish
+        fishingMethod = fishing.fishingMethod
+        fishingTime = fishing.fishingTime
+        bait = fishing.bait
+        fishWeight = fishing.weight
+        water = fishing.water
+        cameraPosition = .updateCameraPosition(fishing: fishing)
+        comment = fishing.comment
+    }
+    private func updateFishingData() {
+        fishing.name = fishingName
+        fishing.type = fishingType
+        fishing.fish = fish
+        fishing.fishingMethod = fishingMethod
+        fishing.bait = bait
+        fishing.fishingTime = fishingTime
+        fishing.weight = fishWeight
+        fishing.water = water
+        fishing.comment = comment
+        
+        fishingData.updateFishing(fishing: fishing)
     }
 }
 
