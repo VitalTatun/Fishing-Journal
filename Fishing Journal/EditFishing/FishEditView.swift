@@ -1,5 +1,5 @@
 //
-//  EditNewFishView.swift
+//  FishEditView.swift
 //  Fishing Journal
 //
 //  Created by Виталий Татун on 14.02.24.
@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct EF_FishPicker: View {
+struct FishEditView: View {
     
     @Environment(\.dismiss) var dismiss
 
-    @Binding var fishing: Fishing
+    @Binding var fish: [Fish]
+    @State private var fishToEdit: [Fish] = []
     @State private var text: String = ""
     
     var body: some View {
         List {
-            ForEach($fishing.fish, id: \.id) { $fish in
+            ForEach($fishToEdit, id: \.id) { $fish in
                 HStack {
                     Text("\(fish.name)")
                     Spacer()
@@ -24,9 +25,9 @@ struct EF_FishPicker: View {
                 }
                 .padding(.vertical, 0)
             }
-            .onDelete(perform: { indexSet in
-                fishing.fish.remove(atOffsets: indexSet)
-            })
+            .onDelete { indexSet in
+                fish.remove(atOffsets: indexSet)
+            }
             HStack {
                 TextField("Название", text: $text)
                 Button(action: {
@@ -41,12 +42,21 @@ struct EF_FishPicker: View {
                 .disabled(text.isEmpty)
             }
         }
+        .onAppear {
+            fishToEdit = fish
+        }
         .listStyle(.automatic)
         .navigationTitle("Пойманная рыба")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Готово") {
+                    fish = fishToEdit
+                    dismiss()
+                }
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                Button("Отмена") {
                     dismiss()
                 }
             }
@@ -54,12 +64,12 @@ struct EF_FishPicker: View {
     }
     
     private func addNewFish(text: String) {
-        let fish = Fish(name: text, count: 1)
-        fishing.fish.append(fish)
+        let newFish = Fish(name: text, count: 1)
+        fishToEdit.append(newFish)
         self.text = ""
     }
 }
 
 #Preview {
-    EF_FishPicker(fishing: .constant(Fishing.example))
+    FishEditView(fish: .constant(Fishing.example.fish))
 }

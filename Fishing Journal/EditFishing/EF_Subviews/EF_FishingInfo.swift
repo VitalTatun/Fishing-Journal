@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EF_FishingInfo: View {
     
-    @Binding var fishing: Fishing
     @Binding var fishingMethod: FishingMethod
     @Binding var fishingTime: Date
     @Binding var bait: Bait
@@ -80,7 +79,6 @@ struct EF_FishingInfo: View {
 
 #Preview {
     EF_FishingInfo(
-        fishing: .constant(Fishing.example),
         fishingMethod: .constant(Fishing.example.fishingMethod),
         fishingTime: .constant(Fishing.example.fishingTime),
         bait: .constant(Fishing.example.bait),

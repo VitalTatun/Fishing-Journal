@@ -11,7 +11,7 @@ import SwiftUI
 
 struct EF_FishView: View {
     
-    @Binding var fishing: Fishing
+    @Binding var fish: [Fish]
     @Binding var showFishView: Bool
     
     var body: some View {
@@ -31,7 +31,7 @@ struct EF_FishView: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack (spacing: 5) {
-                    FishItem(fishing: $fishing)
+                    FishItem(fish: $fish)
                 }
             }
             
@@ -43,5 +43,5 @@ struct EF_FishView: View {
 }
 
 #Preview {
-    EF_FishView(fishing: .constant(Fishing.example), showFishView: .constant(false))
+    EF_FishView(fish: .constant(Fishing.example.fish), showFishView: .constant(false))
 }

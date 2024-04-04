@@ -23,6 +23,7 @@ struct EditFishingView: View {
     //Edit Fishing States
     @State private var fishingName: String = ""
     @State private var fishingType: FishingType = .fishingLog
+    @State private var fish: [Fish] = []
     @State private var fishingMethod: FishingMethod = .bobber
     @State private var fishingTime: Date = .now
     @State private var bait: Bait = .worm
@@ -39,8 +40,8 @@ struct EditFishingView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
                     EF_ImagesView(fishing: $fishing)
-                    EF_FishView(fishing: $fishing, showFishView: $showFishView)
-                    EF_FishingInfo(fishing: $fishing, fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
+                    EF_FishView(fish: $fish, showFishView: $showFishView)
+                    EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
                     EF_WaterInfo(fishing: $fishing, water: $water, showMapSheet: $showMapSheet, cameraPosition: $cameraPosition)
                     EF_Comment(comment: $comment, showCommentView: $showCommentView)
                 }
@@ -51,6 +52,7 @@ struct EditFishingView: View {
             .onAppear(perform: {
                 fishingName = fishing.name
                 fishingType = fishing.type
+                fish = fishing.fish
                 fishingMethod = fishing.fishingMethod
                 fishingTime = fishing.fishingTime
                 bait = fishing.bait
@@ -72,6 +74,7 @@ struct EditFishingView: View {
                     Button("Готово") {
                         fishing.name = fishingName
                         fishing.type = fishingType
+                        fishing.fish = fish
                         fishing.fishingMethod = fishingMethod
                         fishing.bait = bait
                         fishing.fishingTime = fishingTime
@@ -86,12 +89,12 @@ struct EditFishingView: View {
             }
         .sheet(isPresented: $showFishView) {
             NavigationStack {
-                EF_FishPicker(fishing: $fishing)
+                FishEditView(fish: $fish)
             }
             .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showMapSheet, content: {
-            EF_EditLocationMapView(fishing: $fishing, water: $water, previewCamera: $cameraPosition)
+            EditLocationMapView(fishing: $fishing, water: $water, previewCamera: $cameraPosition)
                 .interactiveDismissDisabled()
         })
         .sheet(isPresented: $showCommentView, content: {

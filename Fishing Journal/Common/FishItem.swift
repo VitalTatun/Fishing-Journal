@@ -9,10 +9,10 @@ import SwiftUI
 
 struct FishItem: View {
     
-    @Binding var fishing: Fishing
+    @Binding var fish: [Fish]
     
     var body: some View {
-        ForEach(fishing.fish, id: \.id) { fish in
+        ForEach(fish, id: \.id) { fish in
             HStack {
                 Text(fish.name)
                     .font(.callout)
@@ -37,5 +37,5 @@ struct FishItem: View {
 }
 
 #Preview {
-    FishItem(fishing: .constant(Fishing.example))
+    FishItem(fish: .constant(Fishing.example.fish))
 }

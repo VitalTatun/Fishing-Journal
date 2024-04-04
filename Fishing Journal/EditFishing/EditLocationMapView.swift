@@ -1,5 +1,5 @@
 //
-//  EF_EditLocationMapView.swift
+//  EditLocationMapView.swift
 //  Fishing Journal
 //
 //  Created by Виталий Татун on 11.03.24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct EF_EditLocationMapView: View {
+struct EditLocationMapView: View {
     
     @EnvironmentObject var fishingData: FishingData
     @Environment(\.dismiss) var dismiss
@@ -46,8 +46,8 @@ struct EF_EditLocationMapView: View {
                     }
                     findCoordinateName()
                 }
-                .onMapCameraChange(frequency: .continuous) { ctx in 
-                    mapSpan = ctx.region.span
+                .onMapCameraChange(frequency: .continuous) { context in
+                    mapSpan = context.region.span
                 }
             }
             .onAppear(perform: {
@@ -84,5 +84,5 @@ struct EF_EditLocationMapView: View {
 }
 
 #Preview {
-    EF_EditLocationMapView(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), previewCamera: .constant(.automatic))
+    EditLocationMapView(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), previewCamera: .constant(.automatic))
 }

@@ -28,7 +28,7 @@ struct FishingItem: View {
                     .font(.system(.title3, design: .default, weight: .semibold))
                     .foregroundStyle(.black)
                 HStack(alignment: .center, spacing: 2) {
-                    Text(.now, format: Date.FormatStyle().day().month().year())
+                    Text(fishingData.fishingTime, format: Date.FormatStyle().day().month().year())
                         .font(.footnote)
                         .foregroundColor(Color.secondary)
                         .lineLimit(1)

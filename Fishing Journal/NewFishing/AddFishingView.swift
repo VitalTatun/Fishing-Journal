@@ -17,8 +17,6 @@ struct AddFishingView: View {
             EditFishingView(fishing: $newFishing, showEditView: $showAddFishingView)
         }
     }
-    
-    
 }
 
 #Preview {
