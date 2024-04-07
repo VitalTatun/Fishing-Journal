@@ -8,6 +8,8 @@
 import Foundation
 
 enum FishingMethod: String, CaseIterable, Identifiable {
+    
+    case none
     case bobber
     case spinning
     case feeder
@@ -23,6 +25,8 @@ enum FishingMethod: String, CaseIterable, Identifiable {
             return "Фидер"
         case .flyFishing:
             return "Нахлыст"
+        case .none:
+            return "Не выбрано"
         }
     }
     var icon: String {
@@ -35,6 +39,8 @@ enum FishingMethod: String, CaseIterable, Identifiable {
             return "Feeder"
         case .flyFishing:
             return "Flyfishing"
+        case .none:
+            return "Fish"
         }
     }
     var id: String {

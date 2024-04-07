@@ -10,6 +10,8 @@ import MapKit
 
 struct EditLocationMapView: View {
     
+    let locationManager = CLLocationManager()
+    
     @EnvironmentObject var fishingData: FishingData
     @Environment(\.dismiss) var dismiss
 
@@ -32,6 +34,7 @@ struct EditLocationMapView: View {
         NavigationStack {
             MapReader { proxy in
                 Map(position: $cameraPosition) {
+                    UserAnnotation()
                     Annotation(fishing.name, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
                         AnnotationMark(fishing: fishing)
                     }
@@ -52,6 +55,7 @@ struct EditLocationMapView: View {
             }
             .onAppear(perform: {
                 cameraPosition = .updateCameraPosition(fishing: fishing)
+                locationManager.requestWhenInUseAuthorization()
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

@@ -9,6 +9,7 @@ import Foundation
 
 enum Bait:String, CaseIterable, Identifiable {
     
+    case none
     case bloodworm
     case maggot
     case worm
@@ -24,6 +25,8 @@ enum Bait:String, CaseIterable, Identifiable {
             return "Червь"
         case .baitfish:
             return "Живец"
+        case .none:
+            return "Не выбрано"
         }
     }
     var name: String {
