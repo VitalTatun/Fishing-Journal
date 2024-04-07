@@ -60,8 +60,8 @@ struct Fishing: Identifiable {
         name: "",
         water: Water(
             waterName: "",
-            latitude: 53.96485,
-            longitude: 27.19577),
+            latitude: .zero,
+            longitude: .zero),
         photo: [],
         fishingTime: .now,
         fish: [],

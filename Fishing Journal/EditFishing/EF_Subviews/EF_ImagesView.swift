@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct EF_ImagesView: View {
+    
     @Binding var fishing: Fishing
     
     let maxCount = 6
-
+    private let sectionTitle: String = "Фотографии"
+    private let sectionSecondary: String = "Добавьте фотографии"
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .center, spacing: 10) {
-                EF_Section(title: "Фотографии", secondary: "Добавьте фотографии")
+                EF_Section(title: sectionTitle, secondary: sectionSecondary)
                 Spacer()
                 if !fishing.photo.isEmpty {
                     Text("\(fishing.photo.count)/6")
@@ -36,23 +39,24 @@ struct EF_ImagesView: View {
                         .foregroundColor(.primaryDeepBlue)
                 }
             }
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 5) {
-                            ForEach(fishing.photo, id: \.self) { item in
-                                if let photo = item {
-                                    Image(photo)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 100,
-                                               height: 100,
-                                               alignment: .leading)
-                                        .cornerRadius(5)
-                                }
+            if !fishing.photo.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 5) {
+                        ForEach(fishing.photo, id: \.self) { item in
+                            if let photo = item {
+                                Image(photo)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 100,
+                                           height: 100,
+                                           alignment: .leading)
+                                    .cornerRadius(5)
                             }
                         }
                     }
-            HStack(alignment: .center, spacing: 10) {
-                Button {
+                }
+                HStack(alignment: .center, spacing: 10) {
+                    Button {
                         
                     } label: {
                         Text("Заменить")
@@ -66,8 +70,8 @@ struct EF_ImagesView: View {
                             .cornerRadius(5)
                     }
                     .buttonStyle(.plain)
-
-                Button {
+                    
+                    Button {
                         
                     } label: {
                         Text("Удалить")
@@ -81,15 +85,20 @@ struct EF_ImagesView: View {
                             .cornerRadius(5)
                     }
                     .buttonStyle(.plain)
+                }
             }
         }
         .padding(10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        }
+    }
     
 }
 
 #Preview {
     EF_ImagesView(fishing: .constant(Fishing.example))
+}
+
+#Preview("Empty State") {
+    EF_ImagesView(fishing: .constant(Fishing.emptyFishing))
 }

@@ -14,10 +14,13 @@ struct EF_FishView: View {
     @Binding var fish: [Fish]
     @Binding var showFishView: Bool
     
+    private let sectionTitle: String = "Улов"
+    private let sectionSecondary: String = "Отредактируйте список пойманной рыбы"
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .center, spacing: 10) {
-                EF_Section(title: "Улов", secondary: "Отредактируйте список пойманной рыбы")
+                EF_Section(title: sectionTitle, secondary: sectionSecondary)
                 Spacer()
                 // Edit Caught Fish Button
                 Button {
@@ -29,9 +32,11 @@ struct EF_FishView: View {
                         .foregroundColor(.primaryDeepBlue)
                 }
             }
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack (spacing: 5) {
-                    FishItem(fish: $fish)
+            if !fish.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack (spacing: 5) {
+                        FishItem(fish: $fish)
+                    }
                 }
             }
             
@@ -44,4 +49,8 @@ struct EF_FishView: View {
 
 #Preview {
     EF_FishView(fish: .constant(Fishing.example.fish), showFishView: .constant(false))
+}
+
+#Preview("Empty Fish list") {
+    EF_FishView(fish: .constant(Fishing.emptyFishing.fish), showFishView: .constant(false))
 }

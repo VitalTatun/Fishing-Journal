@@ -17,6 +17,8 @@ struct LocationFishingDetailsView: View {
     @Binding var fishing: Fishing
     @Binding var showLocationDetail: Bool
     
+    let format = "%.5f"
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -31,7 +33,7 @@ struct LocationFishingDetailsView: View {
                                 Text(fishing.water.waterName)
                                     .font(.system(.body, design: .rounded))
                                     .foregroundColor(.black)
-                                Text(String(fishing.water.latitude) + " • " + String(fishing.water.longitude))
+                                Text(String(format: format, fishing.water.latitude) + " - " + String(format: format, fishing.water.longitude))
                                     .font(.footnote)
                                     .foregroundColor(.primaryDeepBlue)
                                     .padding(.horizontal, 10)
