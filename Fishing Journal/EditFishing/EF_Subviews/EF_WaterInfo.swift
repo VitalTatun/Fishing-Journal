@@ -10,19 +10,17 @@ import MapKit
 
 struct EF_WaterInfo: View {
     
-    @Binding var fishing: Fishing
     @Binding var water: Water
-    @Binding var showMapSheet: Bool
-    @Binding var cameraPosition: MapCameraPosition
-    
-    let sectionTitle: String = "Информация о водоеме"
-    let sectionSecondary: String = "Название и координаты на карте"
-    let textFieldPromt: String = "Напишите сюда название водоема"
-    let footerText: String = "Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт."
-    let mapSectionTitle: String = "Координаты"
-    let mapSectionSecondary: String = "Нажмите + чтобы добавить место ловли"
-    let mapFooterText: String = "Нажмите чтобы указать место ловли. Необязательно указывать точное место, можно просто указать водоем."
-    let format = "%.5f"
+    @Binding var showMapSheet: Bool    
+        
+    private let sectionTitle: String = "Информация о водоеме"
+    private let sectionSecondary: String = "Название и координаты на карте"
+    private let textFieldPromt: String = "Напишите сюда название водоема"
+    private let footerText: String = "Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт."
+    private let mapSectionTitle: String = "Координаты"
+    private let mapSectionSecondary: String = "Нажмите + чтобы добавить место ловли"
+    private let mapFooterText: String = "Необязательно указывать точное место, можно просто указать водоем."
+    private let format = "%.5f"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -44,11 +42,7 @@ struct EF_WaterInfo: View {
                     if water.latitude != .zero {
                         Text(String(format: format, water.latitude) + " - " + String(format: format, water.longitude))
                             .font(.footnote)
-                            .foregroundColor(.primaryDeepBlue)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 2)
-                            .background(.lightBlue)
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            .foregroundStyle(.secondary)
                     } else {
                         Text(mapSectionSecondary)
                             .font(.footnote)
@@ -68,9 +62,10 @@ struct EF_WaterInfo: View {
             }
             if water.latitude != .zero {
                 VStack(alignment: .leading, spacing: 5) {
-                    Map(position: $cameraPosition) {
-                        Annotation(water.waterName, coordinate: .init(latitude: water.latitude, longitude: water.longitude), anchor: .bottom) {
-                            AnnotationMark(fishing: fishing)
+                    let coordinates: CLLocationCoordinate2D = .init(latitude: water.latitude, longitude: water.longitude)
+                    Map(bounds: .bounds(water: water)) {
+                        Annotation(water.waterName, coordinate: coordinates, anchor: .bottom) {
+                                        Image(.annotationEmpty)
                         }
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 5))
@@ -92,9 +87,9 @@ struct EF_WaterInfo: View {
 }
 
 #Preview {
-    EF_WaterInfo(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), showMapSheet: .constant(false), cameraPosition: .constant(.automatic))
+    EF_WaterInfo(water: .constant(Fishing.example.water), showMapSheet: .constant(false))
 }
 
 #Preview("Empty Fishing") {
-    EF_WaterInfo(fishing: .constant(Fishing.emptyFishing), water: .constant(Fishing.emptyFishing.water), showMapSheet: .constant(false), cameraPosition: .constant(.automatic))
+    EF_WaterInfo(water: .constant(Fishing.emptyFishing.water), showMapSheet: .constant(false))
 }

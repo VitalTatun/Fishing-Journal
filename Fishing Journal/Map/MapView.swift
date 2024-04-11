@@ -39,16 +39,18 @@ struct MapView: View {
     }
 }
 
-extension CLLocationCoordinate2D {
-    static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 53.95446, longitude: 27.36887)
-    }
-}
-extension MKCoordinateRegion {
-    static var userRegion: MKCoordinateRegion {
-        return .init(center: .userLocation,
-                     latitudinalMeters: 5000,
-                     longitudinalMeters: 5000)
+extension MapCameraBounds {
+    static func bounds(water: Water) -> MapCameraBounds {
+        let coordinates = CLLocationCoordinate2D(latitude: water.latitude, longitude: water.longitude)
+        let region = MKCoordinateRegion(
+            center: coordinates,
+            latitudinalMeters: 2000,
+            longitudinalMeters: 2000)
+        let mapCameraBounds = MapCameraBounds(
+            centerCoordinateBounds: region,
+            minimumDistance: 4500,
+            maximumDistance: 4500)
+        return mapCameraBounds
     }
 }
 

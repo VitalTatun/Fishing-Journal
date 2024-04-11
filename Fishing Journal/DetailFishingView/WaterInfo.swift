@@ -10,18 +10,21 @@ import MapKit
 
 struct WaterInfo: View {
     
-    let fishing: Fishing
+    @Binding var water: Water
     @Binding var showOnMap: Bool
-    @State private var cameraPosition: MapCameraPosition = .automatic
+    
+    var coordinates: CLLocationCoordinate2D {
+        return .init(latitude: water.latitude, longitude: water.longitude)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(fishing.water.waterName)
+                    Text(water.waterName)
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(.black)
-                    Text(String(format: "%.5f", fishing.water.latitude) + " • " + String(format: "%.5f", fishing.water.longitude))
+                    Text(String(format: "%.5f", water.latitude) + " • " + String(format: "%.5f", water.longitude))
                         .font(.footnote)
                         .foregroundColor(.primaryDeepBlue)
                         .padding(.horizontal, 10)
@@ -32,7 +35,7 @@ struct WaterInfo: View {
                 Spacer()
                 Button {
                     let pasteboard = UIPasteboard.general
-                    let coordinates = String(format: "%.5f", fishing.water.latitude) + " " + String(format: "%.5f", fishing.water.longitude)
+                    let coordinates = String(format: "%.5f", water.latitude) + " " + String(format: "%.5f", water.longitude)
                     pasteboard.string = coordinates
                 } label: {
                     Image(systemName: "square.on.square")
@@ -42,18 +45,11 @@ struct WaterInfo: View {
                         .clipShape(Circle())
                 }
             }
-
-            Map(position: $cameraPosition) {
-                Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), anchor: .bottom) {
-                    AnnotationMark(fishing: fishing)
+            Map(bounds: .bounds(water: water)) {
+                Annotation(water.waterName, coordinate: coordinates, anchor: .bottom) {
+                                Image(.annotationEmpty)
                 }
             }
-            .onChange(of: fishing.water.id, {
-                cameraPosition = .updateCameraPosition(fishing: fishing)
-            })
-            .onAppear(perform: {
-                cameraPosition = .updateCameraPosition(fishing: fishing)
-            })
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(height: 157)
             .disabled(true)
@@ -82,6 +78,6 @@ struct WaterInfo: View {
 }
 
 #Preview {
-    WaterInfo(fishing: Fishing.example, showOnMap: .constant(false))
+    WaterInfo(water: .constant(Fishing.example.water), showOnMap: .constant(false))
 }
 

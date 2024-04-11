@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct EditLocationMapView: View {
     
@@ -15,19 +16,15 @@ struct EditLocationMapView: View {
     @EnvironmentObject var fishingData: FishingData
     @Environment(\.dismiss) var dismiss
 
-    @Binding var fishing: Fishing
     @Binding var water: Water
-    @Binding var previewCamera: MapCameraPosition
     
     @State private var cameraPosition: MapCameraPosition = .automatic
-    @State private var mapSpan: MKCoordinateSpan = .init()
+    @State private var mapSpan: MKCoordinateSpan = .init(latitudeDelta: 0.3, longitudeDelta: 0.3)
     @State private var newLocation: Water = .init(waterName: "", latitude: 0, longitude: 0)
     
-    init(fishing: Binding<Fishing>, water: Binding<Water>, previewCamera: Binding<MapCameraPosition>) {
-        self._fishing = fishing
-        self._newLocation = State(initialValue: fishing.wrappedValue.water)
+    init(water: Binding<Water>) {
+        self._newLocation = State(wrappedValue: water.wrappedValue)
         self._water = water
-        self._previewCamera = previewCamera
     }
     
     var body: some View {
@@ -35,13 +32,13 @@ struct EditLocationMapView: View {
             MapReader { proxy in
                 Map(position: $cameraPosition) {
                     UserAnnotation()
-                    Annotation(fishing.name, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
-                        AnnotationMark(fishing: fishing)
+                    Annotation(water.waterName, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
+                        Image(.annotationEmpty)
                     }
                 }
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local) {
-                        newLocation = Water(waterName: fishing.water.waterName, latitude: coordinate.latitude, longitude: coordinate.longitude)
+                        newLocation = Water(waterName: water.waterName, latitude: coordinate.latitude, longitude: coordinate.longitude)
                         let newRegion = MKCoordinateRegion(center: coordinate, span: mapSpan)
                         withAnimation(.smooth) {
                             cameraPosition = .region(newRegion)
@@ -54,14 +51,13 @@ struct EditLocationMapView: View {
                 }
             }
             .onAppear(perform: {
-                cameraPosition = .updateCameraPosition(fishing: fishing)
+                cameraPosition = .updateCameraPosition(water: water)
                 locationManager.requestWhenInUseAuthorization()
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Добавить") {
                         water = newLocation
-                        previewCamera = cameraPosition
                         dismiss()
                     }
                 }
@@ -71,7 +67,7 @@ struct EditLocationMapView: View {
                     }
                 }
             }
-            .navigationTitle(fishing.name)
+            .navigationTitle(water.waterName)
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -88,5 +84,5 @@ struct EditLocationMapView: View {
 }
 
 #Preview {
-    EditLocationMapView(fishing: .constant(Fishing.example), water: .constant(Fishing.example.water), previewCamera: .constant(.automatic))
+    EditLocationMapView(water: .constant(Fishing.example.water))
 }

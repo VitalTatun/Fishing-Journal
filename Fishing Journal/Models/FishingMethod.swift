@@ -26,7 +26,7 @@ enum FishingMethod: String, CaseIterable, Identifiable {
         case .flyFishing:
             return "Нахлыст"
         case .none:
-            return "Не выбрано"
+            return "Не выбран"
         }
     }
     var icon: String {

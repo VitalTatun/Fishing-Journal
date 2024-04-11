@@ -41,7 +41,7 @@ struct EditFishingView: View {
                     EF_ImagesView(fishing: $fishing)
                     EF_FishView(fish: $fish, showFishView: $showFishView)
                     EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
-                    EF_WaterInfo(fishing: $fishing, water: $water, showMapSheet: $showMapSheet, cameraPosition: $cameraPosition)
+                    EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
                     EF_Comment(comment: $comment, showCommentView: $showCommentView)
                 }
                 .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
@@ -74,7 +74,7 @@ struct EditFishingView: View {
             .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showMapSheet, content: {
-            EditLocationMapView(fishing: $fishing, water: $water, previewCamera: $cameraPosition)
+            EditLocationMapView(water: $water)
                 .interactiveDismissDisabled()
         })
         .sheet(isPresented: $showCommentView, content: {
@@ -115,8 +115,17 @@ struct EditFishingView: View {
 extension MapCameraPosition {
     static func updateCameraPosition(fishing: Fishing) -> MapCameraPosition {
         let location = fishing.water
-        let locationSpan = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
-        let locationRegion = MKCoordinateRegion(center: .init(latitude: location.latitude, longitude: location.longitude), span: locationSpan)
+        let coordinates = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let locationRegion =
+        MKCoordinateRegion(center: coordinates, latitudinalMeters: 3000, longitudinalMeters: 3000)
+        return self.region(locationRegion)
+    }
+    
+    static func updateCameraPosition(water: Water) -> MapCameraPosition {
+        let location = water
+        let coordinates = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let locationRegion =
+        MKCoordinateRegion(center: coordinates, latitudinalMeters: 3000, longitudinalMeters: 3000)
         return self.region(locationRegion)
     }
 }

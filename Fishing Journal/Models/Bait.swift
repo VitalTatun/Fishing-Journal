@@ -26,7 +26,7 @@ enum Bait:String, CaseIterable, Identifiable {
         case .baitfish:
             return "Живец"
         case .none:
-            return "Не выбрано"
+            return "Не выбрана"
         }
     }
     var name: String {

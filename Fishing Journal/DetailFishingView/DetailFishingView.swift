@@ -26,7 +26,7 @@ struct DetailFishingView: View {
                     Header(fishing: fishing)
                     FishCaught(fish: $fishing.fish)
                     FishingInfo(fishing: fishing)
-                    WaterInfo(fishing: fishing, showOnMap: $showOnMap)
+                    WaterInfo(water: $fishing.water, showOnMap: $showOnMap)
                     Comment(fishing: fishing)
                 }
                 .padding(10)

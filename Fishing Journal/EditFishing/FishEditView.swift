@@ -12,13 +12,15 @@ struct FishEditView: View {
     @Environment(\.dismiss) var dismiss
 
     @Binding var fish: [Fish]
-    @State private var fishToEdit: [Fish] = []
-    @State private var textFieldText: String = ""
+    @State private var fishToEditList: [Fish] = []
+    @State private var newFish: String = ""
     @State private var showAlert: Bool = false
+    
+    private let alertText: String = "Эта рыба уже есть в списке. Просто отредактируйте количество."
     
     var body: some View {
         List {
-            ForEach($fishToEdit, id: \.id) { $fish in
+            ForEach($fishToEditList, id: \.id) { $fish in
                 HStack {
                     Text("\(fish.name)")
                     Spacer()
@@ -27,36 +29,35 @@ struct FishEditView: View {
                 .padding(.vertical, 0)
             }
             .onDelete { indexSet in
-                fishToEdit.remove(atOffsets: indexSet)
+                fishToEditList.remove(atOffsets: indexSet)
             }
             HStack {
-                TextField("Название", text: $textFieldText)
+                TextField("Название", text: $newFish)
                 Button(action: {
-                    if fishToEdit.contains(where: { $0.name == textFieldText }) {
+                    if fishToEditList.contains(where: { $0.name == newFish }) {
                         showAlert = true
                     } else {
                         withAnimation(.easeIn) {
-                            addNewFish(text: textFieldText)
+                            addNewFish(fish: newFish)
                         }
                     }
                 }, label: {
                     Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 30))
                 })
                 .buttonStyle(.borderless)
-                .disabled(textFieldText.isEmpty)
+                .disabled(newFish.isEmpty)
             }
             
         }
         .onAppear {
-            fishToEdit = fish
+            fishToEditList = fish
         }
         .alert("Упс", isPresented: $showAlert, actions: {
             Button("Ок") {
-                    textFieldText = ""
+                    newFish = ""
             }
         }, message: {
-            Text("Эта рыба уже есть в списке. Просто отредактируйте количество.")
+            Text(alertText)
         })
         .listStyle(.automatic)
         .navigationTitle("Пойманная рыба")
@@ -64,10 +65,10 @@ struct FishEditView: View {
         .toolbar(content: {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Готово") {
-                    fish = fishToEdit
+                    fish = fishToEditList
                     dismiss()
                 }
-                .disabled(fishToEdit.isEmpty)
+                .disabled(fishToEditList.isEmpty)
             }
             ToolbarItem(placement: .topBarLeading) {
                 Button("Отмена") {
@@ -77,10 +78,10 @@ struct FishEditView: View {
         })
     }
     
-    private func addNewFish(text: String) {
-        let newFish = Fish(name: text, count: 1)
-        fishToEdit.append(newFish)
-        self.textFieldText = ""
+    private func addNewFish(fish: String) {
+        let newFish = Fish(name: fish, count: 1)
+        fishToEditList.append(newFish)
+        self.newFish = ""
     }
 }
 
