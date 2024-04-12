@@ -22,6 +22,10 @@ struct EF_WaterInfo: View {
     private let mapFooterText: String = "Необязательно указывать точное место, можно просто указать водоем."
     private let format = "%.5f"
     
+    private var coordinates: CLLocationCoordinate2D {
+        return .init(latitude: water.latitude, longitude: water.longitude)
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             EF_Section(title: sectionTitle, secondary: sectionSecondary)
@@ -54,35 +58,36 @@ struct EF_WaterInfo: View {
                     showMapSheet = true
                 } label: {
                     Image(systemName: "plus")
-                        .font(.title3)
+                        .imageScale(.large)
                         .fontWeight(.medium)
                         .foregroundColor(.primaryDeepBlue)
                 }
                 .frame(height: 34)
             }
             if water.latitude != .zero {
-                VStack(alignment: .leading, spacing: 5) {
-                    let coordinates: CLLocationCoordinate2D = .init(latitude: water.latitude, longitude: water.longitude)
-                    Map(bounds: .bounds(water: water)) {
-                        Annotation(water.waterName, coordinate: coordinates, anchor: .bottom) {
-                                        Image(.annotationEmpty)
-                        }
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .frame(height: 157)
-                    .disabled(true)
-                    Text(mapFooterText)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
+                mapView()
             }
         }
         .padding(10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
-    func coord2String(coordinates: CLLocationCoordinate2D) -> String {
-        return String(coordinates.latitude) + " " + String(coordinates.longitude)
+    
+    @ViewBuilder
+    func mapView() -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Map(bounds: .bounds(water: water)) {
+                Annotation(water.waterName, coordinate: coordinates, anchor: .bottom) {
+                                Image(.annotationEmpty)
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .frame(height: 157)
+            .disabled(true)
+            Text(mapFooterText)
+                .font(.footnote)
+                .foregroundColor(.secondary)
+        }
     }
 }
 

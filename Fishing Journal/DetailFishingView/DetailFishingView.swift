@@ -55,7 +55,7 @@ struct DetailFishingView: View {
             }
         }
         .sheet(isPresented: $showOnMap, content: {
-            LocationMapView(fishing: $fishing, waterCoordinates: $fishing.water)
+            LocationMapView(water: $fishing.water)
         })
     }
 }

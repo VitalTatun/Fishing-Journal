@@ -13,25 +13,23 @@ struct LocationMapView: View {
     @Environment(\.dismiss) var dismiss
     
     var region = MKCoordinateRegion()
-    @Binding var fishing: Fishing
-    @Binding var waterCoordinates: Water
+    @Binding var water: Water
     
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var mapSpan: MKCoordinateSpan = .init()
     @State private var newLocation: Water = .init(waterName: "", latitude: 0, longitude: 0)
     
-    init(fishing: Binding<Fishing>, waterCoordinates: Binding<Water>) {
-        self._fishing = fishing
-        self._newLocation = State(initialValue: fishing.wrappedValue.water)
-        self._waterCoordinates = waterCoordinates
+    init(water: Binding<Water>) {
+        self._water = water
+        self._newLocation = State(initialValue: water.wrappedValue)
     }
     
     var body: some View {
         NavigationStack {
             MapReader { proxy in
                 Map(position: $cameraPosition) {
-                    Annotation(fishing.name, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
-                        AnnotationMark(fishing: fishing)
+                    Annotation(water.waterName, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
+                        Image(.annotationEmpty)
                     }
                 }
                 .onMapCameraChange(frequency: .continuous) { action in
@@ -39,10 +37,8 @@ struct LocationMapView: View {
                 }
             }
             .onAppear(perform: {
-                let location = fishing.water
-                let locationSpan = MKCoordinateSpan(latitudeDelta: 0.07, longitudeDelta: 0.07)
-                let locationRegion = MKCoordinateRegion(center: .init(latitude: location.latitude, longitude: location.longitude), span: locationSpan)
-                cameraPosition = .region(locationRegion)
+                cameraPosition = .updateCameraPosition(water: water)
+
             })
             .toolbar(content: {
                 ToolbarItem(placement: .topBarLeading) {
@@ -51,7 +47,7 @@ struct LocationMapView: View {
                     }
                 }
             })
-            .navigationTitle(fishing.name)
+            .navigationTitle(water.waterName)
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -59,5 +55,5 @@ struct LocationMapView: View {
 }
 
 #Preview {
-    LocationMapView(fishing: .constant(Fishing.example), waterCoordinates: .constant(Fishing.example.water))
+    LocationMapView(water: .constant(Fishing.example.water))
 }

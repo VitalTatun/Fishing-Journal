@@ -308,6 +308,21 @@
 			path = EF_Subviews;
 			sourceTree = "<group>";
 		};
+		96858F8A2BC93A0100E8669A /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				961401802B810D7C00FB5331 /* FishingPhotos.swift */,
+				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
+				96E1C5DB2B20804700E88C7D /* Header.swift */,
+				961401842B879DB200FB5331 /* FishCaught.swift */,
+				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
+				96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */,
+				96E1C5E12B20806600E88C7D /* Comment.swift */,
+				96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		96B2A8C32B7B536E00F78CBC /* EditFishing */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,15 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				960919A22B015B4400F12CA9 /* DetailFishingView.swift */,
-				961401802B810D7C00FB5331 /* FishingPhotos.swift */,
-				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
-				96E1C5DB2B20804700E88C7D /* Header.swift */,
-				961401842B879DB200FB5331 /* FishCaught.swift */,
-				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
-				96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */,
 				966EA04E2BAD8DB300BD0EAD /* LocationMapView.swift */,
-				96E1C5E12B20806600E88C7D /* Comment.swift */,
-				96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */,
+				96858F8A2BC93A0100E8669A /* Subviews */,
 			);
 			path = DetailFishingView;
 			sourceTree = "<group>";
