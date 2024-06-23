@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    @StateObject var viewModel = LoginViewModel()
+
     @State private var name = ""
     @State private var email = ""
     @State private var password = ""
@@ -29,16 +31,18 @@ struct SignUpView: View {
                         AuthTextField(text: $name,
                                     title: "Name",
                                     placeholder: "Enter your name")
-                        AuthTextField(text: $email,
+                        AuthTextField(text: $viewModel.email,
                                     title: "Email",
                                     placeholder: "name@example.com")
-                        AuthSecuredTextField(text: $password,
+                        AuthSecuredTextField(text: $viewModel.password,
                                             isPasswordVisible: $isPasswordVisible,
                                             title: "Password",
                                             placeholder: "Enter your password")
                     }
                     Button {
-                        showMainView = true
+                        Task {
+                            try await viewModel.signUp()
+                        }
                     } label: {
                         Text("Sign Up")
                             .font(.system(.body, design: .default, weight: .medium))
@@ -47,7 +51,7 @@ struct SignUpView: View {
                     .padding(.top, 30)
                     .tint(.primaryDeepBlue)
                     .buttonStyle(.borderedProminent)
-                    .disabled(password.isEmpty)
+//                    .disabled(password.isEmpty)
                     .navigationDestination(isPresented: $showMainView) {
                         MainView()
                             .environmentObject(FishingData())

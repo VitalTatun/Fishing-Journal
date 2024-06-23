@@ -9,8 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject var viewModel = LoginViewModel()
     
     @State private var showMainView = false
     
@@ -27,10 +26,10 @@ struct LoginView: View {
                         .foregroundColor(.secondary)
                     Divider()
                         .padding(.bottom, 10)
-                    AuthTextField(text: $email,
+                    AuthTextField(text: $viewModel.email,
                               title: "Email",
                               placeholder: "name@example.com")
-                    AuthSecuredTextField(text: $password,
+                    AuthSecuredTextField(text: $viewModel.password,
                                      isPasswordVisible: $isPasswordVisible,
                                      title: "Password",
                                      placeholder: "Enter your password")
@@ -42,17 +41,22 @@ struct LoginView: View {
                     })
                     
                     Button(action: {
-                        showMainView = true
+                        Task {
+                            try await viewModel.signIn()
+                        }
+//                        showMainView = true
                     }, label: {
                         Text("Login")
                             .font(.system(.body, design: .default, weight: .medium))
-                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
                     })
-                    .frame(width: .infinity, height: 56, alignment: .center)
                     .padding(.top, 30)
-                    .disabled(!Validator.validateEmail(email))
+//                    .disabled(!Validator.validateEmail(email))
+                    
+                    
                     .navigationDestination(isPresented: $showMainView) {
-                        MainView()
+                        TabBarView()
                             .environmentObject(FishingData())
                             .navigationBarBackButtonHidden()
                     }

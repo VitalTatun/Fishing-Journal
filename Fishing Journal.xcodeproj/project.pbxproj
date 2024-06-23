@@ -51,8 +51,15 @@
 		96B2A8C92B7CA39900F78CBC /* EF_FishingTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */; };
 		96B7D7D82B99952B00313754 /* FishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D72B99952B00313754 /* FishItem.swift */; };
 		96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D92B99968D00313754 /* EF_FishView.swift */; };
+		96BDFE5E2BF3DF7B00538F17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */; };
 		96C6D6042BAEC1C4009EC16A /* AddFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */; };
 		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
+		96DB829E2BF380F8003E47E0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB829D2BF380F8003E47E0 /* AuthService.swift */; };
+		96DB82A02BF383CF003E47E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */; };
+		96DB82A32BF3863D003E47E0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A22BF3863D003E47E0 /* FirebaseAuth */; };
+		96DB82A52BF3863D003E47E0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A42BF3863D003E47E0 /* FirebaseFirestore */; };
+		96DB82A72BF3863D003E47E0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */; };
+		96DB82A92BF3863D003E47E0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A82BF3863D003E47E0 /* FirebaseStorage */; };
 		96DF7FCC2BBDA02700A6EE33 /* EF_Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */; };
 		96DF7FCE2BBDCB0A00A6EE33 /* EF_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */; };
 		96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */; };
@@ -109,8 +116,11 @@
 		96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingTypePicker.swift; sourceTree = "<group>"; };
 		96B7D7D72B99952B00313754 /* FishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishItem.swift; sourceTree = "<group>"; };
 		96B7D7D92B99968D00313754 /* EF_FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishView.swift; sourceTree = "<group>"; };
+		96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFishingView.swift; sourceTree = "<group>"; };
 		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		96DB829D2BF380F8003E47E0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Section.swift; sourceTree = "<group>"; };
 		96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Comment.swift; sourceTree = "<group>"; };
 		96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
@@ -126,6 +136,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DB82A32BF3863D003E47E0 /* FirebaseAuth in Frameworks */,
+				96DB82A92BF3863D003E47E0 /* FirebaseStorage in Frameworks */,
+				96DB82A52BF3863D003E47E0 /* FirebaseFirestore in Frameworks */,
+				96DB82A72BF3863D003E47E0 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,9 +149,11 @@
 		960267C92B45B2CF009CBC03 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
+				96FDD8562BF379970080791B /* AuthService */,
 				960267D42B45D2AD009CBC03 /* Components */,
 				960267CA2B45B311009CBC03 /* Authentication.swift */,
 				960267CC2B45CBAC009CBC03 /* LoginView.swift */,
+				96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */,
 				960267CE2B45CE15009CBC03 /* SignUpView.swift */,
 			);
 			path = Authentification;
@@ -203,6 +219,7 @@
 				962F59112B0B7E73001678A0 /* TabBar */,
 				960267D02B45D037009CBC03 /* Common */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
+				96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -345,6 +362,14 @@
 			path = DetailFishingView;
 			sourceTree = "<group>";
 		};
+		96FDD8562BF379970080791B /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				96DB829D2BF380F8003E47E0 /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,6 +386,12 @@
 			dependencies = (
 			);
 			name = "Fishing Journal";
+			packageProductDependencies = (
+				96DB82A22BF3863D003E47E0 /* FirebaseAuth */,
+				96DB82A42BF3863D003E47E0 /* FirebaseFirestore */,
+				96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */,
+				96DB82A82BF3863D003E47E0 /* FirebaseStorage */,
+			);
 			productName = "Fishing Journal";
 			productReference = 96121CEB2B00B9D000CC7AAF /* Fishing Journal.app */;
 			productType = "com.apple.product-type.application";
@@ -389,6 +420,9 @@
 				Base,
 			);
 			mainGroup = 96121CE22B00B9D000CC7AAF;
+			packageReferences = (
+				96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 96121CEC2B00B9D000CC7AAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -405,6 +439,7 @@
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
+				96DB82A02BF383CF003E47E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +469,8 @@
 				960267CB2B45B311009CBC03 /* Authentication.swift in Sources */,
 				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
 				9614017B2B7D118C00FB5331 /* FishEditView.swift in Sources */,
+				96BDFE5E2BF3DF7B00538F17 /* LoginViewModel.swift in Sources */,
+				96DB829E2BF380F8003E47E0 /* AuthService.swift in Sources */,
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
 				96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */,
 				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
@@ -684,6 +721,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96DB82A22BF3863D003E47E0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		96DB82A42BF3863D003E47E0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		96DB82A82BF3863D003E47E0 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96121CE32B00B9D000CC7AAF /* Project object */;
 }
