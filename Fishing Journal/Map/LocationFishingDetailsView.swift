@@ -33,6 +33,7 @@ struct LocationFishingDetailsView: View {
                                 Text(fishing.water.waterName)
                                     .font(.system(.body, design: .rounded))
                                     .foregroundColor(.black)
+                                    .lineLimit(1)
                                 Text(String(format: format, fishing.water.latitude) + " - " + String(format: format, fishing.water.longitude))
                                     .font(.footnote)
                                     .foregroundColor(.primaryDeepBlue)
@@ -42,15 +43,7 @@ struct LocationFishingDetailsView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
                             }
                             Spacer()
-                            Button {
-                                let pasteboard = UIPasteboard.general
-                                let coordinates = String(fishing.water.latitude) + " " + String(fishing.water.longitude)
-                                pasteboard.string = coordinates
-                            } label: {
-                                Image(systemName: "square.on.square")
-                                    .foregroundStyle(.primaryDeepBlue)
-                                    .frame(width: 34, height: 34, alignment: .center)
-                            }
+                            CopyButton(water: $fishing.water)
                         }
                     }
                     .padding(10)

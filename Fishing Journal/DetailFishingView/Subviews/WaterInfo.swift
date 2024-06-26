@@ -24,6 +24,7 @@ struct WaterInfo: View {
                     Text(water.waterName)
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(.black)
+                        .lineLimit(1)
                     Text(String(format: "%.5f", water.latitude) + " • " + String(format: "%.5f", water.longitude))
                         .font(.footnote)
                         .foregroundColor(.primaryDeepBlue)
@@ -33,17 +34,7 @@ struct WaterInfo: View {
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
                 Spacer()
-                Button {
-                    let pasteboard = UIPasteboard.general
-                    let coordinates = String(format: "%.5f", water.latitude) + " " + String(format: "%.5f", water.longitude)
-                    pasteboard.string = coordinates
-                } label: {
-                    Image(systemName: "square.on.square")
-                        .foregroundStyle(.primaryDeepBlue)
-                        .frame(width: 34, height: 34, alignment: .center)
-                        .background(.lightBlue)
-                        .clipShape(Circle())
-                }
+                CopyButton(water: $water)
             }
             Map(bounds: .bounds(water: water)) {
                 Annotation(water.waterName, coordinate: coordinates, anchor: .bottom) {
