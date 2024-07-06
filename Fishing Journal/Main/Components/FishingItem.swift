@@ -15,7 +15,7 @@ struct FishingItem: View {
         VStack(alignment: .leading, spacing: 5) {
             if !fishingData.photo.isEmpty {
                 if let photo = fishingData.photo[0] {
-                    Image(photo)
+                    Image(uiImage: photo)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 157)

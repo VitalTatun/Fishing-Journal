@@ -11,27 +11,27 @@ struct FishingPhotos: View {
     
     let fishing: Fishing
     
-    @Binding var selectedImage: String?
+    @Binding var selectedImage: UIImage?
     @Binding var isPresentingPhotoView: Bool
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             HStack(spacing: 5) {
                 ForEach(fishing.photo, id: \.self) { item in
-                    if let item {
-                        Image(item)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width - 50,
-                                   height: 197,
-                                   alignment: .leading)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .onTapGesture {
-                                selectedImage = item
-                                isPresentingPhotoView = true
-                            }
+                        if let item {
+                            Image(uiImage: item)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width - 50,
+                                       height: 197,
+                                       alignment: .leading)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .onTapGesture {
+                                    selectedImage = item
+                                    isPresentingPhotoView = true
+                                }
+                        }
                     }
-                }
             }
         })
     }

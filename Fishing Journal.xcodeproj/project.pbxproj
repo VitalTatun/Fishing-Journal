@@ -164,7 +164,6 @@
 		960267D02B45D037009CBC03 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				96B2A8C32B7B536E00F78CBC /* EditFishing */,
 				960267D12B45D046009CBC03 /* UI */,
 				9614017C2B7D11EA00FB5331 /* CustomStepper.swift */,
 				96B7D7D72B99952B00313754 /* FishItem.swift */,
@@ -215,6 +214,7 @@
 				96121CFC2B00DBEE00CC7AAF /* Main */,
 				96585A382BB482E400A0B5F2 /* NewFishing */,
 				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
+				96B2A8C32B7B536E00F78CBC /* EditFishing */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
 				96121CFF2B00DC0F00CC7AAF /* Profile */,
@@ -347,8 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
-				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
 				9614017A2B7D118C00FB5331 /* FishEditView.swift */,
+				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
 				96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */,
 				967994122B8F30FD008CE318 /* EF_Subviews */,
 			);

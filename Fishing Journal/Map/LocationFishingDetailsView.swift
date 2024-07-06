@@ -10,7 +10,7 @@ import MapKit
 
 struct LocationFishingDetailsView: View {
     
-    @State private var selectedImage: String?
+    @State private var selectedImage: UIImage?
     @State private var showImageView = false
     @State private var favorite = false
     

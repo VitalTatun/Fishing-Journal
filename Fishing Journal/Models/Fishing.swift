@@ -13,7 +13,7 @@ struct Fishing: Identifiable {
     var type: FishingType
     var name: String
     var water: Water
-    var photo: [String?]
+    var photo: [UIImage?]
     var fishingTime: Date
     var weight: Double
     var fish: [Fish]
@@ -22,7 +22,7 @@ struct Fishing: Identifiable {
     var comment: String
     let user: User
     
-    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [String?], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User) {
+    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User) {
         self.id = id
         self.type = type
         self.name = name
@@ -46,7 +46,7 @@ struct Fishing: Identifiable {
         type: .fishingLog,
         name: "На Карася",
         water: Water(waterName: "Минское Море", latitude: 53.95644, longitude: 27.36064),
-        photo: ["6", "7", "8"],
+        photo: [UIImage(resource: ._6), UIImage(resource: ._7), UIImage(resource: ._8)],
         fishingTime: .now,
         fish: [.init(name: "Карась", count: 2)],
         fishingMethod: .bobber,

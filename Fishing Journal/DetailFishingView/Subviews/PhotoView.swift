@@ -20,7 +20,7 @@ struct PhotoView: View {
     
     let fishing: Fishing
     
-    @Binding var selectedImage: String?
+    @Binding var selectedImage: UIImage?
     
     var body: some View {
         NavigationStack {
@@ -28,7 +28,7 @@ struct PhotoView: View {
                     VStack {
                         ScrollView([.horizontal, .vertical], showsIndicators: false) {
                             if let photo = selectedImage {
-                                Image(photo)
+                                Image(uiImage: photo)
                                     .resizable()
                                     .scaledToFit()
                                     .scaleEffect(max(previousZoomScale, 1))
@@ -62,7 +62,7 @@ struct PhotoView: View {
                             HStack(alignment: .center, spacing: 5) {
                                 ForEach(fishing.photo, id: \.self) { image in
                                     if let photo = image {
-                                        Image(photo)
+                                        Image(uiImage: photo)
                                             .resizable()
                                             .scaledToFit()
                                             .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: selectedImage == photo ? 60 : 40)
@@ -144,5 +144,5 @@ extension PhotoView {
 }
 
 #Preview {
-    PhotoView(fishing: Fishing.example, selectedImage: .constant("7"))
+    PhotoView(fishing: Fishing.example, selectedImage: .constant(UIImage(resource: ._7)))
 }

@@ -12,7 +12,7 @@ struct DetailFishingView: View {
     
     @Binding var fishing: Fishing
 
-    @State private var selectedImage: String?
+    @State private var selectedImage: UIImage?
     @State private var showEditView = false
     @State private var showPhotoView = false
     @State private var showOnMap = false

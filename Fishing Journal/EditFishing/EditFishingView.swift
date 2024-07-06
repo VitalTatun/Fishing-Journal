@@ -12,7 +12,7 @@ import MapKit
 struct EditFishingView: View {
     
     @EnvironmentObject var fishingData: FishingData
-
+    
     @Binding var fishing: Fishing
     @Binding var showEditView: Bool
     
@@ -32,41 +32,46 @@ struct EditFishingView: View {
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var comment: String = ""
     
+    //Edit Images States
+    @State private var images: [UIImage?] = []
+    @State private var selectedItem: UIImage?
+    
     let shadowColor = Color(white: 0, opacity: 0.1)
     
     var body: some View {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 10) {
-                    EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
-                    EF_ImagesView(fishing: $fishing)
-                    EF_FishView(fish: $fish, showFishView: $showFishView)
-                    EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
-                    EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
-                    EF_Comment(comment: $comment, showCommentView: $showCommentView)
-                }
-                .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
-                .padding(10)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 10) {
+                EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
+                EF_ImagesView(images: $images, selectedItem: $selectedItem)
+                EF_FishView(fish: $fish, showFishView: $showFishView)
+                EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
+                EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
+                EF_Comment(comment: $comment, showCommentView: $showCommentView)
             }
-            .interactiveDismissDisabled()
-            .onAppear(perform: {
-                setInitialFishingData()
-            })
-            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(fishing.name)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена") {
-                        showEditView = false
-                    }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Готово") {
-                        updateFishingData()
-                        showEditView = false
-                    }
+            .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
+            .padding(10)
+        }
+        .interactiveDismissDisabled()
+        .onAppear(perform: {
+            setInitialFishingData()
+        })
+        .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(fishing.name)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Отмена") {
+                    showEditView = false
                 }
             }
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Готово") {
+                    updateFishingData()
+                    showEditView = false
+                }
+                .disabled(fish.isEmpty)
+            }
+        }
         .sheet(isPresented: $showFishView) {
             NavigationStack {
                 FishEditView(fish: $fish)
@@ -96,6 +101,7 @@ struct EditFishingView: View {
         water = fishing.water
         cameraPosition = .updateCameraPosition(fishing: fishing)
         comment = fishing.comment
+        images = fishing.photo
     }
     private func updateFishingData() {
         fishing.name = fishingName
@@ -107,9 +113,23 @@ struct EditFishingView: View {
         fishing.weight = fishWeight
         fishing.water = water
         fishing.comment = comment
+        fishing.photo = images
         
         fishingData.updateFishing(fishing: fishing)
     }
+    
+    
+    
+    func validation(type: FishingType) -> Bool {
+        
+        
+        if fishingName.isEmpty && fish.isEmpty {
+            return true
+        }
+        
+        return false
+    }
+    
 }
 
 extension MapCameraPosition {
