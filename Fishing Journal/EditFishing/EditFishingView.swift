@@ -36,7 +36,7 @@ struct EditFishingView: View {
     @State private var images: [UIImage?] = []
     @State private var selectedItem: UIImage?
     
-    let shadowColor = Color(white: 0, opacity: 0.1)
+    let shadowColor = Color(white: 0, opacity: 0.05)
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -48,14 +48,14 @@ struct EditFishingView: View {
                 EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $showCommentView)
             }
-            .shadow(color: shadowColor, radius: 4, x: 0, y: 2)
+            .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
             .padding(10)
         }
         .interactiveDismissDisabled()
         .onAppear(perform: {
             setInitialFishingData()
         })
-        .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+        .background(Color(red: 252/255, green: 252/255, blue: 252/255))
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(fishing.name)
         .toolbar {
@@ -118,15 +118,10 @@ struct EditFishingView: View {
         fishingData.updateFishing(fishing: fishing)
     }
     
-    
-    
     func validation(type: FishingType) -> Bool {
-        
-        
         if fishingName.isEmpty && fish.isEmpty {
             return true
         }
-        
         return false
     }
     

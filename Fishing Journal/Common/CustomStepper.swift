@@ -10,28 +10,33 @@ import SwiftUI
 struct CustomStepper: View {
     
     @Binding var number: Int
-    let maxnumber = 20
+    @Binding var fishList: [Fish]
+    @Binding var fish: Fish
     
+    let maxnumber = 20
+        
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
             Button(action: {
-                decrease()
+                deleteItem(fish: fish)
             }, label: {
-                Image(systemName: "minus")
+                Image(systemName: number <= 1 ? "trash" : "minus")
+                    .foregroundStyle(number <= 1 ? .red : .primaryDeepBlue)
                     .font(.body)
                     .fontWeight(.medium)
                     .foregroundStyle(.primaryDeepBlue)
             })
-            .disabled(number == 1)
+            .contentTransition(.symbolEffect(.replace.offUp))
             .buttonStyle(.borderless)
             
             Text("\(number)")
-                .frame(width: 50, height: 36, alignment: .center)
+                .frame(width: 46, height: 36, alignment: .center)
                 .font(.body)
-                .fontWeight(.medium)
+                .fontWeight(.semibold)
                 .contentTransition(.numericText(value: Double(number)))
                 .animation(.snappy, value: number)
                 .foregroundStyle(.primaryDeepBlue)
+                .background(.lightBlue)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
             Button(action: {
                 increment()
@@ -46,25 +51,24 @@ struct CustomStepper: View {
     }
     
     private func decrease() {
-        if number <= 0 {
-            
-        }
-        else {
-            number -= 1
-        }
+        guard number >= 0 else { return }
+        number -= 1
     }
     
     private func increment() {
-        if number >= maxnumber {
-            number = maxnumber
-        }
-        else {
-            number += 1
-        }
+        guard number >= maxnumber else { return number += 1 }
+        number = maxnumber
     }
     
+    private func deleteItem(fish: Fish) {
+        guard number <= 1 else { return decrease() }
+        withAnimation {
+            if let index = fishList.firstIndex(where: { $0.id == fish.id }) {
+                fishList.remove(at: index)
+            }
+        }
+    }
 }
-
-#Preview {
-    CustomStepper(number: .constant(10))
-}
+#Preview(body: {
+    FishEditView(fish: .constant(Fishing.emptyFishing.fish))
+})

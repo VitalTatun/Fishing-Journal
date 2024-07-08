@@ -36,13 +36,11 @@ struct EF_ImagesView: View {
                         .background(.lightBlue)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
-                PhotosPicker(selection: $pickerItem, maxSelectionCount: maxCount - images.count, selectionBehavior: .ordered) {
-                    Image(systemName: "plus")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .foregroundColor(images.count >= maxCount ? .gray : .primaryDeepBlue)
+                CircleButton(icon: "plus") {
+                    showPickerPhoto.toggle()
                 }
                 .disabled(images.count >= maxCount)
+                .photosPicker(isPresented: $showPickerPhoto, selection: $pickerItem, maxSelectionCount: maxCount - images.count, selectionBehavior: .ordered, matching: .images, preferredItemEncoding: .automatic)
                 .onChange(of: pickerItem) { _, _ in
                         Task {
                             for item in pickerItem {
@@ -70,7 +68,7 @@ struct EF_ImagesView: View {
                                     .frame(width: 100,
                                            height: 100,
                                            alignment: .leading)
-                                    .clipShape(RoundedRectangle(cornerRadius: selectedItem == item ? 5 : 10))
+                                    .clipShape(RoundedRectangle(cornerRadius: selectedItem == photo ? 5 : 10))
                                     .scaleEffect(selectedItem == photo ? 0.88 : 1)
                                     .overlay {
                                         if selectedItem == photo {
@@ -123,6 +121,12 @@ struct EF_ImagesView: View {
         .padding(10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .inset(by: 0.5)
+                .stroke(lineWidth: 1)
+                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+        }
         
     }
 }

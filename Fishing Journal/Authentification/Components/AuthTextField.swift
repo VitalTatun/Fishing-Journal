@@ -22,8 +22,9 @@ struct AuthTextField: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .padding(.bottom, 5)
-            TextField(placeholder, text: $text)
-                .textFieldStyle(OvalTextFieldStyle())
+                TextField(placeholder, text: $text)
+                    .textFieldStyle(OvalTextFieldStyle())
+                
             Text(errorMessage)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .font(.footnote)

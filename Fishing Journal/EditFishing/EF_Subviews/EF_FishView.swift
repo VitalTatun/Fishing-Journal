@@ -22,15 +22,11 @@ struct EF_FishView: View {
             HStack(alignment: .center, spacing: 10) {
                 EF_Section(title: sectionTitle, secondary: sectionSecondary)
                 Spacer()
-                // Edit Caught Fish Button
-                Button {
+                CircleButton(icon: "plus") {
                     showFishView = true
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primaryDeepBlue)
+                    
                 }
+                
             }
             if !fish.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -44,6 +40,12 @@ struct EF_FishView: View {
         .padding(10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .inset(by: 0.5)
+                .stroke(lineWidth: 1)
+                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+        }
     }
 }
 

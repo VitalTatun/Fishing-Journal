@@ -69,6 +69,7 @@
 		96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */; };
 		96E1C5E22B20806600E88C7D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E12B20806600E88C7D /* Comment.swift */; };
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
+		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		96E1C5DF2B20805A00E88C7D /* WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInfo.swift; sourceTree = "<group>"; };
 		96E1C5E12B20806600E88C7D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
+		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		960267D12B45D046009CBC03 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				96E823462C3BCFC20050B312 /* CircleButton.swift */,
 				960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */,
 			);
 			path = UI;
@@ -488,6 +491,7 @@
 				961C00222C2BEE22008BD094 /* CopyButton.swift in Sources */,
 				96121D0F2B011D3600CC7AAF /* Fish.swift in Sources */,
 				962F59192B0B8023001678A0 /* FeedView.swift in Sources */,
+				96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */,
 				960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */,
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
 				9676BF942B87DD810070A4C7 /* AnnotationMark.swift in Sources */,

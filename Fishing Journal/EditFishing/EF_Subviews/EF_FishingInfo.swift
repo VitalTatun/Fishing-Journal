@@ -74,6 +74,12 @@ struct EF_FishingInfo: View {
         .padding(.horizontal, 10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .inset(by: 0.5)
+                .stroke(lineWidth: 1)
+                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+        }
     }
 }
 

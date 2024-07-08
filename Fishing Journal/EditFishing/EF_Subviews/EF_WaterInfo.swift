@@ -25,6 +25,13 @@ struct EF_WaterInfo: View {
     private var coordinates: CLLocationCoordinate2D {
         return .init(latitude: water.latitude, longitude: water.longitude)
     }
+    private var icon: String {
+        if water.latitude != .zero {
+            return "square.and.pencil"
+        } else {
+            return "plus"
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -54,15 +61,10 @@ struct EF_WaterInfo: View {
                     }
                 }
                 Spacer()
-                Button {
+                CircleButton(icon: icon) {
                     showMapSheet = true
-                } label: {
-                    Image(systemName: "plus")
-                        .imageScale(.large)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primaryDeepBlue)
+
                 }
-                .frame(height: 34)
             }
             if water.latitude != .zero {
                 mapView()
@@ -71,6 +73,12 @@ struct EF_WaterInfo: View {
         .padding(10)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .inset(by: 0.5)
+                .stroke(lineWidth: 1)
+                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+        }
     }
     
     @ViewBuilder

@@ -13,7 +13,7 @@ class FishingData: ObservableObject {
             type: .haul,
             name: "На Карася",
             water: Water(waterName: "Минское Море", latitude: 53.95644, longitude: 27.36064),
-            photo: [nil],
+            photo: [],
             fishingTime: .now,
             weight: 3.2,
             fish: [Fish(name: "Карась", count: 5), Fish(name: "Окунь", count: 1)],
