@@ -14,24 +14,24 @@ struct MainView: View {
     @State private var showDetailView = false
     @State private var showNewFishingView = false
     
+    let edgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+    
     var body: some View {
         NavigationStack {
             List {
                 ForEach($fishingData.mockFishings) { $fishing in
                     ZStack {
-                        FishingItem(fishingData: fishing)
+                        FishingItem(fishingData: _fishingData, fishing: $fishing)
                         NavigationLink(destination: DetailFishingView(fishing: $fishing)) {
                             EmptyView()
                         }
                         .opacity(0)
                     }
+                    .listRowInsets(edgeInsets)
                     .listRowBackground(RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .padding(2))
                 }
-                .onDelete(perform: { indexSet in
-                    fishingData.delete(indexSet)
-                })
             }
             .overlay {
                 if fishingData.mockFishings.isEmpty {

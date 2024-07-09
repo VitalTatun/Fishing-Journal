@@ -21,8 +21,9 @@ struct Fishing: Identifiable {
     var bait: Bait
     var comment: String
     let user: User
+    var fishingFromTheShore: Bool
     
-    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User) {
+    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User, shore: Bool = true) {
         self.id = id
         self.type = type
         self.name = name
@@ -35,10 +36,11 @@ struct Fishing: Identifiable {
         self.comment = comment
         self.user = user
         self.weight = weight
+        self.fishingFromTheShore = shore
     }
     
     func updateComplition() -> Fishing {
-        return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user)
+        return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user, shore: fishingFromTheShore)
     }
     
     
@@ -52,7 +54,8 @@ struct Fishing: Identifiable {
         fishingMethod: .bobber,
         bait: .worm,
         comment: "Для рыбалки замешал три пачки корма: Ультра Лещ, Река Биг Фиш и Карп Кукуруза, в последствии пожалел, что не остановился на двух пачках. Когда рыба стала плотно на точку и ловилась на каждом забросе, я просто ждал когда закончится корм. Фидербай как всегда рулит.",
-        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com")
+        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
+        shore: true
     )
     
     static var emptyFishing = Fishing(
@@ -67,5 +70,6 @@ struct Fishing: Identifiable {
         fish: [],
         fishingMethod: .none,
         bait: .none,
-        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"))
+        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
+        shore: false)
 }

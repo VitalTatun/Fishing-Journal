@@ -21,23 +21,37 @@ struct FishingInfo: View {
         formatter.timeStyle = .short
         return formatter
     }
-
+    var fishingDateAndTime: String {
+        let time = timeFormatter.string(from: fishing.fishingTime)
+        let date = dateFormatter.string(from: fishing.fishingTime)
+        return String("\(date)  •  \(time)")
+    }
+    private var fishingFromTheShore: String {
+        guard fishing.fishingFromTheShore else { return "Нет"}
+        return "Да"
+    }
+    let shadowColor = Color(white: 0, opacity: 0.05)
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            FishingInfoRow(name: "Fishing Method", element: fishing.fishingMethod.nameRussian)
-                Divider()
-            FishingInfoRow(name: "Bait", element: fishing.bait.nameRussian)
-                Divider()
-            FishingInfoRow(name: "Date", element: dateFormatter.string(from: fishing.fishingTime))
-                Divider()
-            FishingInfoRow(name: "Time", element: timeFormatter.string(from: fishing.fishingTime))
-                Divider()
-            FishingInfoRow(name: "Weight", element: fishing.weight > 0 ? String(format: "%.1f", fishing.weight) + " кг." : "Не указан")
+            FishingInfoRow(name: "Способ ловли", element: fishing.fishingMethod.nameRussian)
+            Divider()
+            FishingInfoRow(name: "Наживка", element: fishing.bait.nameRussian)
+            Divider()
+            FishingInfoRow(name: "Дата и время", element: fishingDateAndTime)
+            Divider()
+            FishingInfoRow(name: "Ловля с берега", element: fishingFromTheShore)
+            Divider()
+            FishingInfoRow(name: "Вес", element: fishing.weight > 0 ? String(format: "%.1f", fishing.weight) + " кг." : "Не указан")
         }
+        
         .padding(10)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 1)
+                .inset(by: 0.5)
                 .stroke(lineWidth: 1)
                 .foregroundColor(.black.opacity(0.18))
         }

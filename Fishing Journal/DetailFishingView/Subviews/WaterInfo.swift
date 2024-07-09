@@ -16,6 +16,8 @@ struct WaterInfo: View {
     var coordinates: CLLocationCoordinate2D {
         return .init(latitude: water.latitude, longitude: water.longitude)
     }
+    let shadowColor = Color(white: 0, opacity: 0.05)
+
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -66,9 +68,12 @@ struct WaterInfo: View {
             }
         }
         .padding(10)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 1)
+                .inset(by: 0.5)
                 .stroke(lineWidth: 1)
                 .foregroundColor(.black.opacity(0.18))
         }

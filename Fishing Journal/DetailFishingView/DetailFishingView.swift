@@ -18,6 +18,9 @@ struct DetailFishingView: View {
     @State private var showOnMap = false
     @State private var isFavorite = false
     
+    let shadowColor = Color(white: 0, opacity: 1)
+
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -29,23 +32,22 @@ struct DetailFishingView: View {
                     WaterInfo(water: $fishing.water, showOnMap: $showOnMap)
                     Comment(fishing: fishing)
                 }
+
                 .padding(10)
             }
             .navigationTitle(fishing.name)
             .navigationBarTitleDisplayMode(.inline)
             .scrollIndicators(.hidden)
         }
-        .fullScreenCover(isPresented: $showPhotoView, content: {
+        .fullScreenCover(isPresented: $showPhotoView) {
             NavigationStack {
                 PhotoView(fishing: fishing, selectedImage: $selectedImage)
             }
-        })
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
+                Button("Изменить") {
                     showEditView = true
-                } label: {
-                    Text("Изменить")
                 }
             }
         }
@@ -54,9 +56,9 @@ struct DetailFishingView: View {
                 EditFishingView(fishing: $fishing, showEditView: $showEditView)
             }
         }
-        .sheet(isPresented: $showOnMap, content: {
+        .sheet(isPresented: $showOnMap) {
             LocationMapView(water: $fishing.water)
-        })
+        }
     }
 }
 

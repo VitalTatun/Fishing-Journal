@@ -31,6 +31,7 @@ struct EditFishingView: View {
     @State private var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var comment: String = ""
+    @State private var fishingFromTheShore: Bool = true
     
     //Edit Images States
     @State private var images: [UIImage?] = []
@@ -44,7 +45,7 @@ struct EditFishingView: View {
                 EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
                 EF_FishView(fish: $fish, showFishView: $showFishView)
-                EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight)
+                EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight, shore: $fishingFromTheShore)
                 EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $showCommentView)
             }
@@ -102,6 +103,7 @@ struct EditFishingView: View {
         cameraPosition = .updateCameraPosition(fishing: fishing)
         comment = fishing.comment
         images = fishing.photo
+        fishingFromTheShore = fishing.fishingFromTheShore
     }
     private func updateFishingData() {
         fishing.name = fishingName
@@ -114,6 +116,7 @@ struct EditFishingView: View {
         fishing.water = water
         fishing.comment = comment
         fishing.photo = images
+        fishing.fishingFromTheShore = fishingFromTheShore
         
         fishingData.updateFishing(fishing: fishing)
     }

@@ -13,6 +13,7 @@ struct EF_FishingInfo: View {
     @Binding var fishingTime: Date
     @Binding var bait: Bait
     @Binding var fishWeight: Double
+    @Binding var shore: Bool
     
     var decimalFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -43,18 +44,14 @@ struct EF_FishingInfo: View {
             
             Divider()
             HStack(spacing: 0) {
-                DatePicker("Дата", selection: $fishingTime, in: ...Date(), displayedComponents: .date)
+                DatePicker("Дата и время", selection: $fishingTime, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
                     .foregroundColor(.secondary)
             }
             .frame(height: rowHeight)
-            
             Divider()
-            HStack(spacing: 0) {
-                DatePicker("Время", selection: $fishingTime, in: ...Date(), displayedComponents: .hourAndMinute)
-                    .foregroundColor(.secondary)
-            }
-            .frame(height: rowHeight)
-            
+            Toggle("Ловля с берега", isOn: $shore)
+                .foregroundColor(.secondary)
+                .frame(height: 50)
             Divider()
             HStack(spacing: 0) {
                 Text("Вес")
@@ -88,5 +85,5 @@ struct EF_FishingInfo: View {
         fishingMethod: .constant(Fishing.example.fishingMethod),
         fishingTime: .constant(Fishing.example.fishingTime),
         bait: .constant(Fishing.example.bait),
-        fishWeight: .constant(Fishing.example.weight))
+        fishWeight: .constant(Fishing.example.weight), shore: .constant(Fishing.example.fishingFromTheShore))
 }

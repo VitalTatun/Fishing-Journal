@@ -18,7 +18,7 @@ struct CustomStepper: View {
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
             Button(action: {
-                deleteItem(fish: fish)
+                deleteFish(fish: fish)
             }, label: {
                 Image(systemName: number <= 1 ? "trash" : "minus")
                     .foregroundStyle(number <= 1 ? .red : .primaryDeepBlue)
@@ -60,7 +60,7 @@ struct CustomStepper: View {
         number = maxnumber
     }
     
-    private func deleteItem(fish: Fish) {
+    private func deleteFish(fish: Fish) {
         guard number <= 1 else { return decrease() }
         withAnimation {
             if let index = fishList.firstIndex(where: { $0.id == fish.id }) {
