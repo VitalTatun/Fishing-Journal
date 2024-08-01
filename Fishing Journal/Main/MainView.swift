@@ -14,7 +14,7 @@ struct MainView: View {
     @State private var showDetailView = false
     @State private var showNewFishingView = false
     
-    let edgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+    let listEdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
     
     var body: some View {
         NavigationStack {
@@ -27,7 +27,7 @@ struct MainView: View {
                         }
                         .opacity(0)
                     }
-                    .listRowInsets(edgeInsets)
+                    .listRowInsets(listEdgeInsets)
                     .listRowBackground(RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .padding(2))
@@ -35,7 +35,7 @@ struct MainView: View {
             }
             .overlay {
                 if fishingData.mockFishings.isEmpty {
-                    ContentUnavailableView("Вы пока не сохраняли отчеты", image: "EmptyViewImagePlaceholder", description: Text("Возможно сегодня именно тот день, когда стоит съездить на рыбалку"))
+                    UnavailableView(showNewFishingView: $showNewFishingView)
                 }
             }
             .listStyle(.plain)
@@ -81,6 +81,10 @@ struct MainView: View {
 }
 
 #Preview {
+    MainView()
+        .environmentObject(FishingData())
+}
+#Preview("Empty List") {
     MainView()
         .environmentObject(FishingData())
 }

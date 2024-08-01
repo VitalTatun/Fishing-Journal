@@ -35,7 +35,6 @@ struct EF_FishView: View {
                     }
                 }
             }
-            
         }
         .padding(10)
         .background(.white)

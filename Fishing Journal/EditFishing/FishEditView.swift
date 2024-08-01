@@ -18,31 +18,26 @@ struct FishEditView: View {
     @State private var showAlert: Bool = false
     
     let shadowColor = Color(white: 0, opacity: 0.05)
-    
-    private let alertText: String = "Эта рыба уже есть в списке. Просто отредактируйте количество."
-    
+        
     var body: some View {
         ZStack(alignment: .top) {
             Color(red: 252/255, green: 252/255, blue: 252/255, opacity: 1).ignoresSafeArea()
-            FishList(fishToEditList: $fishToEditList, newFish: $newFish, showAlert: $showAlert)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(Color(.quaternaryLabel))
-                }
-                .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
-                .padding(10)
+            VStack(alignment: .leading){
+                FishList(fishToEditList: $fishToEditList)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(Color(.quaternaryLabel))
+                    }
+                    .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
+                    .padding(10)
+            }
+
         }
         .onAppear {
             fishToEditList = fish
         }
-        .alert("Упс", isPresented: $showAlert, actions: {
-            Button("Ок") {
-                newFish = ""
-            }
-        }, message: {
-            Text(alertText)
-        })
+
         .navigationTitle("Пойманная рыба")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
@@ -65,9 +60,14 @@ struct FishEditView: View {
 
 struct FishList: View {
     @Binding var fishToEditList: [Fish]
-    @Binding var newFish: String
-    @Binding var showAlert: Bool
     
+    @State private var showAlert: Bool = false
+    @State private var newFish: String = ""
+    
+    private var alertText: String {
+        return "\(newFish) уже есть в списке. Просто отредактируйте количество."
+
+    }
     var body: some View {
         VStack(alignment: .center, spacing: 5) {
             ForEach($fishToEditList, id: \.id) { $fish in
@@ -91,8 +91,15 @@ struct FishList: View {
         .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        
+        .alert("Упс", isPresented: $showAlert, actions: {
+            Button("Ок") {
+                newFish = ""
+            }
+        }, message: {
+            Text(alertText)
+        })
     }
+    
     
     private func checkTheSameFishInList() {
         if fishToEditList.contains(where: { $0.name == newFish }) {

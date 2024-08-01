@@ -13,7 +13,7 @@ struct CustomStepper: View {
     @Binding var fishList: [Fish]
     @Binding var fish: Fish
     
-    let maxnumber = 20
+    let maxNumber = 20
         
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
@@ -44,9 +44,10 @@ struct CustomStepper: View {
                 Image(systemName: "plus")
                     .font(.body)
                     .fontWeight(.medium)
-                    .foregroundStyle(.primaryDeepBlue)
+                    .tint(.primaryDeepBlue)
             })
             .buttonStyle(.borderless)
+            .disabled(number == maxNumber)
         }
     }
     
@@ -56,8 +57,8 @@ struct CustomStepper: View {
     }
     
     private func increment() {
-        guard number >= maxnumber else { return number += 1 }
-        number = maxnumber
+        guard number >= maxNumber else { return number += 1 }
+        number = maxNumber
     }
     
     private func deleteFish(fish: Fish) {
