@@ -32,7 +32,9 @@
 		961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401802B810D7C00FB5331 /* FishingPhotos.swift */; };
 		961401832B874F3B00FB5331 /* LocationFishingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401822B874F3A00FB5331 /* LocationFishingDetailsView.swift */; };
 		961401852B879DB200FB5331 /* FishCaught.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401842B879DB200FB5331 /* FishCaught.swift */; };
+		96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96156AE42CA553CB000C4D6D /* SelectedImageViewer.swift */; };
 		961C00222C2BEE22008BD094 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C00212C2BEE22008BD094 /* CopyButton.swift */; };
+		962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962751F02C6E73910054847A /* ProfileAuthenticationView.swift */; };
 		962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59122B0B7ECC001678A0 /* TabBarModel.swift */; };
 		962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59142B0B7F41001678A0 /* TabBarView.swift */; };
 		962F59172B0B7FD0001678A0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59162B0B7FD0001678A0 /* MapView.swift */; };
@@ -44,6 +46,7 @@
 		9679940D2B8F06AA008CE318 /* EF_FishingMethodPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */; };
 		9679940F2B8F070D008CE318 /* EF_BaitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679940E2B8F070D008CE318 /* EF_BaitPicker.swift */; };
 		967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967994102B8F077D008CE318 /* EF_WaterInfo.swift */; };
+		9691943C2C9D54C000D128D1 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691943B2C9D54C000D128D1 /* ImageView.swift */; };
 		96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */; };
 		96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A0A2B4A91E8008EDE6E /* Validator.swift */; };
 		96A838D12B9F4B89003A9183 /* EditLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */; };
@@ -101,7 +104,9 @@
 		961401802B810D7C00FB5331 /* FishingPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingPhotos.swift; sourceTree = "<group>"; };
 		961401822B874F3A00FB5331 /* LocationFishingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFishingDetailsView.swift; sourceTree = "<group>"; };
 		961401842B879DB200FB5331 /* FishCaught.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCaught.swift; sourceTree = "<group>"; };
+		96156AE42CA553CB000C4D6D /* SelectedImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageViewer.swift; sourceTree = "<group>"; };
 		961C00212C2BEE22008BD094 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
+		962751F02C6E73910054847A /* ProfileAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAuthenticationView.swift; sourceTree = "<group>"; };
 		962F59122B0B7ECC001678A0 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		962F59142B0B7F41001678A0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		962F59162B0B7FD0001678A0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingMethodPicker.swift; sourceTree = "<group>"; };
 		9679940E2B8F070D008CE318 /* EF_BaitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_BaitPicker.swift; sourceTree = "<group>"; };
 		967994102B8F077D008CE318 /* EF_WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_WaterInfo.swift; sourceTree = "<group>"; };
+		9691943B2C9D54C000D128D1 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSecuredTextField.swift; sourceTree = "<group>"; };
 		96972A0A2B4A91E8008EDE6E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationMapView.swift; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 				96121CFC2B00DBEE00CC7AAF /* Main */,
 				96585A382BB482E400A0B5F2 /* NewFishing */,
 				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
+				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
 				96B2A8C32B7B536E00F78CBC /* EditFishing */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
@@ -258,6 +265,7 @@
 				962F59162B0B7FD0001678A0 /* MapView.swift */,
 				9676BF932B87DD810070A4C7 /* AnnotationMark.swift */,
 				961401822B874F3A00FB5331 /* LocationFishingDetailsView.swift */,
+				96156AE42CA553CB000C4D6D /* SelectedImageViewer.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				962F591A2B0B8034001678A0 /* ProfileView.swift */,
+				962751F02C6E73910054847A /* ProfileAuthenticationView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -339,7 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				961401802B810D7C00FB5331 /* FishingPhotos.swift */,
-				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
+				9691943B2C9D54C000D128D1 /* ImageView.swift */,
 				96E1C5DB2B20804700E88C7D /* Header.swift */,
 				961401842B879DB200FB5331 /* FishCaught.swift */,
 				96E1C5DD2B20805400E88C7D /* FishingInfo.swift */,
@@ -462,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9691943C2C9D54C000D128D1 /* ImageView.swift in Sources */,
 				96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */,
 				9679940B2B8F062B008CE318 /* EF_FishingInfo.swift in Sources */,
 				96E1C5DC2B20804700E88C7D /* Header.swift in Sources */,
@@ -487,6 +497,8 @@
 				96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */,
 				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
 				9679940F2B8F070D008CE318 /* EF_BaitPicker.swift in Sources */,
+				96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */,
+				962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
@@ -662,7 +674,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -697,7 +709,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

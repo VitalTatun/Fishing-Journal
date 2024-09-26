@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Fishing: Identifiable {
-    
+struct Fishing: Identifiable, Hashable {
+
     let id: UUID
     var type: FishingType
     var name: String

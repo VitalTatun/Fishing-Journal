@@ -10,22 +10,59 @@ import MapKit
 
 struct LocationFishingDetailsView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
+    let fishing: Fishing
+    
     @State private var selectedImage: UIImage?
-    @State private var showImageView = false
+    @State private var showPhotoView = false
     @State private var favorite = false
     
-    @Binding var fishing: Fishing
-    @Binding var showLocationDetail: Bool
+    @Namespace private var animation
     
     let format = "%.5f"
     
     var body: some View {
-        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
-                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showImageView)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(fishing.photo, id: \.self) { image in
+                                NavigationLink(value: image) {
+                                    if let image {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: UIScreen.main.bounds.width - 50,
+                                                   height: 197,
+                                                   alignment: .leading)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                            .matchedTransitionSource(id: image, in: animation)
+                                    }
+                                }
+//                                NavigationLink {
+//                                    ImageView(selectedImage: image, animation: animation)
+//                                        .ignoresSafeArea()
+//                                } label: {
+//                                    if let image {
+//                                        Image(uiImage: image)
+//                                            .resizable()
+//                                            .scaledToFill()
+//                                            .frame(width: UIScreen.main.bounds.width - 50,
+//                                                   height: 197,
+//                                                   alignment: .leading)
+//                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                                            .matchedTransitionSource(id: image, in: animation)
+//                                    }
+//                                }
+                            }
+                        }
+                    }
+                    .navigationDestination(for: UIImage.self) { image in
+                        SelectedImageViewer(selectedImage: image, animation: animation)
+                    }
                     Header(fishing: fishing)
-                    FishCaught(fish: $fishing.fish)
+                    FishCaught(fish: fishing.fish)
                     FishingInfo(fishing: fishing)
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
@@ -43,7 +80,7 @@ struct LocationFishingDetailsView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
                             }
                             Spacer()
-                            CopyButton(water: $fishing.water)
+                            CopyButton(water: fishing.water)
                         }
                     }
                     .padding(10)
@@ -57,38 +94,30 @@ struct LocationFishingDetailsView: View {
                 }
                 .padding(10)
             }
-            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(fishing.name)
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Назад") {
-                        showLocationDetail = false
-                    }
+            .navigationBarTitleDisplayMode(.inline)
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("Назад") {
+                    dismiss()
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            favorite.toggle()
-                        } label: {
-                            Image(systemName: favorite ? "bookmark.fill" : "bookmark")
-                                .font(.callout)
-                                .foregroundStyle(favorite ? .red : .primaryDeepBlue)
-                        }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    favorite.toggle()
+                } label: {
+                    Image(systemName: favorite ? "bookmark.fill" : "bookmark")
+                        .font(.callout)
+                        .foregroundStyle(favorite ? .red : .primaryDeepBlue)
                 }
-            })
-            .scrollIndicators(.hidden)
-            .fullScreenCover(isPresented: $showImageView, content: {
-                NavigationStack {
-                    PhotoView(fishing: fishing, selectedImage: $selectedImage)
-                }
-            })
-            
-        }
+            }
+        })
+        .scrollIndicators(.hidden)
 
     }
-    
 }
 
 
 #Preview {
-    LocationFishingDetailsView(fishing: .constant(Fishing.example), showLocationDetail: .constant(false))
+    LocationFishingDetailsView(fishing: Fishing.example)
 }

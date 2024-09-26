@@ -19,31 +19,33 @@ struct DetailFishingView: View {
     @State private var isFavorite = false
     
     let shadowColor = Color(white: 0, opacity: 1)
-
+    
+    @Namespace private var animation
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, isPresentingPhotoView: $showPhotoView)
+                VStack(alignment: .center, spacing: 10) {
+                    FishingPhotos(fishing: fishing, selectedImage: $selectedImage, showImage: $showPhotoView, animation: animation)
                     Header(fishing: fishing)
-                    FishCaught(fish: $fishing.fish)
+                    FishCaught(fish: fishing.fish)
                     FishingInfo(fishing: fishing)
                     WaterInfo(water: $fishing.water, showOnMap: $showOnMap)
                     Comment(fishing: fishing)
                 }
-
                 .padding(10)
             }
             .navigationTitle(fishing.name)
             .navigationBarTitleDisplayMode(.inline)
             .scrollIndicators(.hidden)
         }
-        .fullScreenCover(isPresented: $showPhotoView) {
-            NavigationStack {
-                PhotoView(fishing: fishing, selectedImage: $selectedImage)
+        .fullScreenCover(isPresented: $showPhotoView, content: {
+            if let selectedImage {
+                ImageView(selectedImage: selectedImage, animation: animation)
+                    .ignoresSafeArea()
             }
-        }
+        })
+
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Изменить") {

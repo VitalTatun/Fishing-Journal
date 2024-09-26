@@ -64,7 +64,7 @@ struct WaterInfo: View {
                         .lineLimit(1)
                 }
                 Spacer()
-                CopyButton(water: $water)
+                CopyButton(water: water)
             }
         }
         .padding(10)

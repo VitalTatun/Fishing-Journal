@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FishItem: View {
     
-    @Binding var fish: [Fish]
+    let fish: [Fish]
     
     var body: some View {
         ForEach(fish, id: \.id) { fish in
@@ -37,5 +37,5 @@ struct FishItem: View {
 }
 
 #Preview {
-    FishItem(fish: .constant(Fishing.example.fish))
+    FishItem(fish: Fishing.example.fish)
 }

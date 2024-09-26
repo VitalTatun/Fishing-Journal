@@ -7,16 +7,14 @@
 
 import Foundation
 
-class User {
-    let id: UUID = UUID()
+struct User: Equatable, Hashable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        lhs.id  == rhs.id
+    }
+    
+    let id = UUID()
     let image: String
     let name: String
     let email: String
-    
-    init(image: String, name: String, email: String) {
-        self.image = image
-        self.name = name
-        self.email = email
-    }
 }
 

@@ -31,7 +31,7 @@ struct EF_FishView: View {
             if !fish.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack (spacing: 5) {
-                        FishItem(fish: $fish)
+                        FishItem(fish: fish)
                     }
                 }
             }

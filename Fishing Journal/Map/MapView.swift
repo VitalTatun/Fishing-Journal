@@ -11,30 +11,28 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject var fishingData: FishingData
     @Environment(\.dismiss) var dismiss
-
+    
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var showFishingLocationDetails = false
-    @State private var selectedFishing: Fishing = .emptyFishing
+    @State private var selectedMarker: Fishing?
     
     var body: some View {
-        Map(position: $cameraPosition) {
+
+        Map(position: $cameraPosition, selection: $selectedMarker) {
             UserAnnotation()
-            ForEach(fishingData.mockFishings) { fishing in
-                Annotation(fishing.name, coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude), anchor: .bottom) {
-                    AnnotationMark(fishing: fishing)
-                    .onTapGesture(perform: {
-                        selectedFishing = fishing
-                        showFishingLocationDetails = true
-                    })
-                }
+            ForEach($fishingData.mockFishings) { $fishing in
+                Marker(coordinate: .init(latitude: fishing.water.latitude, longitude: fishing.water.longitude)) {
+                    Label(fishing.name, image: fishing.fishingMethod.icon)
+                }.tag(fishing)
             }
         }
         .mapControls({
             MapUserLocationButton()
         })
-        .sheet(isPresented: $showFishingLocationDetails, content: {
-            LocationFishingDetailsView(fishing: $selectedFishing, showLocationDetail: $showFishingLocationDetails)
-                .presentationDragIndicator(.visible)
+        .fullScreenCover(item: $selectedMarker, content: { fishing in
+            NavigationStack {
+                LocationFishingDetailsView(fishing: fishing)
+            }
         })
     }
 }

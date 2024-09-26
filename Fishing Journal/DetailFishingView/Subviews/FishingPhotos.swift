@@ -12,32 +12,46 @@ struct FishingPhotos: View {
     let fishing: Fishing
     
     @Binding var selectedImage: UIImage?
-    @Binding var isPresentingPhotoView: Bool
+    @Binding var showImage: Bool
     
+    var animation: Namespace.ID
+
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false, content: {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 5) {
-                ForEach(fishing.photo, id: \.self) { item in
-                        if let item {
-                            Image(uiImage: item)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: UIScreen.main.bounds.width - 50,
-                                       height: 197,
-                                       alignment: .leading)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                ForEach(fishing.photo, id: \.self) { image in
+                    if let image {
+                        NavigationLink(value: image) {
+                            ImageItem(item: image)
+                                .matchedTransitionSource(id: image, in: animation)
                                 .onTapGesture {
-                                    selectedImage = item
-                                    isPresentingPhotoView = true
+                                    selectedImage = image
+                                    showImage = true
                                 }
                         }
                     }
+                }
             }
-        })
+        }
+    }
+}
+
+struct ImageItem: View {
+    let item: UIImage
+    var body: some View {
+        Image(uiImage: item)
+            .resizable()
+            .scaledToFill()
+            .frame(width: UIScreen.main.bounds.width - 50,
+                   height: 197,
+                   alignment: .leading)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
 
+
 #Preview {
-    FishingPhotos(fishing: Fishing.example, selectedImage: .constant(Fishing.example.photo[1]), isPresentingPhotoView: .constant(true))
+    @Previewable @Namespace var preview
+    FishingPhotos(fishing: Fishing.example, selectedImage: .constant(Fishing.example.photo[1]), showImage: .constant(false), animation: preview)
 }

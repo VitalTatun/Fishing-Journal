@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CopyButton: View {
     
-    @Binding var water: Water
+    let water: Water
     @State private var isPressed: Bool = false
     
     let edgeInsets: EdgeInsets = EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10)
@@ -60,6 +60,6 @@ struct CopyButton: View {
 
 
 #Preview {
-    CopyButton(water: .constant(Fishing.example.water))
+    CopyButton(water: Fishing.example.water)
 }
 

@@ -9,13 +9,11 @@ import Foundation
 import SwiftUI
 
 struct TabBarView: View {
-    @EnvironmentObject var fishingData: FishingData
     @State private var selection: TabBar = .home
     
     var body: some View {
         TabView(selection: $selection) {
             MainView()
-                .environmentObject(fishingData)
                 .tag(TabBar.home)
                 .tabItem {
                     Image(systemName: TabBar.home.icon)

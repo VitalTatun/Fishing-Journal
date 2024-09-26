@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Fish {
+struct Fish: Equatable, Hashable {
     let id = UUID()
     var name: String
     var count: Int

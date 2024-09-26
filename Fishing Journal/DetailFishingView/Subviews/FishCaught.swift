@@ -9,17 +9,17 @@ import SwiftUI
 
 struct FishCaught: View {
     
-    @Binding var fish: [Fish]
+  let fish: [Fish]
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 5) {
-                FishItem(fish: $fish)
+                FishItem(fish: fish)
             }
         }
     }
 }
 
 #Preview {
-    FishCaught(fish: .constant(Fishing.example.fish))
+    FishCaught(fish: Fishing.example.fish)
 }

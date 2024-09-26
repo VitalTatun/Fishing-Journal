@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Water: Identifiable {
+struct Water: Identifiable, Hashable {
     let id = UUID()
     var waterName: String
     let latitude: Double
