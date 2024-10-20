@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct LocationMapView: View {
-
+    
     @Environment(\.dismiss) var dismiss
     
     var region = MKCoordinateRegion()
@@ -25,7 +25,6 @@ struct LocationMapView: View {
     }
     
     var body: some View {
-        NavigationStack {
             MapReader { proxy in
                 Map(position: $cameraPosition) {
                     Annotation(water.waterName, coordinate: .init(latitude: newLocation.latitude, longitude: newLocation.longitude), anchor: .bottom) {
@@ -35,21 +34,34 @@ struct LocationMapView: View {
                 .onMapCameraChange(frequency: .continuous) { action in
                     mapSpan = action.region.span
                 }
-            }
-            .onAppear(perform: {
-                cameraPosition = .updateCameraPosition(water: water)
-
-            })
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Назад") {
-                        dismiss()
-                    }
+                .mapControls {
+                    MapUserLocationButton()
                 }
-            })
-            .navigationTitle(water.waterName)
+            }
             .navigationBarTitleDisplayMode(.inline)
-        }
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                                VStack {
+                                    Text(water.waterName).font(.headline)
+                                    Text("\(water.latitude) - \(water.longitude)").font(.subheadline)
+                                }
+                            }
+                ToolbarItem(placement: .topBarLeading){
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .fontWeight(.semibold)
+                    }
+                    .tint(.primaryDeepBlue)
+                }
+
+            }
+        .onAppear(perform: {
+            cameraPosition = .updateCameraPosition(water: water)
+        })
     }
     
 }

@@ -40,21 +40,6 @@ struct LocationFishingDetailsView: View {
                                             .matchedTransitionSource(id: image, in: animation)
                                     }
                                 }
-//                                NavigationLink {
-//                                    ImageView(selectedImage: image, animation: animation)
-//                                        .ignoresSafeArea()
-//                                } label: {
-//                                    if let image {
-//                                        Image(uiImage: image)
-//                                            .resizable()
-//                                            .scaledToFill()
-//                                            .frame(width: UIScreen.main.bounds.width - 50,
-//                                                   height: 197,
-//                                                   alignment: .leading)
-//                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                            .matchedTransitionSource(id: image, in: animation)
-//                                    }
-//                                }
                             }
                         }
                     }

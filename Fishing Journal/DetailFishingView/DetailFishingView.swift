@@ -45,21 +45,22 @@ struct DetailFishingView: View {
                     .ignoresSafeArea()
             }
         })
-
+        .sheet(isPresented: $showEditView) {
+            NavigationStack{
+                    EditFishingView(fishing: $fishing, showEditView: $showEditView)
+                }
+        }
+        .fullScreenCover(isPresented: $showOnMap) {
+            NavigationStack {
+                    LocationMapView(water: $fishing.water)
+                }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Изменить") {
                     showEditView = true
                 }
             }
-        }
-        .sheet(isPresented: $showEditView) {
-            NavigationStack {
-                EditFishingView(fishing: $fishing, showEditView: $showEditView)
-            }
-        }
-        .sheet(isPresented: $showOnMap) {
-            LocationMapView(water: $fishing.water)
         }
     }
 }

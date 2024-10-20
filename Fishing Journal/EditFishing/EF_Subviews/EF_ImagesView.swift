@@ -68,54 +68,69 @@ struct EF_ImagesView: View {
                                     .frame(width: 100,
                                            height: 100,
                                            alignment: .leading)
-                                    .clipShape(RoundedRectangle(cornerRadius: selectedItem == photo ? 5 : 10))
-                                    .scaleEffect(selectedItem == photo ? 0.88 : 1)
-                                    .overlay {
-                                        if selectedItem == photo {
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .inset(by: 2)
-                                                .stroke(Color.blue, lineWidth: 4)
-                                                .frame(width: 100, height: 100, alignment: .center)
-                                        }
-                                    }
-                                    .onTapGesture {
-                                        withAnimation {
-                                            if selectedItem == nil  {
-                                                selectedItem = photo
-                                                isSelected = true
-                                            } else if selectedItem != nil && selectedItem != photo {
-                                                selectedItem = photo
-                                                isSelected = true
-                                            } else {
-                                                selectedItem = nil
-                                                isSelected = false
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
+//                                    .scaleEffect(selectedItem == photo ? 0.88 : 1)
+//                                    .overlay {
+//                                        if selectedItem == photo {
+//                                            RoundedRectangle(cornerRadius: 10)
+//                                                .inset(by: 2)
+//                                                .stroke(Color.blue, lineWidth: 4)
+//                                                .frame(width: 100, height: 100, alignment: .center)
+//                                        }
+//                                    }
+                                    .overlay (alignment: .topTrailing) {
+                                        Button {
+                                            withAnimation {
+                                                if let index = images.firstIndex(where: { $0 == item }) {
+                                                        images.remove(at: index)
+                                                }
                                             }
+                                        } label: {
+                                            Image(systemName: "xmark.circle.fill")
+                                                .font(.title2)
+                                                .frame(width: 30, height: 30)
+                                                .foregroundStyle(.thinMaterial)
+                                                .shadow(radius: 2)
                                         }
                                     }
+//                                    .onTapGesture {
+//                                        withAnimation {
+//                                            if selectedItem == nil  {
+//                                                selectedItem = photo
+//                                                isSelected = true
+//                                            } else if selectedItem != nil && selectedItem != photo {
+//                                                selectedItem = photo
+//                                                isSelected = true
+//                                            } else {
+//                                                selectedItem = nil
+//                                                isSelected = false
+//                                            }
+//                                        }
+//                                    }
                             }
                         }
                     }
                 }
-                    Button {
-                        withAnimation {
-                            if let index = images.firstIndex(where: { $0 == selectedItem }) {
-                                images.remove(at: (index))
-                                isSelected = false
-                            }
-                        }
-                    } label: {
-                        Text("Удалить")
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .padding(.horizontal, 8)
-                            .frame(height: 36)
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(.red)
-                            .background(Color.red.opacity(0.2))
-                            .cornerRadius(5)
-                    }
-                    .disabled(!isSelected)
-                    .buttonStyle(.plain)
+//                    Button {
+//                        withAnimation {
+//                            if let index = images.firstIndex(where: { $0 == selectedItem }) {
+//                                images.remove(at: (index))
+//                                isSelected = false
+//                            }
+//                        }
+//                    } label: {
+//                        Text("Удалить")
+//                            .font(.subheadline)
+//                            .fontWeight(.medium)
+//                            .padding(.horizontal, 8)
+//                            .frame(height: 36)
+//                            .frame(maxWidth: .infinity)
+//                            .foregroundColor(.red)
+//                            .background(Color.red.opacity(0.2))
+//                            .cornerRadius(5)
+//                    }
+//                    .disabled(!isSelected)
+//                    .buttonStyle(.plain)
             }
         }
         .padding(10)
@@ -132,5 +147,5 @@ struct EF_ImagesView: View {
 }
 
 #Preview {
-    EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
+    EF_ImagesView(images: .constant(Fishing.example.photo), selectedItem: .constant(UIImage(named: "2")))
 }

@@ -19,6 +19,7 @@ struct EditFishingView: View {
     @State private var showFishView = false
     @State private var showMapSheet = false
     @State private var showCommentView = false
+    @State private var showAlert: Bool = false
     
     //Edit Fishing States
     @State private var fishingName: String = ""
@@ -62,7 +63,7 @@ struct EditFishingView: View {
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Отмена") {
-                    showEditView = false
+                    showAlert.toggle()
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
@@ -73,6 +74,16 @@ struct EditFishingView: View {
                 .disabled(fish.isEmpty)
             }
         }
+        .alert("Точно хотите отменить?", isPresented: $showAlert, actions: {
+            Button("Продолжить редактирование") {
+                showAlert.toggle()
+            }
+            Button("Отменить", role: .cancel) {
+                showEditView.toggle()
+            }
+        }, message: {
+            Text("Все внесенные данные не сохранятся")
+        })
         .sheet(isPresented: $showFishView) {
             NavigationStack {
                 FishEditView(fish: $fish)
@@ -143,7 +154,7 @@ extension MapCameraPosition {
         let location = water
         let coordinates = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         let locationRegion =
-        MKCoordinateRegion(center: coordinates, latitudinalMeters: 3000, longitudinalMeters: 3000)
+        MKCoordinateRegion(center: coordinates, latitudinalMeters: 5000, longitudinalMeters: 5000)
         return self.region(locationRegion)
     }
 }

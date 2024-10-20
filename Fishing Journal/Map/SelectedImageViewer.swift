@@ -35,7 +35,6 @@ struct SelectedImageViewer: View {
             }
         }
         .ignoresSafeArea()
-
     }
 }
 
