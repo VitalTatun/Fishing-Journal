@@ -41,6 +41,8 @@
 		962F59192B0B8023001678A0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F59182B0B8023001678A0 /* FeedView.swift */; };
 		962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962F591A2B0B8034001678A0 /* ProfileView.swift */; };
 		966EA04F2BAD8DB300BD0EAD /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966EA04E2BAD8DB300BD0EAD /* LocationMapView.swift */; };
+		966F09962CE7C4730055C000 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F09952CE7C4730055C000 /* Mockable.swift */; };
+		966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */; };
 		9676BF942B87DD810070A4C7 /* AnnotationMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676BF932B87DD810070A4C7 /* AnnotationMark.swift */; };
 		9679940B2B8F062B008CE318 /* EF_FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679940A2B8F062B008CE318 /* EF_FishingInfo.swift */; };
 		9679940D2B8F06AA008CE318 /* EF_FishingMethodPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */; };
@@ -113,6 +115,8 @@
 		962F59182B0B8023001678A0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		962F591A2B0B8034001678A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		966EA04E2BAD8DB300BD0EAD /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
+		966F09952CE7C4730055C000 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fishing+Mockable.swift"; sourceTree = "<group>"; };
 		9676BF932B87DD810070A4C7 /* AnnotationMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationMark.swift; sourceTree = "<group>"; };
 		9679940A2B8F062B008CE318 /* EF_FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingInfo.swift; sourceTree = "<group>"; };
 		9679940C2B8F06AA008CE318 /* EF_FishingMethodPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingMethodPicker.swift; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 				96121D0E2B011D3600CC7AAF /* Fish.swift */,
 				96121D102B011D4F00CC7AAF /* FishingMethod.swift */,
 				96121D142B011EBD00CC7AAF /* FishingData.swift */,
+				966F09952CE7C4730055C000 /* Mockable.swift */,
+				966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -496,9 +502,11 @@
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
 				96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */,
 				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
+				966F09962CE7C4730055C000 /* Mockable.swift in Sources */,
 				9679940F2B8F070D008CE318 /* EF_BaitPicker.swift in Sources */,
 				96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */,
 				962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */,
+				966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,

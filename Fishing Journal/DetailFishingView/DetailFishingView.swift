@@ -67,7 +67,7 @@ struct DetailFishingView: View {
 
 #Preview {
     NavigationStack {
-        DetailFishingView(fishing: .constant(Fishing.example))
+        DetailFishingView(fishing: .constant(Fishing.mock))
     }
 }
 

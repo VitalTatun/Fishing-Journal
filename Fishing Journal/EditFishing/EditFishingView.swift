@@ -13,13 +13,11 @@ struct EditFishingView: View {
     
     @EnvironmentObject var fishingData: FishingData
     
+    @StateObject private var viewModel = FishEditViewModel()
+    
     @Binding var fishing: Fishing
     @Binding var showEditView: Bool
     
-    @State private var showFishView = false
-    @State private var showMapSheet = false
-    @State private var showCommentView = false
-    @State private var showAlert: Bool = false
     
     //Edit Fishing States
     @State private var fishingName: String = ""
@@ -45,10 +43,10 @@ struct EditFishingView: View {
             VStack(alignment: .leading, spacing: 10) {
                 EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
-                EF_FishView(fish: $fish, showFishView: $showFishView)
+                EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
                 EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight, shore: $fishingFromTheShore)
-                EF_WaterInfo(water: $water, showMapSheet: $showMapSheet)
-                EF_Comment(comment: $comment, showCommentView: $showCommentView)
+                EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
+                EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
             }
             .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
             .padding(10)
@@ -63,7 +61,7 @@ struct EditFishingView: View {
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Отмена") {
-                    showAlert.toggle()
+                    viewModel.showAlert.toggle()
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
@@ -71,30 +69,45 @@ struct EditFishingView: View {
                     updateFishingData()
                     showEditView = false
                 }
-                .disabled(fish.isEmpty)
+                .disabled(validateMandatoryFields())
             }
         }
-        .alert("Точно хотите отменить?", isPresented: $showAlert, actions: {
-            Button("Продолжить редактирование") {
-                showAlert.toggle()
-            }
-            Button("Отменить", role: .cancel) {
-                showEditView.toggle()
-            }
-        }, message: {
-            Text("Все внесенные данные не сохранятся")
-        })
-        .sheet(isPresented: $showFishView) {
+//        .confirmationDialog("Точно хотите отменить?", isPresented: $viewModel.showAlert,titleVisibility: .visible) {
+//            Button("Продолжить редактирование") {
+//                viewModel.showAlert.toggle()
+//            }
+//            Button("Отменить", role: .cancel) {
+//                showEditView.toggle()
+//            }
+//            .tint(.red)
+//            
+//        } message: {
+//            Text("Все внесенные данные не сохранятся")
+//        }
+        
+                .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
+                    Button("Продолжить редактирование") {
+                        viewModel.showAlert.toggle()
+                    }
+                    Button("Отменить") {
+                        showEditView.toggle()
+                        
+                    }
+                }, message: {
+                    Text("Все внесенные данные не сохранятся")
+                })
+        
+        .sheet(isPresented: $viewModel.showFishView) {
             NavigationStack {
                 FishEditView(fish: $fish)
             }
             .interactiveDismissDisabled()
         }
-        .sheet(isPresented: $showMapSheet, content: {
+        .sheet(isPresented: $viewModel.showMapSheet, content: {
             EditLocationMapView(water: $water)
                 .interactiveDismissDisabled()
         })
-        .sheet(isPresented: $showCommentView, content: {
+        .sheet(isPresented: $viewModel.showCommentView, content: {
             NavigationStack {
                 CommentView(comment: $comment)
                     .interactiveDismissDisabled()
@@ -132,8 +145,8 @@ struct EditFishingView: View {
         fishingData.updateFishing(fishing: fishing)
     }
     
-    func validation(type: FishingType) -> Bool {
-        if fishingName.isEmpty && fish.isEmpty {
+    func validateMandatoryFields() -> Bool {
+        if fishingName.isEmpty || fish.isEmpty || water.waterName.isEmpty || water.latitude.isZero {
             return true
         }
         return false

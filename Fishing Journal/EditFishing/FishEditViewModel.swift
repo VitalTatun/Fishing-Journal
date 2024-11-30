@@ -10,9 +10,15 @@ import SwiftUI
 
 class FishEditViewModel: ObservableObject {
     
+    @EnvironmentObject var fishingData: FishingData
+    
     @Published var fishToEditList: [Fish] = []
+    
     @Published var newFish: String = ""
-    @Published var showAlert: Bool = false  
+    @Published var showAlert: Bool = false
+    @Published var showFishView = false
+    @Published var showMapSheet = false
+    @Published var showCommentView = false
 
     
     func checkTheSameFishInList() {
