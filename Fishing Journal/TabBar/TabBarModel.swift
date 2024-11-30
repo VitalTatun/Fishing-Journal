@@ -22,7 +22,7 @@ enum TabBar {
         case .feed:
             return "Лента"
         case .settings:
-            return "Настройки"
+            return "Профиль"
         }
     }
     var icon: String {
