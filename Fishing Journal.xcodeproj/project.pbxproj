@@ -60,9 +60,7 @@
 		96BDFE5E2BF3DF7B00538F17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */; };
 		96C5D0712C3E6B2800EE123E /* UnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C5D0702C3E6B2800EE123E /* UnavailableView.swift */; };
 		96C6D6042BAEC1C4009EC16A /* AddFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */; };
-		96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA24A12B30BF2700FB229C /* PhotoView.swift */; };
 		96DB829E2BF380F8003E47E0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB829D2BF380F8003E47E0 /* AuthService.swift */; };
-		96DB82A02BF383CF003E47E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */; };
 		96DB82A32BF3863D003E47E0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A22BF3863D003E47E0 /* FirebaseAuth */; };
 		96DB82A52BF3863D003E47E0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A42BF3863D003E47E0 /* FirebaseFirestore */; };
 		96DB82A72BF3863D003E47E0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */; };
@@ -77,6 +75,7 @@
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
 		96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F64C692C443A640051CC09 /* FishEditViewModel.swift */; };
+		E31885862CFC6DE700A044CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E31885852CFC6DE700A044CA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,9 +133,7 @@
 		96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		96C5D0702C3E6B2800EE123E /* UnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableView.swift; sourceTree = "<group>"; };
 		96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFishingView.swift; sourceTree = "<group>"; };
-		96DA24A12B30BF2700FB229C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		96DB829D2BF380F8003E47E0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Section.swift; sourceTree = "<group>"; };
 		96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Comment.swift; sourceTree = "<group>"; };
 		96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
@@ -147,6 +144,7 @@
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		96F64C692C443A640051CC09 /* FishEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishEditViewModel.swift; sourceTree = "<group>"; };
+		E31885852CFC6DE700A044CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +229,6 @@
 				96121CFC2B00DBEE00CC7AAF /* Main */,
 				96585A382BB482E400A0B5F2 /* NewFishing */,
 				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
-				96DA24A12B30BF2700FB229C /* PhotoView.swift */,
 				96B2A8C32B7B536E00F78CBC /* EditFishing */,
 				96121CFD2B00DBF700CC7AAF /* Map */,
 				96121CFE2B00DC0A00CC7AAF /* Feed */,
@@ -239,7 +236,7 @@
 				962F59112B0B7E73001678A0 /* TabBar */,
 				960267D02B45D037009CBC03 /* Common */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
-				96DB829F2BF383CF003E47E0 /* GoogleService-Info.plist */,
+				E31885852CFC6DE700A044CA /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -465,8 +462,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
+				E31885862CFC6DE700A044CA /* GoogleService-Info.plist in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
-				96DB82A02BF383CF003E47E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +487,6 @@
 				96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */,
 				96121CEF2B00B9D000CC7AAF /* Fishing_JournalApp.swift in Sources */,
 				961401852B879DB200FB5331 /* FishCaught.swift in Sources */,
-				96DA24A22B30BF2700FB229C /* PhotoView.swift in Sources */,
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
 				961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */,
 				96B7D7D82B99952B00313754 /* FishItem.swift in Sources */,
