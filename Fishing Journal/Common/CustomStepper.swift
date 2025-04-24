@@ -16,37 +16,41 @@ struct CustomStepper: View {
     let maxNumber = 20
         
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
+        HStack(alignment: .center, spacing: 15) {
             Button(action: {
                 deleteFish(fish: fish)
             }, label: {
                 Image(systemName: number <= 1 ? "trash" : "minus")
                     .foregroundStyle(number <= 1 ? .red : .primaryDeepBlue)
                     .font(.body)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.primaryDeepBlue)
+                    .tint(.primaryDeepBlue)
             })
             .contentTransition(.symbolEffect(.replace.offUp))
+            .frame(width: 28, height: 28, alignment: .center)
             .buttonStyle(.borderless)
+            .buttonBorderShape(.circle)
+            .contentShape(Circle())
             
             Text("\(number)")
-                .frame(width: 46, height: 36, alignment: .center)
+                .frame(width: 46, height: 34, alignment: .center)
                 .font(.body)
+                .fontDesign(.rounded)
                 .fontWeight(.semibold)
                 .contentTransition(.numericText(value: Double(number)))
                 .animation(.snappy, value: number)
                 .foregroundStyle(.primaryDeepBlue)
                 .background(.lightBlue)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
-            Button(action: {
+            Button {
                 increment()
-            }, label: {
+            } label: {
                 Image(systemName: "plus")
                     .font(.body)
-                    .fontWeight(.medium)
                     .tint(.primaryDeepBlue)
-            })
+            }
+            .frame(width: 28, height: 28, alignment: .center)
             .buttonStyle(.borderless)
+            .buttonBorderShape(.circle)
             .disabled(number == maxNumber)
         }
     }
@@ -63,7 +67,7 @@ struct CustomStepper: View {
     
     private func deleteFish(fish: Fish) {
         guard number <= 1 else { return decrease() }
-        withAnimation {
+        withAnimation(.bouncy(duration: 0.3,extraBounce: 0.1)) {
             if let index = fishList.firstIndex(where: { $0.id == fish.id }) {
                 fishList.remove(at: index)
             }

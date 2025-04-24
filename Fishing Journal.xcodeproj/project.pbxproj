@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -75,7 +75,8 @@
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
 		96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F64C692C443A640051CC09 /* FishEditViewModel.swift */; };
-		E31885862CFC6DE700A044CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E31885852CFC6DE700A044CA /* GoogleService-Info.plist */; };
+		E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */; };
+		E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,8 +145,13 @@
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		96F64C692C443A640051CC09 /* FishEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishEditViewModel.swift; sourceTree = "<group>"; };
-		E31885852CFC6DE700A044CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_UserFishView.swift; sourceTree = "<group>"; };
+		E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E37647532DB9789900B6DC4E /* Helper */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helper; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		96121CE82B00B9D000CC7AAF /* Frameworks */ = {
@@ -236,7 +242,7 @@
 				962F59112B0B7E73001678A0 /* TabBar */,
 				960267D02B45D037009CBC03 /* Common */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
-				E31885852CFC6DE700A044CA /* GoogleService-Info.plist */,
+				E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -343,6 +349,7 @@
 				96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */,
 				96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */,
 				96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */,
+				E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */,
 			);
 			path = EF_Subviews;
 			sourceTree = "<group>";
@@ -366,6 +373,7 @@
 		96B2A8C32B7B536E00F78CBC /* EditFishing */ = {
 			isa = PBXGroup;
 			children = (
+				E37647532DB9789900B6DC4E /* Helper */,
 				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
 				9614017A2B7D118C00FB5331 /* FishEditView.swift */,
 				96F64C692C443A640051CC09 /* FishEditViewModel.swift */,
@@ -408,6 +416,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E37647532DB9789900B6DC4E /* Helper */,
 			);
 			name = "Fishing Journal";
 			packageProductDependencies = (
@@ -462,8 +473,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
-				E31885862CFC6DE700A044CA /* GoogleService-Info.plist in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
+				E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +514,7 @@
 				96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */,
 				962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */,
 				966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */,
+				E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
