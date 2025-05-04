@@ -41,12 +41,11 @@ struct EditFishingView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                fishingNameRow()
+                fishingNameRow($fishingName)
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
                 EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
-                EF_FishingDetails()
-                EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
-                EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight, shore: $fishingFromTheShore)
+                EF_FishingMethodAndBait() 
+                EF_FishingDetails(fishingType: $fishingType, fishingTime: $fishingTime, shore: $fishingFromTheShore, fishWeight: $fishWeight)
                 EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
             }
@@ -74,30 +73,17 @@ struct EditFishingView: View {
                 .disabled(validateMandatoryFields())
             }
         }
-//        .confirmationDialog("Точно хотите отменить?", isPresented: $viewModel.showAlert,titleVisibility: .visible) {
-//            Button("Продолжить редактирование") {
-//                viewModel.showAlert.toggle()
-//            }
-//            Button("Отменить", role: .cancel) {
-//                showEditView.toggle()
-//            }
-//            .tint(.red)
-//            
-//        } message: {
-//            Text("Все внесенные данные не сохранятся")
-//        }
-        
-                .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
-                    Button("Продолжить редактирование") {
-                        viewModel.showAlert.toggle()
-                    }
-                    Button("Отменить") {
-                        showEditView.toggle()
-                        
-                    }
-                }, message: {
-                    Text("Все внесенные данные не сохранятся")
-                })
+        .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
+            Button("Продолжить редактирование") {
+                viewModel.showAlert.toggle()
+            }
+            Button("Отменить") {
+                showEditView.toggle()
+                
+            }
+        }, message: {
+            Text("Все внесенные данные не сохранятся")
+        })
         
         .sheet(isPresented: $viewModel.showFishView) {
             NavigationStack {
@@ -119,13 +105,14 @@ struct EditFishingView: View {
     }
     
     @ViewBuilder
-    func fishingNameRow() -> some View {
+    func fishingNameRow(_ name: Binding<String>) -> some View {
         HStack(alignment: .center, spacing: 10) {
-            TextField("", text: $fishingName, prompt: Text("Название рыбалки"))
+            TextField("", text: name, prompt: Text("Название рыбалки"))
                 .fontWeight(.medium)
                 .textFieldStyle(.plain)
                 .frame(height: 44)
             Button {
+                
                 // Show Tip about fishing naming with text - Придумайте название, например - На Карася или Смеркалось...
             } label: {
                 Image(systemName: "info.circle")

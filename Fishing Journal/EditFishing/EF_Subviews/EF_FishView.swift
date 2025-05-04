@@ -58,6 +58,12 @@ struct EF_FishView: View {
                 .stroke(lineWidth: 1)
                 .foregroundColor(Color(.quaternaryLabel))
         }
+        .overlay(alignment: .topLeading) {
+            Circle()
+                .foregroundStyle(.red)
+                .offset(x: 6, y: 6)
+                .frame(width: 6, height: 6)
+        }
     }
 }
 

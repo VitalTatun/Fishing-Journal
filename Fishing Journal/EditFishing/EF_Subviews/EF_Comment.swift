@@ -12,36 +12,60 @@ struct EF_Comment: View {
     @Binding var comment: String
     @Binding var showCommentView: Bool
     
+    let sectionTitle = "Комментарий"
+    let secondarySection = "Отредактируйте комментарий"
+    
     private var icon: String {
         if comment.isEmpty {
             return "plus"
         } else {
-            return "square.and.pencil"
+            return "chevron.right"
         }
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack{
-                EF_Section(title: "Комментарий", secondary: "Отредактируйте комментарий")
-                Spacer()
-                CircleButton(icon: icon) {
-                    showCommentView.toggle()
-                }
+                section(title: sectionTitle, secondary: secondarySection)
             }
+            Divider()
             if !comment.isEmpty {
                     Text(comment)
+                    .padding(8)
             }
         }
-        .padding(10)
+        .padding(0)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 0.5)
                 .stroke(lineWidth: 1)
-                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+                .foregroundColor(Color(.quaternaryLabel))
         }
+    }
+    
+    @ViewBuilder
+    func section(title: String, secondary: String) -> some View {
+        HStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(title)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                Text(secondary)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            Button(action: {
+                showCommentView.toggle()
+            }, label: {
+                Image(systemName: icon)
+                    .fontWeight(.medium)
+                    .tint(.primary)
+            })
+        }
+        .frame(height: 60)
+        .padding(.horizontal, 16)
     }
 }
 

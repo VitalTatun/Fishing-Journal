@@ -9,10 +9,13 @@ import SwiftUI
 
 struct EF_FishingDetails: View {
     
-    @State private var fishingNameText = ""
     @State private var publishFishing = true
-    @State private var shore = true
-    @State private var fishWeight: Double = 0
+    @Binding var fishingType: FishingType
+    @Binding var fishingTime: Date
+    @Binding var shore: Bool
+    @Binding var fishWeight: Double
+
+
 
     var decimalFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -28,22 +31,23 @@ struct EF_FishingDetails: View {
         VStack(alignment: .center, spacing: 0) {
             publishRow()
             Divider()
-            fishingTypeRow()
+            fishingTypeRow($fishingType)
             Divider()
-            fishingDateAndTime()
+            fishingDateAndTime(fishingTime: $fishingTime)
             Divider()
-            shoreRow()
+            shoreRow(from: $shore)
             Divider()
             weightRow()
         }
+        .font(.callout)
         .padding(.horizontal, 10)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(lineWidth: 1)
                 .foregroundColor(Color(.quaternaryLabel))
         }
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
     
     
@@ -56,27 +60,27 @@ struct EF_FishingDetails: View {
     }
     
     @ViewBuilder
-    func fishingTypeRow() -> some View {
+    func fishingTypeRow(_ type: Binding<FishingType>) -> some View {
         HStack(alignment: .center, spacing: 10) {
             Text("Тип рыбалки")
             Spacer()
-            Text("Отчет")
+            EF_FishingTypePicker(selection: type)
         }
         .frame(height: rowHeight)
     }
     
     @ViewBuilder
-    func fishingDateAndTime() -> some View {
+    func fishingDateAndTime(fishingTime: Binding<Date>) -> some View {
         HStack(alignment: .center, spacing: 10) {
-            DatePicker("Дата и время", selection: .constant(.now), in: ...Date(), displayedComponents: [.date, .hourAndMinute])
+            DatePicker("Дата и время", selection: fishingTime, in: ...Date(), displayedComponents: [.date, .hourAndMinute])
         }
         .frame(height: rowHeight)
     }
     
     @ViewBuilder
-    func shoreRow() -> some View {
+    func shoreRow(from shore: Binding<Bool>) -> some View {
         HStack(alignment: .center, spacing: 10) {
-            Toggle("Ловля с берега", isOn: $shore)
+            Toggle("Ловля с берега", isOn: shore)
         }
         .frame(height: rowHeight)
     }
@@ -100,5 +104,9 @@ struct EF_FishingDetails: View {
 }
 
 #Preview {
-    EF_FishingDetails()
+    EF_FishingDetails(
+        fishingType: .constant(Fishing.example.type),
+        fishingTime: .constant(Fishing.example.fishingTime),
+        shore: .constant(Fishing.example.fishingFromTheShore),
+        fishWeight: .constant(Fishing.example.weight))
 }

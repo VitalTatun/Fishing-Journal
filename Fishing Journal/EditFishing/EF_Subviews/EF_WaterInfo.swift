@@ -13,7 +13,7 @@ struct EF_WaterInfo: View {
     @Binding var water: Water
     @Binding var showMapSheet: Bool    
         
-    private let sectionTitle: String = "Информация о водоеме"
+    private let sectionTitle: String = "Местоположение на карте"
     private let sectionSecondary: String = "Название и координаты на карте"
     private let textFieldPromt: String = "Напишите сюда название водоема"
     private let footerText: String = "Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт."
@@ -27,58 +27,87 @@ struct EF_WaterInfo: View {
     }
     private var icon: String {
         if water.latitude != .zero {
-            return "square.and.pencil"
+            return "chevron.right"
         } else {
             return "plus"
         }
     }
     
+    private var waterCoordinates: String {
+        if water.latitude != .zero {
+            return "Координаты GPS: " + String(format: format, water.latitude) + " - " + String(format: format, water.longitude)
+        } else {
+            return String(mapSectionSecondary)
+        }
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            EF_Section(title: sectionTitle, secondary: sectionSecondary)
-            VStack(alignment: .leading, spacing: 5) {
-                TextField(textFieldPromt,text: $water.waterName)
-                    .textFieldStyle(OvalTextFieldStyle())
-                Text(footerText)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                Divider()
-            }
-            HStack(spacing: 10) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(mapSectionTitle)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                    if water.latitude != .zero {
-                        Text(String(format: format, water.latitude) + " - " + String(format: format, water.longitude))
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                    } else {
-                        Text(mapSectionSecondary)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                Spacer()
-                CircleButton(icon: icon) {
-                    showMapSheet = true
-
+        VStack(alignment: .leading, spacing: 0) {
+            section(title: sectionTitle, secondary: waterCoordinates)
+            Divider()
+            HStack(alignment: .center, spacing: 10) {
+                TextField(textFieldPromt, text: $water.waterName)
+                    .fontWeight(.medium)
+                    .textFieldStyle(.plain)
+                    .frame(height: 44)
+                Button {
+                    
+                    // Show Tip about fishing naming with text - Напишите название водоема или тип, например - река, озеро и т.д. Можно также добавить соседний населенный пункт.
+                } label: {
+                    Image(systemName: "info.circle")
+                        .font(.body)
+                        .foregroundStyle(.blue)
                 }
             }
+            .padding(.horizontal, 16)
+            .overlay(alignment: .topLeading) {
+                Circle()
+                    .foregroundStyle(.red)
+                    .offset(x: 6, y: 6)
+                    .frame(width: 6, height: 6)
+            }
+            Divider()
             if water.latitude != .zero {
                 mapView()
             }
         }
-        .padding(10)
+        .padding(0)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 0.5)
                 .stroke(lineWidth: 1)
-                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+                .foregroundColor(Color(.quaternaryLabel))
         }
+        .overlay(alignment: .topLeading) {
+            Circle()
+                .foregroundStyle(.red)
+                .offset(x: 6, y: 6)
+                .frame(width: 6, height: 6)
+        }
+    }
+    @ViewBuilder
+    func section(title: String, secondary: String) -> some View {
+        HStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(title)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                Text(secondary)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            Button(action: {
+                showMapSheet = true
+            }, label: {
+                Image(systemName: icon)
+                    .fontWeight(.medium)
+                    .tint(.primary)
+            })
+        }
+        .frame(height: 60)
+        .padding(.horizontal, 16)
     }
     
     @ViewBuilder
@@ -89,12 +118,8 @@ struct EF_WaterInfo: View {
                                 Image(.annotationEmpty)
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(height: 157)
             .disabled(true)
-            Text(mapFooterText)
-                .font(.footnote)
-                .foregroundColor(.secondary)
         }
     }
 }
