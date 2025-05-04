@@ -64,7 +64,7 @@ struct FishEditView: View {
         if fishToEditList.contains(where: { $0.name == selectedFish.name }) {
 
         } else {
-            withAnimation(.bouncy(duration: 0.3)) {
+            withAnimation(.bouncy) {
                 fishToEditList.append(selectedFish)
             }
         }
@@ -149,5 +149,7 @@ struct FishList: View {
 }
 
 #Preview {
-    FishEditView(fish: .constant(Fishing.example.fish))
+    NavigationStack {
+        FishEditView(fish: .constant(Fishing.example.fish))
+    }
 }

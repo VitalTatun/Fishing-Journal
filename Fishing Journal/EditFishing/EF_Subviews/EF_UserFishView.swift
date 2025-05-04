@@ -10,7 +10,6 @@ import SwiftUI
 struct EF_UserFishView: View {
     var userFishCollection: [Fish]
     var spacing: CGFloat = 4
-    var animation: Animation = .easeIn(duration: 0.2)
     
     var didChangeSelection: (Fish) -> ()
     var body: some View {
@@ -20,11 +19,10 @@ struct EF_UserFishView: View {
                 .foregroundStyle(.secondary)
             CustomFishTagLayout(spacing: spacing) {
                 ForEach(userFishCollection, id: \.name) { fishTag in
-                    Button {
-                        didChangeSelection(fishTag)
-                    } label: {
-                        ChipView(fishTag.name)
-                    }
+                    ChipView(fishTag.name)
+                        .onTapGesture {
+                            didChangeSelection(fishTag)
+                        }
                 }
             }
         }

@@ -14,7 +14,7 @@ struct FishCaught: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 5) {
-                FishItem(fish: fish)
+                //
             }
         }
     }

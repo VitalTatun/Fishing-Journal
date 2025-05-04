@@ -76,6 +76,7 @@
 		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
 		96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F64C692C443A640051CC09 /* FishEditViewModel.swift */; };
 		E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */; };
+		E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */; };
 		E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,7 @@
 		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		96F64C692C443A640051CC09 /* FishEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishEditViewModel.swift; sourceTree = "<group>"; };
 		E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_UserFishView.swift; sourceTree = "<group>"; };
+		E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
 		E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 				96DF7FCB2BBDA02700A6EE33 /* EF_Section.swift */,
 				96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */,
 				E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */,
+				E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */,
 			);
 			path = EF_Subviews;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				9679940F2B8F070D008CE318 /* EF_BaitPicker.swift in Sources */,
 				96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */,
 				962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */,
+				E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */,
 				966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */,
 				E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,

@@ -22,9 +22,16 @@ struct EF_ImagesView: View {
     private let sectionSecondary: String = "Добавьте фотографии"
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 10) {
-                EF_Section(title: sectionTitle, secondary: sectionSecondary)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(sectionTitle)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                    Text(sectionSecondary)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
                 Spacer()
                 if !images.isEmpty {
                     Text("\(images.count)/6")
@@ -36,9 +43,14 @@ struct EF_ImagesView: View {
                         .background(.lightBlue)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
-                CircleButton(icon: "plus") {
+                Button(action: {
                     showPickerPhoto.toggle()
-                }
+                }, label: {
+                    Image(systemName: "plus")
+                        .fontWeight(.medium)
+                        .tint(.primary)
+                })
+                .buttonStyle(.borderless)
                 .disabled(images.count >= maxCount)
                 .photosPicker(isPresented: $showPickerPhoto, selection: $pickerItem, maxSelectionCount: maxCount - images.count, selectionBehavior: .ordered, matching: .images, preferredItemEncoding: .automatic)
                 .onChange(of: pickerItem) { _, _ in
@@ -57,7 +69,11 @@ struct EF_ImagesView: View {
                         }
                 }
             }
+            .frame(height: 60)
+            .padding(.horizontal, 16)
+
             if !images.isEmpty {
+                Divider()
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 5) {
                         ForEach(images, id: \.self) { item in
@@ -68,16 +84,7 @@ struct EF_ImagesView: View {
                                     .frame(width: 100,
                                            height: 100,
                                            alignment: .leading)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-//                                    .scaleEffect(selectedItem == photo ? 0.88 : 1)
-//                                    .overlay {
-//                                        if selectedItem == photo {
-//                                            RoundedRectangle(cornerRadius: 10)
-//                                                .inset(by: 2)
-//                                                .stroke(Color.blue, lineWidth: 4)
-//                                                .frame(width: 100, height: 100, alignment: .center)
-//                                        }
-//                                    }
+                                    .clipShape(RoundedRectangle(cornerRadius: 6))
                                     .overlay (alignment: .topTrailing) {
                                         Button {
                                             withAnimation {
@@ -93,56 +100,22 @@ struct EF_ImagesView: View {
                                                 .shadow(radius: 2)
                                         }
                                     }
-//                                    .onTapGesture {
-//                                        withAnimation {
-//                                            if selectedItem == nil  {
-//                                                selectedItem = photo
-//                                                isSelected = true
-//                                            } else if selectedItem != nil && selectedItem != photo {
-//                                                selectedItem = photo
-//                                                isSelected = true
-//                                            } else {
-//                                                selectedItem = nil
-//                                                isSelected = false
-//                                            }
-//                                        }
-//                                    }
                             }
                         }
                     }
                 }
-//                    Button {
-//                        withAnimation {
-//                            if let index = images.firstIndex(where: { $0 == selectedItem }) {
-//                                images.remove(at: (index))
-//                                isSelected = false
-//                            }
-//                        }
-//                    } label: {
-//                        Text("Удалить")
-//                            .font(.subheadline)
-//                            .fontWeight(.medium)
-//                            .padding(.horizontal, 8)
-//                            .frame(height: 36)
-//                            .frame(maxWidth: .infinity)
-//                            .foregroundColor(.red)
-//                            .background(Color.red.opacity(0.2))
-//                            .cornerRadius(5)
-//                    }
-//                    .disabled(!isSelected)
-//                    .buttonStyle(.plain)
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+                .padding(4)
             }
         }
-        .padding(10)
+        .padding(0)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .inset(by: 0.5)
                 .stroke(lineWidth: 1)
-                .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255, opacity: 0.18))
+                .foregroundColor(Color(.quaternaryLabel))
         }
-        
     }
 }
 

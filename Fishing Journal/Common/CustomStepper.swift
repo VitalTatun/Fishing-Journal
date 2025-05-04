@@ -67,10 +67,12 @@ struct CustomStepper: View {
     
     private func deleteFish(fish: Fish) {
         guard number <= 1 else { return decrease() }
-        withAnimation(.bouncy(duration: 0.3,extraBounce: 0.1)) {
+        
             if let index = fishList.firstIndex(where: { $0.id == fish.id }) {
-                fishList.remove(at: index)
-            }
+                withAnimation(.bouncy(duration: 0.4, extraBounce: 0.1)) {
+                    fishList.remove(at: index)
+                }
+            
         }
     }
 }

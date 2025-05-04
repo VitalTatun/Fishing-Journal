@@ -40,10 +40,12 @@ struct EditFishingView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 10) {
-                EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
+            VStack(alignment: .leading, spacing: 8) {
+                fishingNameRow()
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
                 EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
+                EF_FishingDetails()
+                EF_HeaderView(fishingName: $fishingName, fishingType: $fishingType)
                 EF_FishingInfo(fishingMethod: $fishingMethod, fishingTime: $fishingTime, bait: $bait, fishWeight: $fishWeight, shore: $fishingFromTheShore)
                 EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
@@ -55,7 +57,7 @@ struct EditFishingView: View {
         .onAppear(perform: {
             setInitialFishingData()
         })
-        .background(Color(red: 252/255, green: 252/255, blue: 252/255))
+        .background(.white)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(fishing.name)
         .toolbar {
@@ -115,6 +117,38 @@ struct EditFishingView: View {
         })
         
     }
+    
+    @ViewBuilder
+    func fishingNameRow() -> some View {
+        HStack(alignment: .center, spacing: 10) {
+            TextField("", text: $fishingName, prompt: Text("Название рыбалки"))
+                .fontWeight(.medium)
+                .textFieldStyle(.plain)
+                .frame(height: 44)
+            Button {
+                // Show Tip about fishing naming with text - Придумайте название, например - На Карася или Смеркалось...
+            } label: {
+                Image(systemName: "info.circle")
+                    .font(.body)
+                    .foregroundStyle(.blue)
+            }
+        }
+        .padding(.horizontal, 10)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 1)
+                .foregroundColor(Color(.quaternaryLabel))
+        }
+        .overlay(alignment: .topLeading) {
+            Circle()
+                .foregroundStyle(.red)
+                .offset(x: 6, y: 6)
+                .frame(width: 6, height: 6)
+        }
+    }
+    
     private func setInitialFishingData() {
         fishingName = fishing.name
         fishingType = fishing.type
@@ -173,5 +207,7 @@ extension MapCameraPosition {
 }
 
 #Preview {
-    EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
+    NavigationStack {
+        EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
+    }
 }
