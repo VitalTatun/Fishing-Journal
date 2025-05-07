@@ -19,6 +19,7 @@ class FishEditViewModel: ObservableObject {
     @Published var showFishView = false
     @Published var showMapSheet = false
     @Published var showCommentView = false
+    @Published var showFishingMethodAndBaitSheet = false
 
     
     func checkTheSameFishInList() {

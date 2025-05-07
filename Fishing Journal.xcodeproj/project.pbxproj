@@ -78,6 +78,7 @@
 		E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */; };
 		E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */; };
 		E376476B2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376476A2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift */; };
+		E376476F2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */; };
 		E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +151,7 @@
 		E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_UserFishView.swift; sourceTree = "<group>"; };
 		E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
 		E376476A2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingMethodAndBait.swift; sourceTree = "<group>"; };
+		E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethodAndBaitView.swift; sourceTree = "<group>"; };
 		E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -385,6 +387,7 @@
 				96F64C692C443A640051CC09 /* FishEditViewModel.swift */,
 				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
 				96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */,
+				E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */,
 				967994122B8F30FD008CE318 /* EF_Subviews */,
 			);
 			path = EditFishing;
@@ -554,6 +557,7 @@
 				96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */,
 				967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */,
 				96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */,
+				E376476F2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 				9679940D2B8F06AA008CE318 /* EF_FishingMethodPicker.swift in Sources */,
 			);

@@ -9,13 +9,33 @@ import SwiftUI
 
 struct EF_FishingMethodAndBait: View {
     
+    @Binding var showFishingMethodAndBait: Bool
+    
     private let sectionTitle: String = "Способ ловли и наживка"
     private let sectionSecondary: String = "Отредактируйте список наживки"
-
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            section(title: sectionTitle, secondary: sectionSecondary)
+            HStack(alignment: .center, spacing: 10) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(sectionTitle)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                    Text(sectionSecondary)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Button(action: {
+                    showFishingMethodAndBait = true
+                }, label: {
+                    Image(systemName: "chevron.right")
+                        .fontWeight(.medium)
+                        .tint(.primary)
+                })
+            }
+            .frame(height: 60)
+            .padding(.horizontal, 16)
             Divider()
             HStack(alignment: .center, spacing: 10) {
                 Text("Способ ловли")
@@ -54,29 +74,10 @@ struct EF_FishingMethodAndBait: View {
     }
 }
 @ViewBuilder
-func section(title: String, secondary: String) -> some View {
-    HStack(alignment: .center, spacing: 10) {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(title)
-                .font(.subheadline)
-                .fontWeight(.medium)
-            Text(secondary)
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-        Spacer()
-        Button(action: {
-            
-        }, label: {
-            Image(systemName: "chevron.right")
-                .fontWeight(.medium)
-                .tint(.primary)
-        })
-    }
-    .frame(height: 60)
-    .padding(.horizontal, 16)
+func section(title: String, secondary: String, showScreen: Binding<Bool>) -> some View {
+    
 }
 
 #Preview {
-    EF_FishingMethodAndBait()
+    EF_FishingMethodAndBait(showFishingMethodAndBait: .constant(false))
 }

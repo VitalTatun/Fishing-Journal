@@ -32,6 +32,9 @@ struct EditFishingView: View {
     @State private var comment: String = ""
     @State private var fishingFromTheShore: Bool = true
     
+    @State private var fMethod: String = ""
+    @State private var fBait: String = ""
+ 
     //Edit Images States
     @State private var images: [UIImage?] = []
     @State private var selectedItem: UIImage?
@@ -44,7 +47,7 @@ struct EditFishingView: View {
                 fishingNameRow($fishingName)
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
                 EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
-                EF_FishingMethodAndBait() 
+                EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet)
                 EF_FishingDetails(fishingType: $fishingType, fishingTime: $fishingTime, shore: $fishingFromTheShore, fishWeight: $fishWeight)
                 EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
@@ -101,6 +104,11 @@ struct EditFishingView: View {
                     .interactiveDismissDisabled()
             }
         })
+        .sheet(isPresented: $viewModel.showFishingMethodAndBaitSheet) {
+            NavigationStack {
+                FishingMethodAndBaitView(fishingMethod: $fMethod, bait: $fBait)
+            }
+        }
         
     }
     
