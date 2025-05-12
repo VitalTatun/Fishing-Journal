@@ -75,11 +75,12 @@
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
 		96F64C6A2C443A640051CC09 /* FishEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F64C692C443A640051CC09 /* FishEditViewModel.swift */; };
+		E347E78B2DCC8F3C00EAB5BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E347E78A2DCC8F3C00EAB5BB /* GoogleService-Info.plist */; };
+		E34E71F32DCD326D00090C98 /* FishingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E71F22DCD326D00090C98 /* FishingViewModel.swift */; };
+		E34E71FD2DD1FEA600090C98 /* FishingMethodAndBaitSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E71FC2DD1FEA600090C98 /* FishingMethodAndBaitSelectionView.swift */; };
 		E37647522DB91F1600B6DC4E /* EF_UserFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */; };
 		E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */; };
 		E376476B2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376476A2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift */; };
-		E376476F2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */; };
-		E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,11 +149,12 @@
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		96F64C692C443A640051CC09 /* FishEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishEditViewModel.swift; sourceTree = "<group>"; };
+		E347E78A2DCC8F3C00EAB5BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E34E71F22DCD326D00090C98 /* FishingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingViewModel.swift; sourceTree = "<group>"; };
+		E34E71FC2DD1FEA600090C98 /* FishingMethodAndBaitSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethodAndBaitSelectionView.swift; sourceTree = "<group>"; };
 		E37647512DB91F1600B6DC4E /* EF_UserFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_UserFishView.swift; sourceTree = "<group>"; };
 		E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
 		E376476A2DC7CD9900B6DC4E /* EF_FishingMethodAndBait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingMethodAndBait.swift; sourceTree = "<group>"; };
-		E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethodAndBaitView.swift; sourceTree = "<group>"; };
-		E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -248,7 +250,7 @@
 				962F59112B0B7E73001678A0 /* TabBar */,
 				960267D02B45D037009CBC03 /* Common */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
-				E3D591AE2D9AB8890000B6C5 /* GoogleService-Info.plist */,
+				E347E78A2DCC8F3C00EAB5BB /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -387,7 +389,8 @@
 				96F64C692C443A640051CC09 /* FishEditViewModel.swift */,
 				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
 				96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */,
-				E376476E2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift */,
+				E34E71F22DCD326D00090C98 /* FishingViewModel.swift */,
+				E34E71FC2DD1FEA600090C98 /* FishingMethodAndBaitSelectionView.swift */,
 				967994122B8F30FD008CE318 /* EF_Subviews */,
 			);
 			path = EditFishing;
@@ -483,7 +486,7 @@
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
-				E3D591AF2D9AB8890000B6C5 /* GoogleService-Info.plist in Resources */,
+				E347E78B2DCC8F3C00EAB5BB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9691943C2C9D54C000D128D1 /* ImageView.swift in Sources */,
+				E34E71FD2DD1FEA600090C98 /* FishingMethodAndBaitSelectionView.swift in Sources */,
 				96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */,
 				9679940B2B8F062B008CE318 /* EF_FishingInfo.swift in Sources */,
 				96E1C5DC2B20804700E88C7D /* Header.swift in Sources */,
@@ -557,7 +561,7 @@
 				96B7D7DA2B99968D00313754 /* EF_FishView.swift in Sources */,
 				967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */,
 				96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */,
-				E376476F2DCB2C3800B6DC4E /* FishingMethodAndBaitView.swift in Sources */,
+				E34E71F32DCD326D00090C98 /* FishingViewModel.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 				9679940D2B8F06AA008CE318 /* EF_FishingMethodPicker.swift in Sources */,
 			);

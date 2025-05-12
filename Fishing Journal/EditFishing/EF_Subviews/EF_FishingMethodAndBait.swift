@@ -10,9 +10,15 @@ import SwiftUI
 struct EF_FishingMethodAndBait: View {
     
     @Binding var showFishingMethodAndBait: Bool
+    @Binding var fishingMethod: FishingMethod
+    @Binding var bait: [Bait]
     
     private let sectionTitle: String = "Способ ловли и наживка"
     private let sectionSecondary: String = "Отредактируйте список наживки"
+    
+    private var baitDisplayText: String {
+        bait.map { $0.nameRussian }.joined(separator: ", ")
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -37,25 +43,9 @@ struct EF_FishingMethodAndBait: View {
             .frame(height: 60)
             .padding(.horizontal, 16)
             Divider()
-            HStack(alignment: .center, spacing: 10) {
-                Text("Способ ловли")
-                    .font(.callout)
-                Spacer()
-                Text("Поплавок")
-                    .font(.body)
-            }
-            .padding(.horizontal, 10)
-            .frame(height: 44)
+            EF_LabelRow(title: "Способ ловли", value: fishingMethod.nameRussian)
             Divider()
-            HStack(alignment: .center, spacing: 10) {
-                Text("Наживка")
-                    .font(.callout)
-                Spacer()
-                Text("Мотыль, Опарыш")
-                    .font(.body)
-            }
-            .padding(.horizontal, 10)
-            .frame(height: 44)
+            EF_LabelRow(title: "Наживка", value: baitDisplayText)
         }
         .padding(0)
         .background(.white)
@@ -73,11 +63,25 @@ struct EF_FishingMethodAndBait: View {
         }
     }
 }
-@ViewBuilder
-func section(title: String, secondary: String, showScreen: Binding<Bool>) -> some View {
-    
+
+struct EF_LabelRow: View {
+    var title: String
+    var value: String
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Text(title)
+                .font(.callout)
+            Spacer()
+            Text(value)
+                .font(.body)
+                .multilineTextAlignment(.trailing)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 11)
+    }
 }
 
 #Preview {
-    EF_FishingMethodAndBait(showFishingMethodAndBait: .constant(false))
+    EF_FishingMethodAndBait(showFishingMethodAndBait: .constant(false), fishingMethod: .constant(Fishing.example.fishingMethod), bait: .constant(Fishing.example.bait))
 }

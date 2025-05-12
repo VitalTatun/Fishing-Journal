@@ -18,12 +18,12 @@ struct Fishing: Identifiable, Hashable {
     var weight: Double
     var fish: [Fish]
     var fishingMethod: FishingMethod
-    var bait: Bait
+    var bait: [Bait]
     var comment: String
     let user: User
     var fishingFromTheShore: Bool
     
-    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: Bait, comment: String = "", user: User, shore: Bool = true) {
+    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: [Bait], comment: String = "", user: User, shore: Bool = true) {
         self.id = id
         self.type = type
         self.name = name
@@ -52,7 +52,7 @@ struct Fishing: Identifiable, Hashable {
         fishingTime: .now,
         fish: [.init(name: "Карась", count: 2)],
         fishingMethod: .bobber,
-        bait: .worm,
+        bait: [.worm],
         comment: "Для рыбалки замешал три пачки корма: Ультра Лещ, Река Биг Фиш и Карп Кукуруза, в последствии пожалел, что не остановился на двух пачках. Когда рыба стала плотно на точку и ловилась на каждом забросе, я просто ждал когда закончится корм. Фидербай как всегда рулит.",
         user: User(image: "userExample2", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
         shore: true
@@ -69,7 +69,7 @@ struct Fishing: Identifiable, Hashable {
         fishingTime: .now,
         fish: [],
         fishingMethod: .none,
-        bait: .none,
+        bait: [.none],
         user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
         shore: false)
 }

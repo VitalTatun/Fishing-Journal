@@ -36,8 +36,6 @@ struct FishingInfo: View {
         VStack(alignment: .leading, spacing: 8) {
             FishingInfoRow(name: "Способ ловли", element: fishing.fishingMethod.nameRussian)
             Divider()
-            FishingInfoRow(name: "Наживка", element: fishing.bait.nameRussian)
-            Divider()
             FishingInfoRow(name: "Дата и время", element: fishingDateAndTime)
             Divider()
             FishingInfoRow(name: "Ловля с берега", element: fishingFromTheShore)

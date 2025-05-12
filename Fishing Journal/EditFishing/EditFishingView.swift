@@ -23,18 +23,15 @@ struct EditFishingView: View {
     @State private var fishingName: String = ""
     @State private var fishingType: FishingType = .fishingLog
     @State private var fish: [Fish] = []
-    @State private var fishingMethod: FishingMethod = .bobber
+    @State private var fishingMethod: FishingMethod = .none
     @State private var fishingTime: Date = .now
-    @State private var bait: Bait = .worm
+    @State private var bait: [Bait] = [.none]
     @State private var fishWeight: Double = 0
     @State private var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var comment: String = ""
     @State private var fishingFromTheShore: Bool = true
     
-    @State private var fMethod: String = ""
-    @State private var fBait: String = ""
- 
     //Edit Images States
     @State private var images: [UIImage?] = []
     @State private var selectedItem: UIImage?
@@ -47,7 +44,7 @@ struct EditFishingView: View {
                 fishingNameRow($fishingName)
                 EF_ImagesView(images: $images, selectedItem: $selectedItem)
                 EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
-                EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet)
+                EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $fishingMethod, bait: $bait)
                 EF_FishingDetails(fishingType: $fishingType, fishingTime: $fishingTime, shore: $fishingFromTheShore, fishWeight: $fishWeight)
                 EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
                 EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
@@ -106,7 +103,13 @@ struct EditFishingView: View {
         })
         .sheet(isPresented: $viewModel.showFishingMethodAndBaitSheet) {
             NavigationStack {
-                FishingMethodAndBaitView(fishingMethod: $fMethod, bait: $fBait)
+                FishingMethodAndBaitSelectionView(
+                        initialMethod: fishingMethod,
+                        initialBaits: bait
+                    ) { method, baits in
+                        fishingMethod = method
+                        bait = baits
+                    }
             }
         }
         
@@ -206,3 +209,5 @@ extension MapCameraPosition {
         EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
     }
 }
+
+

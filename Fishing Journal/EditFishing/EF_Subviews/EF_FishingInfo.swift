@@ -80,10 +80,10 @@ struct EF_FishingInfo: View {
     }
 }
 
-#Preview {
-    EF_FishingInfo(
-        fishingMethod: .constant(Fishing.example.fishingMethod),
-        fishingTime: .constant(Fishing.example.fishingTime),
-        bait: .constant(Fishing.example.bait),
-        fishWeight: .constant(Fishing.example.weight), shore: .constant(Fishing.example.fishingFromTheShore))
-}
+//#Preview {
+//    EF_FishingInfo(
+//        fishingMethod: .constant(Fishing.example.fishingMethod),
+//        fishingTime: .constant(Fishing.example.fishingTime),
+//        bait: .constant(Fishing.example.bait),
+//        fishWeight: .constant(Fishing.example.weight), shore: .constant(Fishing.example.fishingFromTheShore))
+//}
