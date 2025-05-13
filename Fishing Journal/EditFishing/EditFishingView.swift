@@ -67,7 +67,7 @@ struct EditFishingView: View {
         
         .sheet(isPresented: $viewModel.showFishView) {
             NavigationStack {
-                FishEditView(fish: $viewModel.fish)
+                FishEditView(fish: $viewModel.fish, fishingType: viewModel.fishingType)
             }
             .interactiveDismissDisabled()
         }

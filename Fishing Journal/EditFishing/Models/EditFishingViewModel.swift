@@ -69,18 +69,32 @@ class EditFishingViewModel: ObservableObject {
     }
 
 //    func validateMandatoryFields() -> Bool {
-//        fishingName.isEmpty || fish.isEmpty || water.waterName.isEmpty || water.latitude.isZero
+//        fishingName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+//        fish.isEmpty ||
+//        fishingMethod == .none ||
+//        bait.isEmpty || bait.allSatisfy { $0 == .none } ||
+//        water.waterName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+//        water.latitude == 0 || water.longitude == 0
 //    }
-    
+//    
     func validateMandatoryFields() -> Bool {
-        fishingName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-        fish.isEmpty ||
-        fishingMethod == .none ||
-        bait.isEmpty || bait.allSatisfy { $0 == .none } ||
-        water.waterName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-        water.latitude == 0 || water.longitude == 0
+        // Общие обязательные поля
+        let isBaseInvalid =
+            fishingName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+            fishingMethod == .none ||
+            bait.isEmpty || bait.allSatisfy { $0 == .none } ||
+            water.waterName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+            water.latitude == 0 || water.longitude == 0
+
+        // Дополнительные условия по типу рыбалки
+        switch fishingType {
+        case .fishingLog:
+            return isBaseInvalid || fish.isEmpty
+        case .haul:
+            let hasPhoto = images.contains(where: { $0 != nil })
+            return isBaseInvalid || fish.count != 1 || !hasPhoto
+        }
     }
-    
 
 }
 

@@ -77,5 +77,5 @@ struct CustomStepper: View {
     }
 }
 #Preview(body: {
-    FishEditView(fish: .constant(Fishing.emptyFishing.fish))
+    FishEditView(fish: .constant(Fishing.emptyFishing.fish), fishingType: Fishing.example.type)
 })
