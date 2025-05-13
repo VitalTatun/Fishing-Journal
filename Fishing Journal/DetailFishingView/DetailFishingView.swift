@@ -11,7 +11,7 @@ import MapKit
 struct DetailFishingView: View {
     
     @Binding var fishing: Fishing
-
+    
     @State private var selectedImage: UIImage?
     @State private var showEditView = false
     @State private var showPhotoView = false
@@ -46,14 +46,17 @@ struct DetailFishingView: View {
             }
         })
         .sheet(isPresented: $showEditView) {
-            NavigationStack{
-                    EditFishingView(fishing: $fishing, showEditView: $showEditView)
-                }
+            NavigationStack {
+                EditFishingView(
+                    viewModel: EditFishingViewModel(fishing: fishing),
+                    showEditView: $showEditView
+                )
+            }
         }
         .fullScreenCover(isPresented: $showOnMap) {
             NavigationStack {
-                    LocationMapView(water: $fishing.water)
-                }
+                LocationMapView(water: $fishing.water)
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

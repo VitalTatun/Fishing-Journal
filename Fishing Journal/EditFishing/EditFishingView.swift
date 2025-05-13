@@ -13,52 +13,32 @@ struct EditFishingView: View {
     
     @EnvironmentObject var fishingData: FishingData
     
-    @StateObject private var viewModel = FishEditViewModel()
-    
-    @Binding var fishing: Fishing
+    @ObservedObject var viewModel: EditFishingViewModel
     @Binding var showEditView: Bool
-    
-    
-    //Edit Fishing States
-    @State private var fishingName: String = ""
-    @State private var fishingType: FishingType = .fishingLog
-    @State private var fish: [Fish] = []
-    @State private var fishingMethod: FishingMethod = .none
-    @State private var fishingTime: Date = .now
-    @State private var bait: [Bait] = [.none]
-    @State private var fishWeight: Double = 0
-    @State private var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
-    @State private var cameraPosition: MapCameraPosition = .automatic
-    @State private var comment: String = ""
-    @State private var fishingFromTheShore: Bool = true
-    
-    //Edit Images States
-    @State private var images: [UIImage?] = []
-    @State private var selectedItem: UIImage?
     
     let shadowColor = Color(white: 0, opacity: 0.05)
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                fishingNameRow($fishingName)
-                EF_ImagesView(images: $images, selectedItem: $selectedItem)
-                EF_FishView(fish: $fish, showFishView: $viewModel.showFishView)
-                EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $fishingMethod, bait: $bait)
-                EF_FishingDetails(fishingType: $fishingType, fishingTime: $fishingTime, shore: $fishingFromTheShore, fishWeight: $fishWeight)
-                EF_WaterInfo(water: $water, showMapSheet: $viewModel.showMapSheet)
-                EF_Comment(comment: $comment, showCommentView: $viewModel.showCommentView)
+                fishingNameRow($viewModel.fishingName)
+                EF_ImagesView(images: $viewModel.images, selectedItem: $viewModel.selectedItem)
+                EF_FishView(fish: $viewModel.fish, showFishView: $viewModel.showFishView)
+                EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $viewModel.fishingMethod, bait: $viewModel.bait)
+                EF_FishingDetails(fishingType: $viewModel.fishingType, fishingTime: $viewModel.fishingTime, shore: $viewModel.fishingFromTheShore, fishWeight: $viewModel.fishWeight)
+                EF_WaterInfo(water: $viewModel.water, showMapSheet: $viewModel.showMapSheet)
+                EF_Comment(comment: $viewModel.comment, showCommentView: $viewModel.showCommentView)
             }
             .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
             .padding(10)
         }
         .interactiveDismissDisabled()
         .onAppear(perform: {
-            setInitialFishingData()
+            viewModel.setInitialFishingData()
         })
         .background(.white)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(fishing.name)
+        .navigationTitle(viewModel.fishingName)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Отмена") {
@@ -67,10 +47,10 @@ struct EditFishingView: View {
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button("Готово") {
-                    updateFishingData()
+                    viewModel.updateFishingData(fishingData: fishingData, showEditView: &showEditView)
                     showEditView = false
                 }
-                .disabled(validateMandatoryFields())
+                .disabled(viewModel.validateMandatoryFields())
             }
         }
         .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
@@ -87,28 +67,28 @@ struct EditFishingView: View {
         
         .sheet(isPresented: $viewModel.showFishView) {
             NavigationStack {
-                FishEditView(fish: $fish)
+                FishEditView(fish: $viewModel.fish)
             }
             .interactiveDismissDisabled()
         }
         .sheet(isPresented: $viewModel.showMapSheet, content: {
-            EditLocationMapView(water: $water)
+            EditLocationMapView(water: $viewModel.water)
                 .interactiveDismissDisabled()
         })
         .sheet(isPresented: $viewModel.showCommentView, content: {
             NavigationStack {
-                CommentView(comment: $comment)
+                CommentView(comment: $viewModel.comment)
                     .interactiveDismissDisabled()
             }
         })
         .sheet(isPresented: $viewModel.showFishingMethodAndBaitSheet) {
             NavigationStack {
                 FishingMethodAndBaitSelectionView(
-                        initialMethod: fishingMethod,
-                        initialBaits: bait
+                        initialMethod: viewModel.fishingMethod,
+                        initialBaits: viewModel.bait
                     ) { method, baits in
-                        fishingMethod = method
-                        bait = baits
+                        viewModel.fishingMethod = method
+                        viewModel.bait = baits
                     }
             }
         }
@@ -147,43 +127,6 @@ struct EditFishingView: View {
         }
     }
     
-    private func setInitialFishingData() {
-        fishingName = fishing.name
-        fishingType = fishing.type
-        fish = fishing.fish
-        fishingMethod = fishing.fishingMethod
-        fishingTime = fishing.fishingTime
-        bait = fishing.bait
-        fishWeight = fishing.weight
-        water = fishing.water
-        cameraPosition = .updateCameraPosition(fishing: fishing)
-        comment = fishing.comment
-        images = fishing.photo
-        fishingFromTheShore = fishing.fishingFromTheShore
-    }
-    private func updateFishingData() {
-        fishing.name = fishingName
-        fishing.type = fishingType
-        fishing.fish = fish
-        fishing.fishingMethod = fishingMethod
-        fishing.bait = bait
-        fishing.fishingTime = fishingTime
-        fishing.weight = fishWeight
-        fishing.water = water
-        fishing.comment = comment
-        fishing.photo = images
-        fishing.fishingFromTheShore = fishingFromTheShore
-        
-        fishingData.updateFishing(fishing: fishing)
-    }
-    
-    func validateMandatoryFields() -> Bool {
-        if fishingName.isEmpty || fish.isEmpty || water.waterName.isEmpty || water.latitude.isZero {
-            return true
-        }
-        return false
-    }
-    
 }
 
 extension MapCameraPosition {
@@ -206,8 +149,6 @@ extension MapCameraPosition {
 
 #Preview {
     NavigationStack {
-        EditFishingView(fishing: .constant(Fishing.example), showEditView: .constant(false))
+        EditFishingView(viewModel: EditFishingViewModel(fishing: Fishing.example), showEditView: .constant(false))
     }
 }
-
-
