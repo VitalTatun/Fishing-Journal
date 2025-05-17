@@ -10,8 +10,7 @@ import PhotosUI
 
 struct EF_ImagesView: View {
     
-    @Binding var images: [UIImage?]
-    @Binding var selectedItem: UIImage?
+    @ObservedObject var viewModel: EditFishingViewModel
     
     @State private var isSelected = false
     @State private var pickerItem: [PhotosPickerItem] = []
@@ -33,8 +32,8 @@ struct EF_ImagesView: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
-                if !images.isEmpty {
-                    Text("\(images.count)/6")
+                if !viewModel.images.isEmpty {
+                    Text("\(viewModel.images.count)/6")
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .padding(.horizontal, 15)
@@ -51,20 +50,11 @@ struct EF_ImagesView: View {
                         .tint(.primary)
                 })
                 .buttonStyle(.borderless)
-                .disabled(images.count >= maxCount)
-                .photosPicker(isPresented: $showPickerPhoto, selection: $pickerItem, maxSelectionCount: maxCount - images.count, selectionBehavior: .ordered, matching: .images, preferredItemEncoding: .automatic)
-                .onChange(of: pickerItem) { _, _ in
+                .disabled(viewModel.images.count >= maxCount)
+                .photosPicker(isPresented: $showPickerPhoto, selection: $pickerItem, maxSelectionCount: maxCount - viewModel.images.count, selectionBehavior: .ordered, matching: .images, preferredItemEncoding: .automatic)
+                .onChange(of: pickerItem) {
                         Task {
-                            for item in pickerItem {
-                                if let data = try? await item.loadTransferable(type: Data.self) {
-                                    if let image = UIImage(data: data) {
-                                        if images.count <= 5 {
-                                            images.append(image)
-                                            selectedItem = nil
-                                        }
-                                    }
-                                }
-                            }
+                            await viewModel.addImages(from: pickerItem)
                             pickerItem = []
                         }
                 }
@@ -72,11 +62,11 @@ struct EF_ImagesView: View {
             .frame(height: 60)
             .padding(.horizontal, 16)
 
-            if !images.isEmpty {
+            if !viewModel.images.isEmpty {
                 Divider()
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 5) {
-                        ForEach(images, id: \.self) { item in
+                        ForEach(viewModel.images, id: \.self) { item in
                             if let photo = item {
                                 Image(uiImage: photo)
                                     .resizable()
@@ -88,9 +78,7 @@ struct EF_ImagesView: View {
                                     .overlay (alignment: .topTrailing) {
                                         Button {
                                             withAnimation {
-                                                if let index = images.firstIndex(where: { $0 == item }) {
-                                                        images.remove(at: index)
-                                                }
+                                                viewModel.removeImage(photo)
                                             }
                                         } label: {
                                             Image(systemName: "xmark.circle.fill")
@@ -120,5 +108,5 @@ struct EF_ImagesView: View {
 }
 
 #Preview {
-    EF_ImagesView(images: .constant(Fishing.example.photo), selectedItem: .constant(UIImage(named: "2")))
+    EF_ImagesView(viewModel: EditFishingViewModel(fishing: Fishing.example))
 }

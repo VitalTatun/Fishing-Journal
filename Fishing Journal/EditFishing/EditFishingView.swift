@@ -22,7 +22,7 @@ struct EditFishingView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
                 fishingNameRow($viewModel.fishingName)
-                EF_ImagesView(images: $viewModel.images, selectedItem: $viewModel.selectedItem)
+                EF_ImagesView(viewModel: viewModel)
                 EF_FishView(fish: $viewModel.fish, showFishView: $viewModel.showFishView)
                 EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $viewModel.fishingMethod, bait: $viewModel.bait)
                 EF_FishingDetails(fishingType: $viewModel.fishingType, fishingTime: $viewModel.fishingTime, shore: $viewModel.fishingFromTheShore, fishWeight: $viewModel.fishWeight)

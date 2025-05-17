@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+import PhotosUI
 
 class EditFishingViewModel: ObservableObject {
     @Published var fishing: Fishing
@@ -68,15 +69,6 @@ class EditFishingViewModel: ObservableObject {
         showEditView = false
     }
 
-//    func validateMandatoryFields() -> Bool {
-//        fishingName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-//        fish.isEmpty ||
-//        fishingMethod == .none ||
-//        bait.isEmpty || bait.allSatisfy { $0 == .none } ||
-//        water.waterName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-//        water.latitude == 0 || water.longitude == 0
-//    }
-//    
     func validateMandatoryFields() -> Bool {
         // Общие обязательные поля
         let isBaseInvalid =
@@ -98,3 +90,25 @@ class EditFishingViewModel: ObservableObject {
 
 }
 
+extension EditFishingViewModel {
+    func addImages(from pickerItems: [PhotosPickerItem]) async {
+        for item in pickerItems {
+            if let data = try? await item.loadTransferable(type: Data.self) {
+                if let image = UIImage(data: data) {
+                    if images.count < 6 {
+                        await MainActor.run {
+                            images.append(image)
+                            selectedItem = nil
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func removeImage(_ image: UIImage) {
+        if let index = images.firstIndex(where: { $0 == image }) {
+            images.remove(at: index)
+        }
+    }
+}
