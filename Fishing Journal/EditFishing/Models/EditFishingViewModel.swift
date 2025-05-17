@@ -90,19 +90,19 @@ class EditFishingViewModel: ObservableObject {
 
 }
 
+// MARK: - Image Handling
+
 extension EditFishingViewModel {
     func addImages(from pickerItems: [PhotosPickerItem]) async {
         for item in pickerItems {
-            if let data = try? await item.loadTransferable(type: Data.self) {
-                if let image = UIImage(data: data) {
-                    if images.count < 6 {
+            if let data = try? await item.loadTransferable(type: Data.self),
+                       let image = UIImage(data: data),
+                       images.count < 6 {
                         await MainActor.run {
                             images.append(image)
                             selectedItem = nil
                         }
                     }
-                }
-            }
         }
     }
     

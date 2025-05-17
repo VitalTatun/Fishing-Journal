@@ -17,29 +17,18 @@ struct EF_FishView: View {
     private let sectionTitle: String = "Улов"
     private let sectionSecondary: String = "Отредактируйте список пойманной рыбы"
     
+    private var icon: String {
+        return String(fish.isEmpty ? "plus" : "chevron.right")
+    }
+    private var statusColor: Color {
+        return Color(fish.isEmpty ? .red : .green)
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .center, spacing: 10) {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(sectionTitle)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                    Text(sectionSecondary)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer()
-                Button(action: {
-                    showFishView = true
-                }, label: {
-                    Image(systemName: fish.isEmpty ? "plus" : "chevron.right")
-                        .fontWeight(.medium)
-                        .tint(.primary)
-                })
+        EF_CardItemContainer {
+            EF_SectionHeader(title: sectionTitle, secondary: sectionSecondary, icon: icon) {
+                showFishView.toggle()
             }
-            .frame(height: 60)
-            .padding(.horizontal, 16)
-
             if !fish.isEmpty {
                 Divider()
                 CustomFishTagLayout(spacing: 4) {
@@ -50,17 +39,9 @@ struct EF_FishView: View {
                 .padding(4)
             }
         }
-        .padding(0)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-                .foregroundColor(Color(.quaternaryLabel))
-        }
         .overlay(alignment: .topLeading) {
             Circle()
-                .foregroundStyle(.red)
+                .foregroundStyle(statusColor)
                 .offset(x: 6, y: 6)
                 .frame(width: 6, height: 6)
         }

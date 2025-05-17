@@ -24,48 +24,19 @@ struct EF_Comment: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack{
-                section(title: sectionTitle, secondary: secondarySection)
-            }
+        EF_CardItemContainer {
+            EF_SectionHeader(
+                title: sectionTitle,
+                secondary: secondarySection,
+                icon: icon,
+                onTap: { showCommentView.toggle() }
+            )
             Divider()
             if !comment.isEmpty {
-                    Text(comment)
+                Text(comment)
                     .padding(8)
             }
         }
-        .padding(0)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-                .foregroundColor(Color(.quaternaryLabel))
-        }
-    }
-    
-    @ViewBuilder
-    func section(title: String, secondary: String) -> some View {
-        HStack(alignment: .center, spacing: 10) {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(title)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                Text(secondary)
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer()
-            Button(action: {
-                showCommentView.toggle()
-            }, label: {
-                Image(systemName: icon)
-                    .fontWeight(.medium)
-                    .tint(.primary)
-            })
-        }
-        .frame(height: 60)
-        .padding(.horizontal, 16)
     }
 }
 
