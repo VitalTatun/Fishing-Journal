@@ -21,7 +21,7 @@ struct EditFishingView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                fishingNameRow($viewModel.fishingName)
+                EF_Header(name: $viewModel.fishingName)
                 EF_ImagesView(viewModel: viewModel)
                 EF_FishView(fish: $viewModel.fish, showFishView: $viewModel.showFishView)
                 EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $viewModel.fishingMethod, bait: $viewModel.bait)
@@ -92,41 +92,7 @@ struct EditFishingView: View {
                     }
             }
         }
-        
     }
-    
-    @ViewBuilder
-    func fishingNameRow(_ name: Binding<String>) -> some View {
-        HStack(alignment: .center, spacing: 10) {
-            TextField("", text: name, prompt: Text("Название рыбалки"))
-                .fontWeight(.medium)
-                .textFieldStyle(.plain)
-                .frame(height: 44)
-            Button {
-                
-                // Show Tip about fishing naming with text - Придумайте название, например - На Карася или Смеркалось...
-            } label: {
-                Image(systemName: "info.circle")
-                    .font(.body)
-                    .foregroundStyle(.blue)
-            }
-        }
-        .padding(.horizontal, 10)
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 1)
-                .foregroundColor(Color(.quaternaryLabel))
-        }
-        .overlay(alignment: .topLeading) {
-            Circle()
-                .foregroundStyle(.red)
-                .offset(x: 6, y: 6)
-                .frame(width: 6, height: 6)
-        }
-    }
-    
 }
 
 extension MapCameraPosition {

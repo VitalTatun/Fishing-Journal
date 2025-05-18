@@ -141,6 +141,7 @@
 		E34E72032DD31B1600090C98 /* MethodAndBaitSelection */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MethodAndBaitSelection; sourceTree = "<group>"; };
 		E34E72052DD31BFB00090C98 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		E34E72132DD3C18700090C98 /* EditFish */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = EditFish; sourceTree = "<group>"; };
+		E34E72DB2DDA45FF00090C98 /* Header */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Header; sourceTree = "<group>"; };
 		E37647532DB9789900B6DC4E /* Helper */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helper; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -360,6 +361,7 @@
 		96B2A8C32B7B536E00F78CBC /* EditFishing */ = {
 			isa = PBXGroup;
 			children = (
+				E34E72DB2DDA45FF00090C98 /* Header */,
 				E34E72132DD3C18700090C98 /* EditFish */,
 				E34E72052DD31BFB00090C98 /* Models */,
 				E34E72032DD31B1600090C98 /* MethodAndBaitSelection */,
@@ -409,6 +411,7 @@
 				E34E72032DD31B1600090C98 /* MethodAndBaitSelection */,
 				E34E72052DD31BFB00090C98 /* Models */,
 				E34E72132DD3C18700090C98 /* EditFish */,
+				E34E72DB2DDA45FF00090C98 /* Header */,
 				E37647532DB9789900B6DC4E /* Helper */,
 			);
 			name = "Fishing Journal";

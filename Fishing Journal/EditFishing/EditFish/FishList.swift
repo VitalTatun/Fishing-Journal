@@ -16,7 +16,7 @@ struct FishList: View {
         if viewModel.fishingType == .haul && viewModel.fishToEditList.count >= 1 {
             return "Для трофейной рыбалки можно добавить только одну рыбу."
         }
-        return "\(viewModel.newFish) уже есть в списке. Просто отредактируйте количество."
+        return "Эта рыба уже есть в списке. Просто отредактируйте количество."
         
     }
     var body: some View {
@@ -58,7 +58,7 @@ struct FishList: View {
         .shadow(color: shadowColor, radius: 6, x: 0, y: 2)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .alert("Ошибка", isPresented: $viewModel.showAlert) {
+        .alert("Ой", isPresented: $viewModel.showAlert) {
             Button("Ок", role: .cancel) {
                 viewModel.newFish = ""
             }
