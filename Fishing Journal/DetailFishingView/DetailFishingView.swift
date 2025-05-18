@@ -19,7 +19,6 @@ struct DetailFishingView: View {
     @State private var isFavorite = false
     
     let shadowColor = Color(white: 0, opacity: 1)
-    let name: String = "Hello"
     
     @Namespace private var animation
     
