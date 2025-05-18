@@ -12,11 +12,12 @@ struct FishCaught: View {
   let fish: [Fish]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 5) {
-                //
-            }
-        }
+                CustomFishTagLayout(spacing: 4) {
+                    ForEach(fish, id: \.self) { fish in
+                        FishViewItem(fish)
+                    }
+                }
+                .padding(4)
     }
 }
 

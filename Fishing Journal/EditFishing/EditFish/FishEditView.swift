@@ -23,15 +23,11 @@ struct FishEditView: View {
         Fish(name: "Лещ", count: 1)
     ]
     
-    @StateObject private var fishListViewModel: FishListViewModel
-    
-    @State private var fishToEditList: [Fish] = []
-    @State private var newFish: String = ""
-    @State private var showAlert: Bool = false
+    @State private var fishListViewModel: FishListViewModel
 
     init(fish: Binding<[Fish]>, fishingType: FishingType) {
         self._fish = fish
-        self._fishListViewModel = StateObject(wrappedValue: FishListViewModel(fish: fish.wrappedValue, fishingType: fishingType))
+        self._fishListViewModel = State(wrappedValue: FishListViewModel(fish: fish.wrappedValue, fishingType: fishingType))
     }
     
     

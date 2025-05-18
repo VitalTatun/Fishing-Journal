@@ -99,18 +99,14 @@ struct AvailableBaitsRow: View {
     var selectedBaits: Set<Bait>
     var currentBait: Bait
     
+    var icon: String {
+        return String(selectedBaits.contains(currentBait) ? "checkmark.circle.fill" : "circle")
+    }
     var body: some View {
         HStack(spacing: 16) {
-            // Отображаем галочку, если это выбранная наживка
-            if selectedBaits.contains(currentBait) {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(.primaryDeepBlue)
-                    .font(.body)
-            } else {
-                Image(systemName: "circle")
-                    .foregroundStyle(.primaryDeepBlue)
-                    .font(.body)
-            }
+            Image(systemName: icon)
+                .foregroundStyle(.primaryDeepBlue)
+                .font(.body)
             Text(currentBait.nameRussian)
                 .font(.body)
                 .fontWeight(.medium)

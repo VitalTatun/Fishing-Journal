@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FishList: View {
-    @StateObject var viewModel: FishListViewModel
+    @State var viewModel: FishListViewModel
     
     let shadowColor = Color(white: 0, opacity: 0.05)
 

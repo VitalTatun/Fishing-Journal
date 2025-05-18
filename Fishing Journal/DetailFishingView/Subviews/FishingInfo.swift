@@ -30,6 +30,9 @@ struct FishingInfo: View {
         guard fishing.fishingFromTheShore else { return "Нет"}
         return "Да"
     }
+    private var fishWeight: String {
+        return fishing.weight > 0 ? String(format: "%.1f", fishing.weight) + " кг." : "Не указан"
+    }
     let shadowColor = Color(white: 0, opacity: 0.05)
     
     var body: some View {
@@ -40,7 +43,7 @@ struct FishingInfo: View {
             Divider()
             FishingInfoRow(name: "Ловля с берега", element: fishingFromTheShore)
             Divider()
-            FishingInfoRow(name: "Вес", element: fishing.weight > 0 ? String(format: "%.1f", fishing.weight) + " кг." : "Не указан")
+            FishingInfoRow(name: "Вес", element: fishWeight)
         }
         
         .padding(10)

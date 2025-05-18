@@ -9,6 +9,7 @@ import MapKit
 import SwiftUI
 import PhotosUI
 
+
 class EditFishingViewModel: ObservableObject {
     @Published var fishing: Fishing
     @Published var fishingName: String = ""

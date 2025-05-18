@@ -7,11 +7,13 @@
 
 import Foundation
 import SwiftUI
+import Observation
 
-class FishListViewModel: ObservableObject {
-    @Published var fishToEditList: [Fish]
-    @Published var showAlert: Bool = false
-    @Published var newFish: String = ""
+@Observable
+class FishListViewModel {
+    var fishToEditList: [Fish]
+    var showAlert: Bool = false
+    var newFish: String = ""
     
     let fishingType: FishingType
     

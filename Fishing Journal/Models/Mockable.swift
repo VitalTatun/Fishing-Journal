@@ -16,7 +16,7 @@ public protocol Mockable {
 
 public extension Mockable {
     static var mock: MockType {
-        mockList[0]
+        mockList[1]
     }
     
     static var mockList:  [MockType] {
