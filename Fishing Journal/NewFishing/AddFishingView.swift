@@ -12,7 +12,7 @@ struct AddFishingView: View {
     @Binding var showAddFishingView: Bool
     @State private var newFishing = Fishing.emptyFishing
     
-    @StateObject private var viewModel = EditFishingViewModel(fishing: Fishing.emptyFishing)
+    @State private var viewModel = EditFishingViewModel(fishing: Fishing.emptyFishing)
     
     var body: some View {
         NavigationStack {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @StateObject var viewModel = LoginViewModel()
+    @Bindable var viewModel = LoginViewModel()
 
     @State private var name = ""
     @State private var email = ""

@@ -10,7 +10,7 @@ import PhotosUI
 
 struct EF_ImagesView: View {
     
-    @ObservedObject var viewModel: EditFishingViewModel
+    @State var viewModel: EditFishingViewModel
     
     @State private var isSelected = false
     @State private var pickerItem: [PhotosPickerItem] = []

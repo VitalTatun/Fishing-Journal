@@ -13,7 +13,7 @@ struct EditFishingView: View {
     
     @EnvironmentObject var fishingData: FishingData
     
-    @ObservedObject var viewModel: EditFishingViewModel
+    @State var viewModel: EditFishingViewModel
     @Binding var showEditView: Bool
     
     let shadowColor = Color(white: 0, opacity: 0.05)
@@ -21,7 +21,7 @@ struct EditFishingView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                EF_Header(name: $viewModel.fishingName)
+                EF_Header(name: $viewModel.fishingName, type: $viewModel.fishingType)
                 EF_ImagesView(viewModel: viewModel)
                 EF_FishView(fish: $viewModel.fish, showFishView: $viewModel.showFishView)
                 EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $viewModel.fishingMethod, bait: $viewModel.bait)

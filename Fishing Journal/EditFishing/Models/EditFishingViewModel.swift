@@ -8,30 +8,31 @@
 import MapKit
 import SwiftUI
 import PhotosUI
+import Observation
 
-
-class EditFishingViewModel: ObservableObject {
-    @Published var fishing: Fishing
-    @Published var fishingName: String = ""
-    @Published var fishingType: FishingType = .fishingLog
-    @Published var fish: [Fish] = []
-    @Published var fishingMethod: FishingMethod = .none
-    @Published var fishingTime: Date = .now
-    @Published var bait: [Bait] = [.none]
-    @Published var fishWeight: Double = 0
-    @Published var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
-    @Published var cameraPosition: MapCameraPosition = .automatic
-    @Published var comment: String = ""
-    @Published var fishingFromTheShore: Bool = true
-    @Published var images: [UIImage?] = []
-    @Published var selectedItem: UIImage?
+@Observable
+class EditFishingViewModel: Observable {
+   var fishing: Fishing
+   var fishingName: String = ""
+   var fishingType: FishingType = .fishingLog
+   var fish: [Fish] = []
+   var fishingMethod: FishingMethod = .none
+   var fishingTime: Date = .now
+   var bait: [Bait] = [.none]
+   var fishWeight: Double = 0
+   var water: Water = Water(waterName: "", latitude: 54, longitude: 54)
+   var cameraPosition: MapCameraPosition = .automatic
+   var comment: String = ""
+   var fishingFromTheShore: Bool = true
+   var images: [UIImage?] = []
+   var selectedItem: UIImage?
     
     
-    @Published var showAlert: Bool = false
-    @Published var showFishView: Bool = false
-    @Published var showMapSheet: Bool = false
-    @Published var showCommentView: Bool = false
-    @Published var showFishingMethodAndBaitSheet: Bool = false
+    var showAlert: Bool = false
+    var showFishView: Bool = false
+    var showMapSheet: Bool = false
+    var showCommentView: Bool = false
+    var showFishingMethodAndBaitSheet: Bool = false
 
     init(fishing: Fishing) {
         self.fishing = fishing

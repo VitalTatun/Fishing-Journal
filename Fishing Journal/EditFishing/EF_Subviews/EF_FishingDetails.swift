@@ -31,8 +31,6 @@ struct EF_FishingDetails: View {
         VStack(alignment: .center, spacing: 0) {
             publishRow()
             Divider()
-            fishingTypeRow($fishingType)
-            Divider()
             fishingDateAndTime(fishingTime: $fishingTime)
             Divider()
             shoreRow(from: $shore)
@@ -55,16 +53,6 @@ struct EF_FishingDetails: View {
     func publishRow() -> some View {
         HStack(alignment: .center, spacing: 10) {
             Toggle("Опубликовать", isOn: $publishFishing)
-        }
-        .frame(height: rowHeight)
-    }
-    
-    @ViewBuilder
-    func fishingTypeRow(_ type: Binding<FishingType>) -> some View {
-        HStack(alignment: .center, spacing: 10) {
-            Text("Тип рыбалки")
-            Spacer()
-            EF_FishingTypePicker(selection: type)
         }
         .frame(height: rowHeight)
     }

@@ -31,7 +31,7 @@ struct TabBarView: View {
                     Image(systemName: TabBar.feed.icon)
                     Text(TabBar.feed.description)
                 }
-            ProfileView()
+            ProfileAuthenticationView()
                 .tag(TabBar.settings)
                 .tabItem {
                     Image(systemName: TabBar.settings.icon)
