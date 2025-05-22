@@ -9,13 +9,18 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @Bindable var viewModel = LoginViewModel()
+    @EnvironmentObject var authService: AuthService
+    @State private var viewModel: LoginViewModel
     
     @State private var showMainView = false
     
     @State private var isValidEmail = false
     @State private var isValidPassword = false
     @State private var isPasswordVisible = false
+    
+    init(authService: AuthService) {
+        _viewModel = State(wrappedValue: LoginViewModel(authService: authService))
+    }
     
     var body: some View {
         NavigationStack {
@@ -27,12 +32,12 @@ struct LoginView: View {
                     Divider()
                         .padding(.bottom, 10)
                     AuthTextField(text: $viewModel.email,
-                              title: "Email",
-                              placeholder: "name@example.com")
+                                  title: "Email",
+                                  placeholder: "name@example.com")
                     AuthSecuredTextField(text: $viewModel.password,
-                                     isPasswordVisible: $isPasswordVisible,
-                                     title: "Password",
-                                     placeholder: "Enter your password")
+                                         isPasswordVisible: $isPasswordVisible,
+                                         title: "Password",
+                                         placeholder: "Enter your password")
                     
                     Button(action: {
                         //TODO: Add Forget password functionality
@@ -42,9 +47,8 @@ struct LoginView: View {
                     
                     Button(action: {
                         Task {
-                            try await viewModel.signIn()
+                            await viewModel.signIn()
                         }
-//                        showMainView = true
                     }, label: {
                         Text("Login")
                             .font(.system(.body, design: .default, weight: .medium))
@@ -52,14 +56,7 @@ struct LoginView: View {
                             .padding(.vertical, 10)
                     })
                     .padding(.top, 30)
-//                    .disabled(!Validator.validateEmail(email))
-                    
-                    
-                    .navigationDestination(isPresented: $showMainView) {
-                        TabBarView()
-                            .environmentObject(FishingData())
-                            .navigationBarBackButtonHidden()
-                    }
+                    //                    .disabled(!Validator.validateEmail(email))
                     .tint(.primaryDeepBlue)
                     .buttonStyle(.borderedProminent)
                     
@@ -71,9 +68,5 @@ struct LoginView: View {
         }
     }
     
-}
-
-#Preview {
-    LoginView()
 }
 

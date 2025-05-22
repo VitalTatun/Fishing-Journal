@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @EnvironmentObject var authViewModel: AuthService
+    @Environment(\.dismiss) private var dismiss
+
     let shadowColor = Color(white: 0, opacity: 0.05)
     
     var body: some View {
@@ -35,10 +38,19 @@ struct ProfileView: View {
                 .background(Color(white: 0, opacity: 0.04))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        authViewModel.signOut()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    
+                }
+            })
             .navigationTitle("Профиль")
             .navigationBarTitleDisplayMode(.large)
             .scrollIndicators(.hidden)
-
         }
     }
 }

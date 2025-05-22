@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
-
+import Firebase
 
 @main
 struct Fishing_JournalApp: App {
     
+    init() {
+        FirebaseApp.configure()
+    }
+    
     @StateObject private var fishingData = FishingData()
+    @StateObject var viewModel = AuthService()
     
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            ContentView()
+                .environmentObject(viewModel)
                 .environmentObject(fishingData)
         }
     }

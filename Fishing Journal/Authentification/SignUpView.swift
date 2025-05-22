@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @Bindable var viewModel = LoginViewModel()
+    @EnvironmentObject var authService: AuthService
+    @State private var viewModel: LoginViewModel
 
     @State private var name = ""
     @State private var email = ""
@@ -17,9 +18,12 @@ struct SignUpView: View {
     
     @State private var showMainView = false
     @State private var isPasswordVisible = false
+    
+    init(viewModel: LoginViewModel) {
+            _viewModel = State(wrappedValue: viewModel)
+        }
         
     var body: some View {
-        NavigationStack {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 5) {
                     Group {
@@ -41,7 +45,7 @@ struct SignUpView: View {
                     }
                     Button {
                         Task {
-                            try await viewModel.signUp()
+                             await viewModel.signUp()
                         }
                     } label: {
                         Text("Sign Up")
@@ -52,21 +56,13 @@ struct SignUpView: View {
                     .tint(.primaryDeepBlue)
                     .buttonStyle(.borderedProminent)
 //                    .disabled(password.isEmpty)
-                    .navigationDestination(isPresented: $showMainView) {
-                        MainView()
-                            .environmentObject(FishingData())
-                            .navigationBarBackButtonHidden()
-                    }
                 }
             }
             .padding()
             .navigationTitle("Sign Up")
             .navigationBarTitleDisplayMode(.inline)
             
-        }
     }
 }
 
-#Preview {
-    SignUpView()
-}
+

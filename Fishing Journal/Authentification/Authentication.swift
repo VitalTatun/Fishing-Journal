@@ -9,9 +9,11 @@ import SwiftUI
 
 struct Authentication: View {
     
+    @EnvironmentObject var authService: AuthService
+    
     @State private var showSignUpView = false
     @State private var showLoginView = false
-
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .center) {
@@ -29,7 +31,7 @@ struct Authentication: View {
                         .frame(maxWidth: .infinity, maxHeight: 50)
                 })
                 .navigationDestination(isPresented: $showLoginView, destination: {
-                    LoginView()
+                    LoginView(authService: authService)
                 })
                 .tint(.primaryDeepBlue)
                 .buttonStyle(.borderedProminent)
@@ -43,7 +45,9 @@ struct Authentication: View {
                         .frame(maxWidth: .infinity, maxHeight: 50)
                 })
                 .navigationDestination(isPresented: $showSignUpView, destination: {
-                    SignUpView()
+                    let viewModel = LoginViewModel(authService: authService)
+                    SignUpView(viewModel: viewModel)
+                        .environmentObject(authService)
                 })
                 .tint(.primaryDeepBlue)
                 .buttonStyle(.bordered)

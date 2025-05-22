@@ -10,30 +10,37 @@ import Observation
 
 @Observable
 class LoginViewModel {
+    
+    private var authService: AuthService
+    
     var email: String = ""
     var password: String = ""
     
     var errorMessage: String?
     var isLoading: Bool = false
     
+    init(authService: AuthService) {
+        self.authService = authService
+    }
+    
     func isValid() -> Bool {
         !email.isEmpty && password.count >= 6
     }
-
+    
     func signIn() async {
         isLoading = true
         do {
-            try await AuthService.shared.login(withEmail: email, password: password)
+            try await authService.login(withEmail: email, password: password)
         } catch {
             errorMessage = error.localizedDescription
         }
         isLoading = false
     }
-
+    
     func signUp() async {
         isLoading = true
         do {
-            try await AuthService.shared.createUser(email: email, password: password)
+            try await authService.createUser(email: email, password: password)
         } catch {
             errorMessage = error.localizedDescription
         }

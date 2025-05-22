@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct TabBarView: View {
+    
     @State private var selection: TabBar = .home
     
     var body: some View {
@@ -31,7 +32,7 @@ struct TabBarView: View {
                     Image(systemName: TabBar.feed.icon)
                     Text(TabBar.feed.description)
                 }
-            ProfileAuthenticationView()
+            ProfileView()
                 .tag(TabBar.settings)
                 .tabItem {
                     Image(systemName: TabBar.settings.icon)
