@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		960267CB2B45B311009CBC03 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CA2B45B311009CBC03 /* Authentication.swift */; };
+		960267CB2B45B311009CBC03 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CA2B45B311009CBC03 /* AuthenticationView.swift */; };
 		960267CD2B45CBAC009CBC03 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CC2B45CBAC009CBC03 /* LoginView.swift */; };
 		960267CF2B45CE15009CBC03 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267CE2B45CE15009CBC03 /* SignUpView.swift */; };
 		960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */; };
@@ -26,7 +26,6 @@
 		96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D102B011D4F00CC7AAF /* FishingMethod.swift */; };
 		96121D132B011D8600CC7AAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D122B011D8600CC7AAF /* User.swift */; };
 		96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96121D142B011EBD00CC7AAF /* FishingData.swift */; };
-		961401772B7CF7BD00FB5331 /* EF_ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */; };
 		9614017D2B7D11EA00FB5331 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614017C2B7D11EA00FB5331 /* CustomStepper.swift */; };
 		961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401802B810D7C00FB5331 /* FishingPhotos.swift */; };
 		961401832B874F3B00FB5331 /* LocationFishingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961401822B874F3A00FB5331 /* LocationFishingDetailsView.swift */; };
@@ -43,15 +42,13 @@
 		966F09962CE7C4730055C000 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F09952CE7C4730055C000 /* Mockable.swift */; };
 		966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */; };
 		9676BF942B87DD810070A4C7 /* AnnotationMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676BF932B87DD810070A4C7 /* AnnotationMark.swift */; };
-		967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967994102B8F077D008CE318 /* EF_WaterInfo.swift */; };
 		9691943C2C9D54C000D128D1 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9691943B2C9D54C000D128D1 /* ImageView.swift */; };
 		96972A092B4979CE008EDE6E /* AuthSecuredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */; };
 		96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96972A0A2B4A91E8008EDE6E /* Validator.swift */; };
 		96A838D12B9F4B89003A9183 /* EditLocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */; };
 		96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */; };
-		96B2A8C92B7CA39900F78CBC /* EF_FishingTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */; };
 		96B7D7D82B99952B00313754 /* FishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7D7D72B99952B00313754 /* FishItem.swift */; };
-		96BDFE5E2BF3DF7B00538F17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */; };
+		96BDFE5E2BF3DF7B00538F17 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDFE5D2BF3DF7B00538F17 /* AuthenticationViewModel.swift */; };
 		96C5D0712C3E6B2800EE123E /* UnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C5D0702C3E6B2800EE123E /* UnavailableView.swift */; };
 		96C6D6042BAEC1C4009EC16A /* AddFishingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */; };
 		96DB829E2BF380F8003E47E0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB829D2BF380F8003E47E0 /* AuthService.swift */; };
@@ -59,7 +56,6 @@
 		96DB82A52BF3863D003E47E0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A42BF3863D003E47E0 /* FirebaseFirestore */; };
 		96DB82A72BF3863D003E47E0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */; };
 		96DB82A92BF3863D003E47E0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 96DB82A82BF3863D003E47E0 /* FirebaseStorage */; };
-		96DF7FCE2BBDCB0A00A6EE33 /* EF_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */; };
 		96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */; };
 		96E1C5DC2B20804700E88C7D /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DB2B20804700E88C7D /* Header.swift */; };
 		96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5DD2B20805400E88C7D /* FishingInfo.swift */; };
@@ -67,15 +63,30 @@
 		96E1C5E22B20806600E88C7D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E12B20806600E88C7D /* Comment.swift */; };
 		96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */; };
 		96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E823462C3BCFC20050B312 /* CircleButton.swift */; };
-		E34E72582DD8A4C300090C98 /* EF_SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E72572DD8A4C300090C98 /* EF_SectionHeader.swift */; };
-		E34E725C2DD8A67900090C98 /* EF_CardItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34E725B2DD8A67900090C98 /* EF_CardItemContainer.swift */; };
-		E35E19A22DDEF9BA007018AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35E19A12DDEF9BA007018AA /* GoogleService-Info.plist */; };
-		E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */; };
+		E30AF6DD2DE5CF3800151623 /* EF_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6DC2DE5CF3800151623 /* EF_Header.swift */; };
+		E30AF6E32DE5CF3800151623 /* EF_FishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6DE2DE5CF3800151623 /* EF_FishView.swift */; };
+		E30AF6E42DE5CF3800151623 /* FishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6E22DE5CF3800151623 /* FishListViewModel.swift */; };
+		E30AF6E52DE5CF3800151623 /* EF_UserFishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6DF2DE5CF3800151623 /* EF_UserFishView.swift */; };
+		E30AF6E62DE5CF3800151623 /* FishEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6E02DE5CF3800151623 /* FishEditView.swift */; };
+		E30AF6E72DE5CF3800151623 /* FishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6E12DE5CF3800151623 /* FishList.swift */; };
+		E30AF6E92DE5CF3800151623 /* EditFishingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6E82DE5CF3800151623 /* EditFishingViewModel.swift */; };
+		E30AF6EE2DE5CF3800151623 /* EF_FishingMethodAndBait.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6EA2DE5CF3800151623 /* EF_FishingMethodAndBait.swift */; };
+		E30AF6EF2DE5CF3800151623 /* FishingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6ED2DE5CF3800151623 /* FishingViewModel.swift */; };
+		E30AF6F02DE5CF3800151623 /* FishingMethodAndBaitSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6EC2DE5CF3800151623 /* FishingMethodAndBaitSelectionView.swift */; };
+		E30AF6F22DE5CF3800151623 /* CustomFishTagLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF6F12DE5CF3800151623 /* CustomFishTagLayout.swift */; };
+		E30AF70B2DE60C5200151623 /* EF_SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7082DE60C5200151623 /* EF_SectionHeader.swift */; };
+		E30AF70C2DE60C5200151623 /* EF_FishingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7072DE60C5200151623 /* EF_FishingDetails.swift */; };
+		E30AF70D2DE60C5200151623 /* EF_FishingTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7052DE60C5200151623 /* EF_FishingTypePicker.swift */; };
+		E30AF70E2DE60C5200151623 /* EF_CardItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7092DE60C5200151623 /* EF_CardItemContainer.swift */; };
+		E30AF70F2DE60C5200151623 /* EF_ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7032DE60C5200151623 /* EF_ImagesView.swift */; };
+		E30AF7102DE60C5200151623 /* EF_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7062DE60C5200151623 /* EF_Comment.swift */; };
+		E30AF7112DE60C5200151623 /* EF_WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7042DE60C5200151623 /* EF_WaterInfo.swift */; };
 		E37E7E812DDF3AD300F45FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E7E802DDF3AD300F45FF5 /* ContentView.swift */; };
+		E37E7E832DDF627600F45FF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E37E7E822DDF627600F45FF5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		960267CA2B45B311009CBC03 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		960267CA2B45B311009CBC03 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		960267CC2B45CBAC009CBC03 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		960267CE2B45CE15009CBC03 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalTextFieldStyle.swift; sourceTree = "<group>"; };
@@ -95,7 +106,6 @@
 		96121D102B011D4F00CC7AAF /* FishingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethod.swift; sourceTree = "<group>"; };
 		96121D122B011D8600CC7AAF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96121D142B011EBD00CC7AAF /* FishingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingData.swift; sourceTree = "<group>"; };
-		961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_ImagesView.swift; sourceTree = "<group>"; };
 		9614017C2B7D11EA00FB5331 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		961401802B810D7C00FB5331 /* FishingPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingPhotos.swift; sourceTree = "<group>"; };
 		961401822B874F3A00FB5331 /* LocationFishingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFishingDetailsView.swift; sourceTree = "<group>"; };
@@ -112,19 +122,16 @@
 		966F09952CE7C4730055C000 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fishing+Mockable.swift"; sourceTree = "<group>"; };
 		9676BF932B87DD810070A4C7 /* AnnotationMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationMark.swift; sourceTree = "<group>"; };
-		967994102B8F077D008CE318 /* EF_WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_WaterInfo.swift; sourceTree = "<group>"; };
 		9691943B2C9D54C000D128D1 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSecuredTextField.swift; sourceTree = "<group>"; };
 		96972A0A2B4A91E8008EDE6E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationMapView.swift; sourceTree = "<group>"; };
 		96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingView.swift; sourceTree = "<group>"; };
-		96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingTypePicker.swift; sourceTree = "<group>"; };
 		96B7D7D72B99952B00313754 /* FishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishItem.swift; sourceTree = "<group>"; };
-		96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		96BDFE5D2BF3DF7B00538F17 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		96C5D0702C3E6B2800EE123E /* UnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnavailableView.swift; sourceTree = "<group>"; };
 		96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFishingView.swift; sourceTree = "<group>"; };
 		96DB829D2BF380F8003E47E0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Comment.swift; sourceTree = "<group>"; };
 		96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		96E1C5DB2B20804700E88C7D /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		96E1C5DD2B20805400E88C7D /* FishingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfo.swift; sourceTree = "<group>"; };
@@ -132,20 +139,27 @@
 		96E1C5E12B20806600E88C7D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		96E1C5E52B20992F00E88C7D /* FishingInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingInfoRow.swift; sourceTree = "<group>"; };
 		96E823462C3BCFC20050B312 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
-		E34E72572DD8A4C300090C98 /* EF_SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_SectionHeader.swift; sourceTree = "<group>"; };
-		E34E725B2DD8A67900090C98 /* EF_CardItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_CardItemContainer.swift; sourceTree = "<group>"; };
-		E35E19A12DDEF9BA007018AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
+		E30AF6DC2DE5CF3800151623 /* EF_Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Header.swift; sourceTree = "<group>"; };
+		E30AF6DE2DE5CF3800151623 /* EF_FishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishView.swift; sourceTree = "<group>"; };
+		E30AF6DF2DE5CF3800151623 /* EF_UserFishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_UserFishView.swift; sourceTree = "<group>"; };
+		E30AF6E02DE5CF3800151623 /* FishEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishEditView.swift; sourceTree = "<group>"; };
+		E30AF6E12DE5CF3800151623 /* FishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishList.swift; sourceTree = "<group>"; };
+		E30AF6E22DE5CF3800151623 /* FishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListViewModel.swift; sourceTree = "<group>"; };
+		E30AF6E82DE5CF3800151623 /* EditFishingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFishingViewModel.swift; sourceTree = "<group>"; };
+		E30AF6EA2DE5CF3800151623 /* EF_FishingMethodAndBait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingMethodAndBait.swift; sourceTree = "<group>"; };
+		E30AF6EC2DE5CF3800151623 /* FishingMethodAndBaitSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingMethodAndBaitSelectionView.swift; sourceTree = "<group>"; };
+		E30AF6ED2DE5CF3800151623 /* FishingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingViewModel.swift; sourceTree = "<group>"; };
+		E30AF6F12DE5CF3800151623 /* CustomFishTagLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFishTagLayout.swift; sourceTree = "<group>"; };
+		E30AF7032DE60C5200151623 /* EF_ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_ImagesView.swift; sourceTree = "<group>"; };
+		E30AF7042DE60C5200151623 /* EF_WaterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_WaterInfo.swift; sourceTree = "<group>"; };
+		E30AF7052DE60C5200151623 /* EF_FishingTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingTypePicker.swift; sourceTree = "<group>"; };
+		E30AF7062DE60C5200151623 /* EF_Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_Comment.swift; sourceTree = "<group>"; };
+		E30AF7072DE60C5200151623 /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
+		E30AF7082DE60C5200151623 /* EF_SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_SectionHeader.swift; sourceTree = "<group>"; };
+		E30AF7092DE60C5200151623 /* EF_CardItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_CardItemContainer.swift; sourceTree = "<group>"; };
 		E37E7E802DDF3AD300F45FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E37E7E822DDF627600F45FF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E34E72032DD31B1600090C98 /* MethodAndBaitSelection */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MethodAndBaitSelection; sourceTree = "<group>"; };
-		E34E72052DD31BFB00090C98 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
-		E34E72132DD3C18700090C98 /* EditFish */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = EditFish; sourceTree = "<group>"; };
-		E34E72DB2DDA45FF00090C98 /* Header */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Header; sourceTree = "<group>"; };
-		E37647532DB9789900B6DC4E /* Helper */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helper; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		96121CE82B00B9D000CC7AAF /* Frameworks */ = {
@@ -162,48 +176,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		960267C92B45B2CF009CBC03 /* Authentification */ = {
-			isa = PBXGroup;
-			children = (
-				96FDD8562BF379970080791B /* AuthService */,
-				960267D42B45D2AD009CBC03 /* Components */,
-				960267CA2B45B311009CBC03 /* Authentication.swift */,
-				960267CC2B45CBAC009CBC03 /* LoginView.swift */,
-				96BDFE5D2BF3DF7B00538F17 /* LoginViewModel.swift */,
-				960267CE2B45CE15009CBC03 /* SignUpView.swift */,
-			);
-			path = Authentification;
-			sourceTree = "<group>";
-		};
-		960267D02B45D037009CBC03 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				960267D12B45D046009CBC03 /* UI */,
-				9614017C2B7D11EA00FB5331 /* CustomStepper.swift */,
-				96B7D7D72B99952B00313754 /* FishItem.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		960267D12B45D046009CBC03 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				96E823462C3BCFC20050B312 /* CircleButton.swift */,
-				960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		960267D42B45D2AD009CBC03 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				96972A0A2B4A91E8008EDE6E /* Validator.swift */,
-				960267D52B45D2F9009CBC03 /* AuthTextField.swift */,
-				96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		96121CE22B00B9D000CC7AAF = {
 			isa = PBXGroup;
 			children = (
@@ -224,19 +196,16 @@
 			isa = PBXGroup;
 			children = (
 				96121CEE2B00B9D000CC7AAF /* Fishing_JournalApp.swift */,
-				960267C92B45B2CF009CBC03 /* Authentification */,
+				96121D142B011EBD00CC7AAF /* FishingData.swift */,
+				966F09952CE7C4730055C000 /* Mockable.swift */,
+				966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */,
 				96121D052B011C5200CC7AAF /* Models */,
-				96121CFC2B00DBEE00CC7AAF /* Main */,
-				96585A382BB482E400A0B5F2 /* NewFishing */,
-				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
-				96B2A8C32B7B536E00F78CBC /* EditFishing */,
-				96121CFD2B00DBF700CC7AAF /* Map */,
-				96121CFE2B00DC0A00CC7AAF /* Feed */,
-				96121CFF2B00DC0F00CC7AAF /* Profile */,
-				962F59112B0B7E73001678A0 /* TabBar */,
-				960267D02B45D037009CBC03 /* Common */,
+				E30AF7002DE60B5700151623 /* Views */,
+				E30AF6FC2DE60A6900151623 /* ViewModels */,
+				E30AF6FD2DE60A7100151623 /* Services */,
+				E30AF6FE2DE60A7900151623 /* Extensions */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
-				E35E19A12DDEF9BA007018AA /* GoogleService-Info.plist */,
+				E37E7E822DDF627600F45FF5 /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -253,9 +222,7 @@
 		96121CFC2B00DBEE00CC7AAF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				96121D022B00EC1C00CC7AAF /* Components */,
-				96121D002B00DC6500CC7AAF /* MainView.swift */,
-				96C5D0702C3E6B2800EE123E /* UnavailableView.swift */,
+				962F59142B0B7F41001678A0 /* TabBarView.swift */,
 				E37E7E802DDF3AD300F45FF5 /* ContentView.swift */,
 			);
 			path = Main;
@@ -272,14 +239,6 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		96121CFE2B00DC0A00CC7AAF /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				962F59182B0B8023001678A0 /* FeedView.swift */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
 		96121CFF2B00DC0F00CC7AAF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,60 +248,18 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		96121D022B00EC1C00CC7AAF /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				96121D032B00EC8D00CC7AAF /* FishingItem.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		96121D052B011C5200CC7AAF /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				96121D062B011C6200CC7AAF /* Fishing.swift */,
+				96121D0E2B011D3600CC7AAF /* Fish.swift */,
+				96121D0A2B011CD200CC7AAF /* Water.swift */,
 				96121D122B011D8600CC7AAF /* User.swift */,
 				96121D082B011C9800CC7AAF /* Bait.swift */,
-				96121D0A2B011CD200CC7AAF /* Water.swift */,
 				96121D0C2B011D0200CC7AAF /* FishingType.swift */,
-				96121D0E2B011D3600CC7AAF /* Fish.swift */,
 				96121D102B011D4F00CC7AAF /* FishingMethod.swift */,
-				96121D142B011EBD00CC7AAF /* FishingData.swift */,
-				966F09952CE7C4730055C000 /* Mockable.swift */,
-				966F09972CE7C5D10055C000 /* Fishing+Mockable.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		962F59112B0B7E73001678A0 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				962F59122B0B7ECC001678A0 /* TabBarModel.swift */,
-				962F59142B0B7F41001678A0 /* TabBarView.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		96585A382BB482E400A0B5F2 /* NewFishing */ = {
-			isa = PBXGroup;
-			children = (
-				96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */,
-			);
-			path = NewFishing;
-			sourceTree = "<group>";
-		};
-		967994122B8F30FD008CE318 /* EF_Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				961401762B7CF7BD00FB5331 /* EF_ImagesView.swift */,
-				967994102B8F077D008CE318 /* EF_WaterInfo.swift */,
-				96B2A8C82B7CA39900F78CBC /* EF_FishingTypePicker.swift */,
-				96DF7FCD2BBDCB0A00A6EE33 /* EF_Comment.swift */,
-				E376475C2DC49FA700B6DC4E /* EF_FishingDetails.swift */,
-				E34E72572DD8A4C300090C98 /* EF_SectionHeader.swift */,
-				E34E725B2DD8A67900090C98 /* EF_CardItemContainer.swift */,
-			);
-			path = EF_Subviews;
 			sourceTree = "<group>";
 		};
 		96858F8A2BC93A0100E8669A /* Subviews */ = {
@@ -361,22 +278,6 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		96B2A8C32B7B536E00F78CBC /* EditFishing */ = {
-			isa = PBXGroup;
-			children = (
-				E34E72DB2DDA45FF00090C98 /* Header */,
-				E34E72132DD3C18700090C98 /* EditFish */,
-				E34E72052DD31BFB00090C98 /* Models */,
-				E34E72032DD31B1600090C98 /* MethodAndBaitSelection */,
-				E37647532DB9789900B6DC4E /* Helper */,
-				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
-				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
-				96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */,
-				967994122B8F30FD008CE318 /* EF_Subviews */,
-			);
-			path = EditFishing;
-			sourceTree = "<group>";
-		};
 		96E1C5DA2B207FFF00E88C7D /* DetailFishingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,12 +288,115 @@
 			path = DetailFishingView;
 			sourceTree = "<group>";
 		};
-		96FDD8562BF379970080791B /* AuthService */ = {
+		E30AF6F92DE609A600151623 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				96121D002B00DC6500CC7AAF /* MainView.swift */,
+				96121D032B00EC8D00CC7AAF /* FishingItem.swift */,
+				96C5D0702C3E6B2800EE123E /* UnavailableView.swift */,
+				96C6D6032BAEC1C4009EC16A /* AddFishingView.swift */,
+				96E1C5DA2B207FFF00E88C7D /* DetailFishingView */,
+				E30AF6FA2DE60A4100151623 /* Edit */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E30AF6FA2DE60A4100151623 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				96B2A8C42B7B539B00F78CBC /* EditFishingView.swift */,
+				E30AF6DC2DE5CF3800151623 /* EF_Header.swift */,
+				E30AF6DE2DE5CF3800151623 /* EF_FishView.swift */,
+				E30AF6DF2DE5CF3800151623 /* EF_UserFishView.swift */,
+				E30AF6E02DE5CF3800151623 /* FishEditView.swift */,
+				E30AF6E12DE5CF3800151623 /* FishList.swift */,
+				E30AF6E22DE5CF3800151623 /* FishListViewModel.swift */,
+				E30AF6EA2DE5CF3800151623 /* EF_FishingMethodAndBait.swift */,
+				E30AF6EC2DE5CF3800151623 /* FishingMethodAndBaitSelectionView.swift */,
+				E30AF6ED2DE5CF3800151623 /* FishingViewModel.swift */,
+				96A838D02B9F4B89003A9183 /* EditLocationMapView.swift */,
+				E30AF7032DE60C5200151623 /* EF_ImagesView.swift */,
+				E30AF7042DE60C5200151623 /* EF_WaterInfo.swift */,
+				E30AF7052DE60C5200151623 /* EF_FishingTypePicker.swift */,
+				E30AF7062DE60C5200151623 /* EF_Comment.swift */,
+				E30AF7072DE60C5200151623 /* EF_FishingDetails.swift */,
+				E30AF7082DE60C5200151623 /* EF_SectionHeader.swift */,
+				E30AF7092DE60C5200151623 /* EF_CardItemContainer.swift */,
+				96DF7FCF2BBDD2B200A6EE33 /* CommentView.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		E30AF6FB2DE60A5100151623 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				962F59182B0B8023001678A0 /* FeedView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		E30AF6FC2DE60A6900151623 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				96BDFE5D2BF3DF7B00538F17 /* AuthenticationViewModel.swift */,
+				E30AF6E82DE5CF3800151623 /* EditFishingViewModel.swift */,
+				962F59122B0B7ECC001678A0 /* TabBarModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E30AF6FD2DE60A7100151623 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				96DB829D2BF380F8003E47E0 /* AuthService.swift */,
 			);
-			path = AuthService;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E30AF6FE2DE60A7900151623 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E30AF6F12DE5CF3800151623 /* CustomFishTagLayout.swift */,
+				96972A0A2B4A91E8008EDE6E /* Validator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E30AF7002DE60B5700151623 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96121CFC2B00DBEE00CC7AAF /* Main */,
+				E30AF6F92DE609A600151623 /* Home */,
+				96121CFD2B00DBF700CC7AAF /* Map */,
+				E30AF6FB2DE60A5100151623 /* Statistics */,
+				96121CFF2B00DC0F00CC7AAF /* Profile */,
+				E30AF7012DE60B9600151623 /* Auth */,
+				E30AF7022DE60BA200151623 /* Core */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E30AF7012DE60B9600151623 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				960267CA2B45B311009CBC03 /* AuthenticationView.swift */,
+				960267CC2B45CBAC009CBC03 /* LoginView.swift */,
+				960267CE2B45CE15009CBC03 /* SignUpView.swift */,
+				960267D52B45D2F9009CBC03 /* AuthTextField.swift */,
+				96972A082B4979CE008EDE6E /* AuthSecuredTextField.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E30AF7022DE60BA200151623 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				96E823462C3BCFC20050B312 /* CircleButton.swift */,
+				960267D22B45D056009CBC03 /* OvalTextFieldStyle.swift */,
+				9614017C2B7D11EA00FB5331 /* CustomStepper.swift */,
+				96B7D7D72B99952B00313754 /* FishItem.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,13 +413,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E34E72032DD31B1600090C98 /* MethodAndBaitSelection */,
-				E34E72052DD31BFB00090C98 /* Models */,
-				E34E72132DD3C18700090C98 /* EditFish */,
-				E34E72DB2DDA45FF00090C98 /* Header */,
-				E37647532DB9789900B6DC4E /* Helper */,
 			);
 			name = "Fishing Journal";
 			packageProductDependencies = (
@@ -471,7 +468,7 @@
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
-				E35E19A22DDEF9BA007018AA /* GoogleService-Info.plist in Resources */,
+				E37E7E832DDF627600F45FF5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +481,7 @@
 			files = (
 				9691943C2C9D54C000D128D1 /* ImageView.swift in Sources */,
 				96E1C5DE2B20805400E88C7D /* FishingInfo.swift in Sources */,
+				E30AF7112DE60C5200151623 /* EF_WaterInfo.swift in Sources */,
 				96E1C5DC2B20804700E88C7D /* Header.swift in Sources */,
 				96C6D6042BAEC1C4009EC16A /* AddFishingView.swift in Sources */,
 				961401832B874F3B00FB5331 /* LocationFishingDetailsView.swift in Sources */,
@@ -497,24 +495,34 @@
 				962F59132B0B7ECC001678A0 /* TabBarModel.swift in Sources */,
 				961401812B810D7C00FB5331 /* FishingPhotos.swift in Sources */,
 				96B7D7D82B99952B00313754 /* FishItem.swift in Sources */,
-				960267CB2B45B311009CBC03 /* Authentication.swift in Sources */,
+				960267CB2B45B311009CBC03 /* AuthenticationView.swift in Sources */,
 				E37E7E812DDF3AD300F45FF5 /* ContentView.swift in Sources */,
-				E34E72582DD8A4C300090C98 /* EF_SectionHeader.swift in Sources */,
 				96E1C5E22B20806600E88C7D /* Comment.swift in Sources */,
-				96BDFE5E2BF3DF7B00538F17 /* LoginViewModel.swift in Sources */,
+				96BDFE5E2BF3DF7B00538F17 /* AuthenticationViewModel.swift in Sources */,
 				96DB829E2BF380F8003E47E0 /* AuthService.swift in Sources */,
 				96121D042B00EC8D00CC7AAF /* FishingItem.swift in Sources */,
 				96DF7FD02BBDD2B200A6EE33 /* CommentView.swift in Sources */,
+				E30AF70D2DE60C5200151623 /* EF_FishingTypePicker.swift in Sources */,
+				E30AF70E2DE60C5200151623 /* EF_CardItemContainer.swift in Sources */,
 				96E1C5E62B20992F00E88C7D /* FishingInfoRow.swift in Sources */,
 				966F09962CE7C4730055C000 /* Mockable.swift in Sources */,
 				96156AE52CA553CB000C4D6D /* SelectedImageViewer.swift in Sources */,
 				962751F12C6E73910054847A /* ProfileAuthenticationView.swift in Sources */,
-				E376475D2DC49FA700B6DC4E /* EF_FishingDetails.swift in Sources */,
+				E30AF6DD2DE5CF3800151623 /* EF_Header.swift in Sources */,
+				E30AF7102DE60C5200151623 /* EF_Comment.swift in Sources */,
 				966F09982CE7C5D10055C000 /* Fishing+Mockable.swift in Sources */,
 				96121D0D2B011D0200CC7AAF /* FishingType.swift in Sources */,
 				96972A0B2B4A91E8008EDE6E /* Validator.swift in Sources */,
+				E30AF6E32DE5CF3800151623 /* EF_FishView.swift in Sources */,
+				E30AF6E42DE5CF3800151623 /* FishListViewModel.swift in Sources */,
+				E30AF6EE2DE5CF3800151623 /* EF_FishingMethodAndBait.swift in Sources */,
+				E30AF6EF2DE5CF3800151623 /* FishingViewModel.swift in Sources */,
+				E30AF6F02DE5CF3800151623 /* FishingMethodAndBaitSelectionView.swift in Sources */,
+				E30AF70C2DE60C5200151623 /* EF_FishingDetails.swift in Sources */,
+				E30AF6E52DE5CF3800151623 /* EF_UserFishView.swift in Sources */,
+				E30AF6E62DE5CF3800151623 /* FishEditView.swift in Sources */,
+				E30AF6E72DE5CF3800151623 /* FishList.swift in Sources */,
 				96121D112B011D4F00CC7AAF /* FishingMethod.swift in Sources */,
-				96B2A8C92B7CA39900F78CBC /* EF_FishingTypePicker.swift in Sources */,
 				96A838D12B9F4B89003A9183 /* EditLocationMapView.swift in Sources */,
 				962F591B2B0B8034001678A0 /* ProfileView.swift in Sources */,
 				966EA04F2BAD8DB300BD0EAD /* LocationMapView.swift in Sources */,
@@ -524,20 +532,20 @@
 				96E823472C3BCFC20050B312 /* CircleButton.swift in Sources */,
 				960267D32B45D056009CBC03 /* OvalTextFieldStyle.swift in Sources */,
 				96C5D0712C3E6B2800EE123E /* UnavailableView.swift in Sources */,
-				E34E725C2DD8A67900090C98 /* EF_CardItemContainer.swift in Sources */,
+				E30AF6E92DE5CF3800151623 /* EditFishingViewModel.swift in Sources */,
 				96121D072B011C6200CC7AAF /* Fishing.swift in Sources */,
 				9676BF942B87DD810070A4C7 /* AnnotationMark.swift in Sources */,
-				961401772B7CF7BD00FB5331 /* EF_ImagesView.swift in Sources */,
+				E30AF70F2DE60C5200151623 /* EF_ImagesView.swift in Sources */,
 				960267CD2B45CBAC009CBC03 /* LoginView.swift in Sources */,
 				96E1C5E02B20805A00E88C7D /* WaterInfo.swift in Sources */,
 				96121D152B011EBD00CC7AAF /* FishingData.swift in Sources */,
 				9614017D2B7D11EA00FB5331 /* CustomStepper.swift in Sources */,
-				96DF7FCE2BBDCB0A00A6EE33 /* EF_Comment.swift in Sources */,
 				960267CF2B45CE15009CBC03 /* SignUpView.swift in Sources */,
 				960919A32B015B4400F12CA9 /* DetailFishingView.swift in Sources */,
 				960267D62B45D2F9009CBC03 /* AuthTextField.swift in Sources */,
 				962F59152B0B7F41001678A0 /* TabBarView.swift in Sources */,
-				967994112B8F077D008CE318 /* EF_WaterInfo.swift in Sources */,
+				E30AF6F22DE5CF3800151623 /* CustomFishTagLayout.swift in Sources */,
+				E30AF70B2DE60C5200151623 /* EF_SectionHeader.swift in Sources */,
 				96B2A8C52B7B539B00F78CBC /* EditFishingView.swift in Sources */,
 				96121D132B011D8600CC7AAF /* User.swift in Sources */,
 			);

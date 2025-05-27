@@ -43,7 +43,7 @@ struct ProfileView: View {
                     Button {
                         authViewModel.signOut()
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
                     }
                     
                 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Fishing: Identifiable, Hashable {
-
+    
     let id: UUID
     var type: FishingType
     var name: String
@@ -23,21 +23,34 @@ struct Fishing: Identifiable, Hashable {
     let user: User
     var fishingFromTheShore: Bool
     
-    init(id: UUID = UUID(), type: FishingType, name: String, water: Water, photo: [UIImage?] = [], fishingTime: Date, weight: Double = 0, fish: [Fish], fishingMethod: FishingMethod, bait: [Bait], comment: String = "", user: User, shore: Bool = true) {
-        self.id = id
-        self.type = type
-        self.name = name
-        self.water = water
-        self.photo = photo
-        self.fishingTime = fishingTime
-        self.fish = fish
-        self.fishingMethod = fishingMethod
-        self.bait = bait
-        self.comment = comment
-        self.user = user
-        self.weight = weight
-        self.fishingFromTheShore = shore
-    }
+    init(
+        id: UUID = UUID(),
+        type: FishingType,
+        name: String,
+        water: Water,
+        photo: [UIImage?] = [],
+        fishingTime: Date,
+        weight: Double = 0,
+        fish: [Fish],
+        fishingMethod: FishingMethod,
+        bait: [Bait],
+        comment: String = "",
+        user: User,
+        shore: Bool = true) {
+            self.id = id
+            self.type = type
+            self.name = name
+            self.water = water
+            self.photo = photo
+            self.fishingTime = fishingTime
+            self.fish = fish
+            self.fishingMethod = fishingMethod
+            self.bait = bait
+            self.comment = comment
+            self.user = user
+            self.weight = weight
+            self.fishingFromTheShore = shore
+        }
     
     func updateComplition() -> Fishing {
         return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user, shore: fishingFromTheShore)

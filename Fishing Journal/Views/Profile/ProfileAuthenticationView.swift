@@ -41,7 +41,7 @@ struct ProfileAuthenticationView: View {
                .tint(.primaryDeepBlue)
                .buttonStyle(.borderedProminent)
                 NavigationLink {
-                    Authentication()
+                    AuthenticationView()
                 } label: {
                     Text("Зарегистрироваться")
                         .font(.body)
