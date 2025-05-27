@@ -81,6 +81,7 @@
 		E30AF70F2DE60C5200151623 /* EF_ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7032DE60C5200151623 /* EF_ImagesView.swift */; };
 		E30AF7102DE60C5200151623 /* EF_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7062DE60C5200151623 /* EF_Comment.swift */; };
 		E30AF7112DE60C5200151623 /* EF_WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7042DE60C5200151623 /* EF_WaterInfo.swift */; };
+		E30AF7132DE611F200151623 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E30AF7122DE611F200151623 /* GoogleService-Info.plist */; };
 		E37E7E812DDF3AD300F45FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E7E802DDF3AD300F45FF5 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		E30AF7072DE60C5200151623 /* EF_FishingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_FishingDetails.swift; sourceTree = "<group>"; };
 		E30AF7082DE60C5200151623 /* EF_SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_SectionHeader.swift; sourceTree = "<group>"; };
 		E30AF7092DE60C5200151623 /* EF_CardItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_CardItemContainer.swift; sourceTree = "<group>"; };
+		E30AF7122DE611F200151623 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E37E7E802DDF3AD300F45FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 				E30AF6FD2DE60A7100151623 /* Services */,
 				E30AF6FE2DE60A7900151623 /* Extensions */,
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
+				E30AF7122DE611F200151623 /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
 			);
 			path = "Fishing Journal";
@@ -465,6 +468,7 @@
 			files = (
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
+				E30AF7132DE611F200151623 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
