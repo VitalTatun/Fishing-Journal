@@ -25,4 +25,6 @@ struct Fishing_JournalApp: App {
                 .environmentObject(fishingData)
         }
     }
+    
+    
 }
