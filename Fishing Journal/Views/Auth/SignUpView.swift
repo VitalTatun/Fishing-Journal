@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @EnvironmentObject var authService: AuthService
+    @Environment(AuthService.self) var authService
     @State private var viewModel: AuthenticationViewModel
     
     @State private var showMainView = false

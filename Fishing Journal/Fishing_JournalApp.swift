@@ -11,17 +11,20 @@ import Firebase
 @main
 struct Fishing_JournalApp: App {
     
+    @State private var authService: AuthService
+
     init() {
         FirebaseApp.configure()
+        _authService = State(initialValue: AuthService())
+
     }
     
     @StateObject private var fishingData = FishingData()
-    @StateObject var viewModel = AuthService()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
+                .environment(authService)
                 .environmentObject(fishingData)
         }
     }

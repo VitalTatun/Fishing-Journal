@@ -81,12 +81,6 @@ struct FishingMethodAndBaitSelectionView: View {
 #Preview {
     let sampleMethod: FishingMethod = .bobber
     let sampleBaits: [Bait] = [.worm, .maggot]
-    
-    let viewModel = FishingViewModel(
-        initialMethod: sampleMethod,
-        initialBait: sampleBaits
-    )
-    
     NavigationStack {
         FishingMethodAndBaitSelectionView(initialMethod: sampleMethod, initialBaits: sampleBaits) { method, bait in
         }

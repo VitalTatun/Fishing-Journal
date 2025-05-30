@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @EnvironmentObject var authViewModel: AuthService
+    @Environment(AuthService.self) var authService
     @Environment(\.dismiss) private var dismiss
 
     let shadowColor = Color(white: 0, opacity: 0.05)
@@ -41,7 +41,7 @@ struct ProfileView: View {
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        authViewModel.signOut()
+                        authService.signOut()
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                     }

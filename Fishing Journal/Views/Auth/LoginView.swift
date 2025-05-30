@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var authService: AuthService
     @State private var viewModel: AuthenticationViewModel
+    @Environment(AuthService.self) var authService
     
     @State private var showMainView = false
     

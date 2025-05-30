@@ -7,17 +7,18 @@
 
 import Foundation
 import FirebaseAuth
+import Foundation
+import Observation
+import SwiftUI
 
-
-class AuthService: ObservableObject {
+@Observable
+class AuthService {
     
-    @Published var userSession: FirebaseAuth.User?
-    
+    var userSession: FirebaseAuth.User?
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
-        print("DEBUG: User session is \(self.userSession)")
+        print("DEBUG: User session is \(String(describing: self.userSession))")
     }
     @MainActor
     func login(withEmail email: String, password: String) async throws {
@@ -46,3 +47,4 @@ class AuthService: ObservableObject {
     }
     
 }
+

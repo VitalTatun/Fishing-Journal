@@ -11,7 +11,6 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
-    @EnvironmentObject var authViewModel: AuthService
     
     @State private var showDetailView = false
     @State private var showNewFishingView = false
