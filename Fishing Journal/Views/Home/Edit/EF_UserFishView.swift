@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EF_UserFishView: View {
     var userFishCollection: [Fish]
+    var selectedFishNames: [String] = []
     var spacing: CGFloat = 4
     
     var didChangeSelection: (Fish) -> ()
@@ -19,26 +20,31 @@ struct EF_UserFishView: View {
                 .foregroundStyle(.secondary)
             CustomFishTagLayout(spacing: spacing) {
                 ForEach(userFishCollection, id: \.name) { fishTag in
-                    ChipView(fishTag.name)
+                    let isSelected = selectedFishNames.contains(fishTag.name)
+                    ChipView(fishTag.name, isSelected: isSelected)
                         .onTapGesture {
-                            didChangeSelection(fishTag)
+                            if !isSelected {
+                                didChangeSelection(fishTag)
+                            }
                         }
+                        .opacity(isSelected ? 0.5 : 1.0)
+                        .disabled(isSelected)
                 }
             }
         }
     }
     @ViewBuilder
-    func ChipView(_ fish: String) -> some View {
+    func ChipView(_ fish: String, isSelected: Bool) -> some View {
         HStack(spacing: 4) {
-                Text(fish)
-                    .fontDesign(.rounded)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.primaryDeepBlue)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 7)
-                    .background(Color(red: 238/255, green: 241/255, blue: 248/255))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            Text(fish)
+                .fontDesign(.rounded)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundStyle(isSelected ? .gray : .primaryDeepBlue)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 7)
+                .background(isSelected ? Color.gray.opacity(0.2) : Color(red: 238/255, green: 241/255, blue: 248/255))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
 }

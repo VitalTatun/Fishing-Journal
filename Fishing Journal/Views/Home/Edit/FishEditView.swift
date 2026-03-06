@@ -37,9 +37,13 @@ struct FishEditView: View {
             VStack(alignment: .leading, spacing: 10){
                 FishList(viewModel: fishListViewModel)
                     
-                EF_UserFishView(userFishCollection: userFishCollection, didChangeSelection: { selectedFish in
-                    fishListViewModel.addFishFromTemplate(selectedFish)
-                })
+                EF_UserFishView(
+                    userFishCollection: userFishCollection,
+                    selectedFishNames: fishListViewModel.fishToEditList.map { $0.name },
+                    didChangeSelection: { selectedFish in
+                        fishListViewModel.addFishFromTemplate(selectedFish)
+                    }
+                )
             }
             .padding(10)
         }
@@ -77,3 +81,4 @@ struct FishEditView: View {
         FishEditView(fish: .constant(Fishing.example.fish), fishingType: Fishing.example.type)
     }
 }
+
