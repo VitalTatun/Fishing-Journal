@@ -40,6 +40,16 @@ struct EF_WaterInfo: View {
             return String(mapSectionSecondary)
         }
     }
+
+    private var hasRequiredValues: Bool {
+        !water.waterName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        water.latitude != .zero &&
+        water.longitude != .zero
+    }
+
+    private var statusColor: Color {
+        hasRequiredValues ? .green : .red
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -62,7 +72,7 @@ struct EF_WaterInfo: View {
             .padding(.horizontal, 16)
             .overlay(alignment: .topLeading) {
                 Circle()
-                    .foregroundStyle(.red)
+                    .foregroundStyle(statusColor)
                     .offset(x: 6, y: 6)
                     .frame(width: 6, height: 6)
             }
@@ -81,7 +91,7 @@ struct EF_WaterInfo: View {
         }
         .overlay(alignment: .topLeading) {
             Circle()
-                .foregroundStyle(.red)
+                .foregroundStyle(statusColor)
                 .offset(x: 6, y: 6)
                 .frame(width: 6, height: 6)
         }

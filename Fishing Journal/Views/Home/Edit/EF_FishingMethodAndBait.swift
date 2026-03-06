@@ -19,6 +19,16 @@ struct EF_FishingMethodAndBait: View {
     private var baitDisplayText: String {
         bait.map { $0.nameRussian }.joined(separator: ", ")
     }
+
+    private var hasRequiredValues: Bool {
+        fishingMethod != .none &&
+        !bait.isEmpty &&
+        !bait.allSatisfy { $0 == .none }
+    }
+
+    private var statusColor: Color {
+        hasRequiredValues ? .green : .red
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -57,7 +67,7 @@ struct EF_FishingMethodAndBait: View {
         }
         .overlay(alignment: .topLeading) {
             Circle()
-                .foregroundStyle(.red)
+                .foregroundStyle(statusColor)
                 .offset(x: 6, y: 6)
                 .frame(width: 6, height: 6)
         }
