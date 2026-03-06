@@ -59,7 +59,9 @@ struct FishingItem: View {
                             .opacity(0.2)
                     }
                 CapsuleView(text: fishing.fishingMethod.nameRussian)
-                CapsuleView(text: fishing.fish[0].name)
+                if let firstFish = fishing.fish.first {
+                    CapsuleView(text: firstFish.name)
+                }
                 Spacer()
                 HStack(spacing: 20) {
                     Image(systemName: "bookmark.fill")

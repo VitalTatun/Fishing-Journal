@@ -31,6 +31,7 @@ struct EF_UserFishView: View {
                         .disabled(isSelected)
                 }
             }
+            .animation(nil, value: selectedFishNames)
         }
     }
     @ViewBuilder
@@ -48,4 +49,3 @@ struct EF_UserFishView: View {
         }
     }
 }
-
