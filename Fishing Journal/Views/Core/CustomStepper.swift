@@ -26,7 +26,7 @@ struct CustomStepper: View {
                     .tint(.primaryDeepBlue)
             })
             .contentTransition(.symbolEffect(.replace.offUp))
-            .frame(width: 28, height: 28, alignment: .center)
+            .frame(width: 44, height: 44, alignment: .center)
             .buttonStyle(.borderless)
             .buttonBorderShape(.circle)
             .contentShape(Circle())
@@ -48,28 +48,30 @@ struct CustomStepper: View {
                     .font(.body)
                     .tint(.primaryDeepBlue)
             }
-            .frame(width: 28, height: 28, alignment: .center)
+            .frame(width: 44, height: 44, alignment: .center)
             .buttonStyle(.borderless)
             .buttonBorderShape(.circle)
+            .contentShape(Circle())
             .disabled(number == maxNumber)
         }
     }
     
     private func decrease() {
-        guard number >= 0 else { return }
+        guard number > 0 else { return }
         number -= 1
     }
     
     private func increment() {
-        guard number >= maxNumber else { return number += 1 }
-        number = maxNumber
+        if number < maxNumber {
+            number += 1
+        }
     }
     
     private func deleteFish(fish: Fish) {
         guard number <= 1 else { return decrease() }
         
             if let index = fishList.firstIndex(where: { $0.id == fish.id }) {
-                withAnimation(.bouncy(duration: 0.4, extraBounce: 0.1)) {
+                _ = withAnimation(.bouncy(duration: 0.4, extraBounce: 0.1)) {
                     fishList.remove(at: index)
                 }
             

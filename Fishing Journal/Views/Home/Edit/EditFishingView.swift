@@ -33,16 +33,13 @@ struct EditFishingView: View {
             .padding(10)
         }
         .interactiveDismissDisabled()
-        .onAppear(perform: {
-            viewModel.setInitialFishingData()
-        })
         .background(.white)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(viewModel.fishingName)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Отмена") {
-                    viewModel.showAlert.toggle()
+                    viewModel.showAlert = true
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
@@ -54,12 +51,10 @@ struct EditFishingView: View {
             }
         }
         .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
-            Button("Продолжить редактирование") {
-                viewModel.showAlert.toggle()
+            Button("Продолжить редактирование", role: .cancel) {
             }
-            Button("Отменить") {
-                showEditView.toggle()
-                
+            Button("Отменить", role: .destructive) {
+                showEditView = false
             }
         }, message: {
             Text("Все внесенные данные не сохранятся")

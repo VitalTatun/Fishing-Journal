@@ -12,7 +12,6 @@ struct MainView: View {
     
     @EnvironmentObject var fishingData: FishingData
     
-    @State private var showDetailView = false
     @State private var showNewFishingView = false
     
     let listEdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
@@ -21,12 +20,8 @@ struct MainView: View {
         NavigationStack {
             List {
                 ForEach($fishingData.mockFishings) { $fishing in
-                    ZStack {
+                    NavigationLink(destination: DetailFishingView(fishing: $fishing)) {
                         FishingItem(fishingData: _fishingData, fishing: $fishing)
-                        NavigationLink(destination: DetailFishingView(fishing: $fishing)) {
-                            EmptyView()
-                        }
-                        .opacity(0)
                     }
                     .listRowInsets(listEdgeInsets)
                     .listRowBackground(RoundedRectangle(cornerRadius: 10)
@@ -40,6 +35,7 @@ struct MainView: View {
                 }
             }
             .listStyle(.plain)
+            .navigationLinkIndicatorVisibility(.hidden)
             .scrollIndicators(.hidden)
             .navigationTitle("Fishing Journal")
             .navigationBarTitleDisplayMode(.large)

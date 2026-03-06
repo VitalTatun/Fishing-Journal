@@ -81,6 +81,7 @@ struct FishingItem: View {
                             .frame(width: 24, height: 24, alignment: .center)
 
                     }
+                    .buttonStyle(.borderless)
                 }
             }
         }
