@@ -12,6 +12,8 @@ struct FishingItem: View {
     @EnvironmentObject var fishingData: FishingData
 
     @Binding var fishing: Fishing
+    @State private var showDeleteAlert = false
+    @State private var isFavorite = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -64,14 +66,17 @@ struct FishingItem: View {
                 }
                 Spacer()
                 HStack(spacing: 20) {
-                    Image(systemName: "bookmark.fill")
-                        .foregroundStyle(.red)
+                    Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
+                        .foregroundStyle(isFavorite ? .red : .secondary)
                     Menu {
-                        Button("Добавить в избранное", systemImage: "bookmark") {
-                            
+                        Button(
+                            isFavorite ? "Убрать из избранного" : "Добавить в избранное",
+                            systemImage: isFavorite ? "bookmark.slash" : "bookmark"
+                        ) {
+                            isFavorite.toggle()
                         }
                         Button("Удалить", systemImage: "trash", role: .destructive) {
-                            deleteFishing()
+                            showDeleteAlert = true
                         }
                     } label: {
                         Image(systemName: "ellipsis")
@@ -85,8 +90,15 @@ struct FishingItem: View {
                 }
             }
         }
+        .alert("Удалить отчет?", isPresented: $showDeleteAlert) {
+            Button("Отмена", role: .cancel) { }
+            Button("Удалить", role: .destructive) {
+                deleteFishing()
+            }
+        } message: {
+            Text("Отчет \"\(fishing.name)\" будет удален без возможности восстановления.")
+        }
     }
-    private func addToFavorites() {}
     private func deleteFishing() {
         withAnimation() {
             if let index = $fishingData.mockFishings.firstIndex(where: {$0.id == fishing.id}) {

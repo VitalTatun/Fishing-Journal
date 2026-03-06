@@ -17,6 +17,11 @@ struct EditFishingView: View {
     @Binding var showEditView: Bool
     
     let shadowColor = Color(white: 0, opacity: 0.05)
+
+    private var modalTitle: String {
+        let originalName = viewModel.fishing.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        return originalName.isEmpty ? "Новый отчет" : originalName
+    }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -35,7 +40,7 @@ struct EditFishingView: View {
         .interactiveDismissDisabled()
         .background(.white)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(viewModel.fishingName)
+        .navigationTitle(modalTitle)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Отмена") {
