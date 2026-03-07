@@ -51,6 +51,12 @@ struct SignUpView: View {
                 .padding(.top, 30)
                 .tint(.primaryDeepBlue)
                 .buttonStyle(.borderedProminent)
+                if let errorMessage = viewModel.errorMessage, !errorMessage.isEmpty {
+                    Text(errorMessage)
+                        .font(.footnote)
+                        .foregroundStyle(.red)
+                        .padding(.top, 8)
+                }
             }
         }
         .padding()
@@ -58,5 +64,4 @@ struct SignUpView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 

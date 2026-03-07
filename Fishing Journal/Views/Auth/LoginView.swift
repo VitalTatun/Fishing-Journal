@@ -46,6 +46,12 @@ struct LoginView: View {
                     .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
                     .tint(.primaryDeepBlue)
                     .buttonStyle(.borderedProminent)
+                    if let errorMessage = viewModel.errorMessage, !errorMessage.isEmpty {
+                        Text(errorMessage)
+                            .font(.footnote)
+                            .foregroundStyle(.red)
+                            .padding(.top, 8)
+                    }
                     
                     Button(action: {
                         //TODO: Add Forget password functionality
@@ -61,4 +67,3 @@ struct LoginView: View {
     }
     
 }
-

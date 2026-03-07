@@ -82,6 +82,11 @@
 		E30AF7102DE60C5200151623 /* EF_Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7062DE60C5200151623 /* EF_Comment.swift */; };
 		E30AF7112DE60C5200151623 /* EF_WaterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30AF7042DE60C5200151623 /* EF_WaterInfo.swift */; };
 		E37E7E812DDF3AD300F45FF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37E7E802DDF3AD300F45FF5 /* ContentView.swift */; };
+		E808AAC52F5C0BEF008D8182 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = E808AAC42F5C0BEF008D8182 /* Auth */; };
+		E808AAC72F5C0BEF008D8182 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = E808AAC62F5C0BEF008D8182 /* PostgREST */; };
+		E808AAC92F5C0BEF008D8182 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = E808AAC82F5C0BEF008D8182 /* Storage */; };
+		E808AACB2F5C0BEF008D8182 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E808AACA2F5C0BEF008D8182 /* Supabase */; };
+		E808AACE2F5C0E7D008D8182 /* SupabaseConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E808AACD2F5C0E7D008D8182 /* SupabaseConfig.plist */; };
 		E8D30DCD2E338744001922E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8D30DCC2E338744001922E3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +163,7 @@
 		E30AF7082DE60C5200151623 /* EF_SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_SectionHeader.swift; sourceTree = "<group>"; };
 		E30AF7092DE60C5200151623 /* EF_CardItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EF_CardItemContainer.swift; sourceTree = "<group>"; };
 		E37E7E802DDF3AD300F45FF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E808AACD2F5C0E7D008D8182 /* SupabaseConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SupabaseConfig.plist; sourceTree = "<group>"; };
 		E8D30DCC2E338744001922E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,9 +172,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E808AAC72F5C0BEF008D8182 /* PostgREST in Frameworks */,
 				96DB82A32BF3863D003E47E0 /* FirebaseAuth in Frameworks */,
+				E808AAC92F5C0BEF008D8182 /* Storage in Frameworks */,
 				96DB82A92BF3863D003E47E0 /* FirebaseStorage in Frameworks */,
+				E808AACB2F5C0BEF008D8182 /* Supabase in Frameworks */,
 				96DB82A52BF3863D003E47E0 /* FirebaseFirestore in Frameworks */,
+				E808AAC52F5C0BEF008D8182 /* Auth in Frameworks */,
 				96DB82A72BF3863D003E47E0 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +217,7 @@
 				96121CF22B00B9D100CC7AAF /* Assets.xcassets */,
 				E8D30DCC2E338744001922E3 /* GoogleService-Info.plist */,
 				96121CF42B00B9D100CC7AAF /* Preview Content */,
+				E808AACD2F5C0E7D008D8182 /* SupabaseConfig.plist */,
 			);
 			path = "Fishing Journal";
 			sourceTree = "<group>";
@@ -420,6 +431,10 @@
 				96DB82A42BF3863D003E47E0 /* FirebaseFirestore */,
 				96DB82A62BF3863D003E47E0 /* FirebaseFirestoreSwift */,
 				96DB82A82BF3863D003E47E0 /* FirebaseStorage */,
+				E808AAC42F5C0BEF008D8182 /* Auth */,
+				E808AAC62F5C0BEF008D8182 /* PostgREST */,
+				E808AAC82F5C0BEF008D8182 /* Storage */,
+				E808AACA2F5C0BEF008D8182 /* Supabase */,
 			);
 			productName = "Fishing Journal";
 			productReference = 96121CEB2B00B9D000CC7AAF /* Fishing Journal.app */;
@@ -451,6 +466,7 @@
 			mainGroup = 96121CE22B00B9D000CC7AAF;
 			packageReferences = (
 				96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = 96121CEC2B00B9D000CC7AAF /* Products */;
 			projectDirPath = "";
@@ -466,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E808AACE2F5C0E7D008D8182 /* SupabaseConfig.plist in Resources */,
 				96121CF62B00B9D100CC7AAF /* Preview Assets.xcassets in Resources */,
 				96121CF32B00B9D100CC7AAF /* Assets.xcassets in Resources */,
 				E8D30DCD2E338744001922E3 /* GoogleService-Info.plist in Resources */,
@@ -775,6 +792,14 @@
 				minimumVersion = 10.26.0;
 			};
 		};
+		E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -797,6 +822,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 96DB82A12BF3863C003E47E0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		E808AAC42F5C0BEF008D8182 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		E808AAC62F5C0BEF008D8182 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		E808AAC82F5C0BEF008D8182 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		E808AACA2F5C0BEF008D8182 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E808AAC32F5C0BEF008D8182 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

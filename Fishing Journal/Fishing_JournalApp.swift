@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 @main
 struct Fishing_JournalApp: App {
@@ -14,7 +13,6 @@ struct Fishing_JournalApp: App {
     @State private var authService: AuthService
 
     init() {
-        FirebaseApp.configure()
         _authService = State(initialValue: AuthService())
 
     }
