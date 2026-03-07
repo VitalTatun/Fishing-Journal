@@ -25,7 +25,6 @@ class EditFishingViewModel: Observable {
    var comment: String = ""
    var fishingFromTheShore: Bool = true
    var images: [UIImage?] = []
-   var selectedItem: UIImage?
     
     
     var showAlert: Bool = false
@@ -102,7 +101,6 @@ extension EditFishingViewModel {
                        images.count < 6 {
                         await MainActor.run {
                             images.append(image)
-                            selectedItem = nil
                         }
                     }
         }
