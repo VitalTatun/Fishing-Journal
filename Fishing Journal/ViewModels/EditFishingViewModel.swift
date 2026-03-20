@@ -24,6 +24,7 @@ class EditFishingViewModel: Observable {
    var cameraPosition: MapCameraPosition = .automatic
    var comment: String = ""
    var fishingFromTheShore: Bool = true
+   var isPublic: Bool = false
    var images: [UIImage?] = []
     
     
@@ -32,6 +33,10 @@ class EditFishingViewModel: Observable {
     var showMapSheet: Bool = false
     var showCommentView: Bool = false
     var showFishingMethodAndBaitSheet: Bool = false
+
+    var isSaving: Bool = false
+    var showSaveError: Bool = false
+    var saveErrorMessage: String = ""
 
     init(fishing: Fishing) {
         self.fishing = fishing
@@ -51,9 +56,12 @@ class EditFishingViewModel: Observable {
         comment = fishing.comment
         images = fishing.photo
         fishingFromTheShore = fishing.fishingFromTheShore
+        isPublic = fishing.isPublic
     }
 
-    func updateFishingData(fishingData: FishingData, showEditView: inout Bool) {
+    func updateFishingData(fishingData: FishingData) async -> Bool {
+        isSaving = true
+
         fishing.name = fishingName
         fishing.type = fishingType
         fishing.fish = fish
@@ -65,9 +73,19 @@ class EditFishingViewModel: Observable {
         fishing.comment = comment
         fishing.photo = images
         fishing.fishingFromTheShore = fishingFromTheShore
+        fishing.isPublic = isPublic
 
-        fishingData.updateFishing(fishing: fishing)
-        showEditView = false
+        do {
+            try await fishingData.updateFishing(fishing: fishing)
+            await fishingData.loadFishings()
+            isSaving = false
+            return true
+        } catch {
+            saveErrorMessage = "\(error.localizedDescription)\n\n\(String(describing: error))"
+            showSaveError = true
+            isSaving = false
+            return false
+        }
     }
 
     func validateMandatoryFields() -> Bool {

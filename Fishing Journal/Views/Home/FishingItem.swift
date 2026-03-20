@@ -13,6 +13,9 @@ struct FishingItem: View {
 
     @Binding var fishing: Fishing
     @State private var showDeleteAlert = false
+    @State private var showDeleteError = false
+    @State private var deleteErrorMessage = ""
+    @State private var isDeleting = false
     @State private var isFavorite = false
     
     var body: some View {
@@ -68,25 +71,29 @@ struct FishingItem: View {
                 HStack(spacing: 20) {
                     Image(systemName: isFavorite ? "bookmark.fill" : "bookmark")
                         .foregroundStyle(isFavorite ? .red : .secondary)
-                    Menu {
-                        Button(
-                            isFavorite ? "Убрать из избранного" : "Добавить в избранное",
-                            systemImage: isFavorite ? "bookmark.slash" : "bookmark"
-                        ) {
-                            isFavorite.toggle()
-                        }
-                        Button("Удалить", systemImage: "trash", role: .destructive) {
-                            showDeleteAlert = true
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis")
-                            .font(.body)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.primaryDeepBlue)
-                            .frame(width: 24, height: 24, alignment: .center)
+                    if isDeleting {
+                        ProgressView()
+                    } else {
+                        Menu {
+                            Button(
+                                isFavorite ? "Убрать из избранного" : "Добавить в избранное",
+                                systemImage: isFavorite ? "bookmark.slash" : "bookmark"
+                            ) {
+                                isFavorite.toggle()
+                            }
+                            Button("Удалить", systemImage: "trash", role: .destructive) {
+                                showDeleteAlert = true
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .font(.body)
+                                .fontWeight(.medium)
+                                .foregroundStyle(.primaryDeepBlue)
+                                .frame(width: 24, height: 24, alignment: .center)
 
+                        }
+                        .buttonStyle(.borderless)
                     }
-                    .buttonStyle(.borderless)
                 }
             }
         }
@@ -98,17 +105,22 @@ struct FishingItem: View {
         } message: {
             Text("Отчет \"\(fishing.name)\" будет удален без возможности восстановления.")
         }
-    }
-    private func deleteFishing() {
-        withAnimation() {
-            if let index = $fishingData.mockFishings.firstIndex(where: {$0.id == fishing.id}) {
-                fishingData.mockFishings.remove(at: index)
-            }
+        .alert("Не удалось удалить", isPresented: $showDeleteError) {
+            Button("Ок", role: .cancel) { }
+        } message: {
+            Text(deleteErrorMessage)
         }
     }
-    func delete(_ indexSet: IndexSet) {
-       withAnimation() {
-            fishingData.mockFishings.remove(atOffsets: indexSet)
+    private func deleteFishing() {
+        isDeleting = true
+        Task {
+            do {
+                try await fishingData.deleteFishing(fishing)
+            } catch {
+                deleteErrorMessage = error.localizedDescription
+                showDeleteError = true
+            }
+            isDeleting = false
         }
     }
 }

@@ -30,7 +30,9 @@ struct MainView: View {
                 }
             }
             .overlay {
-                if fishingData.mockFishings.isEmpty {
+                if fishingData.isLoading {
+                    ProgressView("Загрузка...")
+                } else if fishingData.mockFishings.isEmpty {
                     UnavailableView(showNewFishingView: $showNewFishingView)
                 }
             }
@@ -51,6 +53,7 @@ struct MainView: View {
                             .tint(.primaryDeepBlue)
                     }
                 }
+                // Debug Storage Upload Button
                 // Add new Fishing Log Button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -79,9 +82,9 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environmentObject(FishingData())
+        .environmentObject(FishingData(previewFishings: FishingData.previewFishings))
 }
 #Preview("Empty List") {
     MainView()
-        .environmentObject(FishingData())
+        .environmentObject(FishingData(previewFishings: []))
 }

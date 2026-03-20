@@ -22,6 +22,7 @@ struct Fishing: Identifiable, Hashable {
     var comment: String
     let user: User
     var fishingFromTheShore: Bool
+    var isPublic: Bool
     
     init(
         id: UUID = UUID(),
@@ -36,7 +37,8 @@ struct Fishing: Identifiable, Hashable {
         bait: [Bait],
         comment: String = "",
         user: User,
-        shore: Bool = true) {
+        shore: Bool = true,
+        isPublic: Bool = false) {
             self.id = id
             self.type = type
             self.name = name
@@ -50,10 +52,11 @@ struct Fishing: Identifiable, Hashable {
             self.user = user
             self.weight = weight
             self.fishingFromTheShore = shore
+            self.isPublic = isPublic
         }
     
     func updateComplition() -> Fishing {
-        return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user, shore: fishingFromTheShore)
+        return Fishing(id: id, type: type, name: name, water: water, photo: photo, fishingTime: fishingTime, weight: weight, fish: fish, fishingMethod: fishingMethod, bait: bait, comment: comment, user: user, shore: fishingFromTheShore, isPublic: isPublic)
     }
     
     
@@ -68,21 +71,26 @@ struct Fishing: Identifiable, Hashable {
         bait: [.worm],
         comment: "Для рыбалки замешал три пачки корма: Ультра Лещ, Река Биг Фиш и Карп Кукуруза, в последствии пожалел, что не остановился на двух пачках. Когда рыба стала плотно на точку и ловилась на каждом забросе, я просто ждал когда закончится корм. Фидербай как всегда рулит.",
         user: User(image: "userExample2", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
-        shore: true
+        shore: true,
+        isPublic: true
     )
     
-    static var emptyFishing = Fishing(
-        type: .fishingLog,
-        name: "",
-        water: Water(
-            waterName: "",
-            latitude: .zero,
-            longitude: .zero),
-        photo: [],
-        fishingTime: .now,
-        fish: [],
-        fishingMethod: .none,
-        bait: [.none],
-        user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
-        shore: false)
+    static var emptyFishing: Fishing {
+        Fishing(
+            type: .fishingLog,
+            name: "",
+            water: Water(
+                waterName: "",
+                latitude: .zero,
+                longitude: .zero),
+            photo: [],
+            fishingTime: .now,
+            fish: [],
+            fishingMethod: .none,
+            bait: [.none],
+            user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
+            shore: false,
+            isPublic: false
+        )
+    }
 }

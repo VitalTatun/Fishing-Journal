@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EF_FishingDetails: View {
     
-    @State private var publishFishing = true
+    @Binding var isPublic: Bool
     @Binding var fishingType: FishingType
     @Binding var fishingTime: Date
     @Binding var shore: Bool
@@ -52,7 +52,7 @@ struct EF_FishingDetails: View {
     @ViewBuilder
     func publishRow() -> some View {
         HStack(alignment: .center, spacing: 10) {
-            Toggle("Опубликовать", isOn: $publishFishing)
+            Toggle("Опубликовать", isOn: $isPublic)
         }
         .frame(height: rowHeight)
     }
@@ -93,6 +93,7 @@ struct EF_FishingDetails: View {
 
 #Preview {
     EF_FishingDetails(
+        isPublic: .constant(Fishing.example.isPublic),
         fishingType: .constant(Fishing.example.type),
         fishingTime: .constant(Fishing.example.fishingTime),
         shore: .constant(Fishing.example.fishingFromTheShore),

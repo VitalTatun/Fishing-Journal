@@ -16,6 +16,10 @@ final class AuthService {
     var userSession: Auth.User?
 
     private let client: SupabaseClient
+
+    var supabaseClient: SupabaseClient {
+        client
+    }
     private let anonKey: String
 
     init() {

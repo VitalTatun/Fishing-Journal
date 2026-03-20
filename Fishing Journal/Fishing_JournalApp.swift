@@ -11,13 +11,13 @@ import SwiftUI
 struct Fishing_JournalApp: App {
     
     @State private var authService: AuthService
+    @StateObject private var fishingData: FishingData
 
     init() {
-        _authService = State(initialValue: AuthService())
-
+        let authService = AuthService()
+        _authService = State(initialValue: authService)
+        _fishingData = StateObject(wrappedValue: FishingData(authService: authService))
     }
-    
-    @StateObject private var fishingData = FishingData()
     
     var body: some Scene {
         WindowGroup {

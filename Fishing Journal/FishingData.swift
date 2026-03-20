@@ -7,8 +7,33 @@
 
 import SwiftUI
 
+@MainActor
 class FishingData: ObservableObject {
-    @Published var mockFishings: [Fishing] = [
+    private let service: FishingService
+
+    @Published var isLoading: Bool = true
+    @Published var loadErrorMessage: String? = nil
+    @Published var mockFishings: [Fishing]
+
+    init(authService: AuthService) {
+        self.service = FishingService(client: authService.supabaseClient)
+        self.mockFishings = []
+        Task {
+            await loadFishings()
+        }
+    }
+
+    convenience init() {
+        self.init(authService: AuthService())
+    }
+
+    init(previewFishings: [Fishing]) {
+        self.service = FishingService(client: AuthService().supabaseClient)
+        self.mockFishings = previewFishings
+        self.isLoading = false
+    }
+
+    static let previewFishings: [Fishing] = [
         Fishing(
             type: .haul,
             name: "На Карася",
@@ -57,13 +82,34 @@ class FishingData: ObservableObject {
             user: User(image: "userExample", name: "Никита Белозерцев", email: "nikita.belozercev@gmail.com"),
             shore: true)
     ]
-    
-    func updateFishing(fishing: Fishing) {
+
+    func updateFishing(fishing: Fishing) async throws {
+        try await service.saveFishing(fishing)
+
         if let index = mockFishings.firstIndex(where: { $0.id == fishing.id }) {
             mockFishings[index] = fishing.updateComplition()
         } else {
             mockFishings.insert(fishing, at: 0)
         }
     }
-}
 
+    func deleteFishing(_ fishing: Fishing) async throws {
+        try await service.deleteFishing(id: fishing.id)
+        if let index = mockFishings.firstIndex(where: { $0.id == fishing.id }) {
+            mockFishings.remove(at: index)
+        }
+    }
+
+    func loadFishings() async {
+        isLoading = true
+        loadErrorMessage = nil
+        do {
+            let fishings = try await service.fetchFishings()
+            mockFishings = fishings
+        } catch {
+            loadErrorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+
+}

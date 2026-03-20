@@ -30,7 +30,7 @@ struct EditFishingView: View {
                 EF_ImagesView(viewModel: viewModel)
                 EF_FishView(fish: $viewModel.fish, showFishView: $viewModel.showFishView)
                 EF_FishingMethodAndBait(showFishingMethodAndBait: $viewModel.showFishingMethodAndBaitSheet, fishingMethod: $viewModel.fishingMethod, bait: $viewModel.bait)
-                EF_FishingDetails(fishingType: $viewModel.fishingType, fishingTime: $viewModel.fishingTime, shore: $viewModel.fishingFromTheShore, fishWeight: $viewModel.fishWeight)
+                EF_FishingDetails(isPublic: $viewModel.isPublic, fishingType: $viewModel.fishingType, fishingTime: $viewModel.fishingTime, shore: $viewModel.fishingFromTheShore, fishWeight: $viewModel.fishWeight)
                 EF_WaterInfo(water: $viewModel.water, showMapSheet: $viewModel.showMapSheet)
                 EF_Comment(comment: $viewModel.comment, showCommentView: $viewModel.showCommentView)
             }
@@ -48,11 +48,21 @@ struct EditFishingView: View {
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Button("Готово") {
-                    viewModel.updateFishingData(fishingData: fishingData, showEditView: &showEditView)
-                    showEditView = false
+                Button {
+                    Task {
+                        let didSave = await viewModel.updateFishingData(fishingData: fishingData)
+                        if didSave {
+                            showEditView = false
+                        }
+                    }
+                } label: {
+                    if viewModel.isSaving {
+                        ProgressView()
+                    } else {
+                        Text("Готово")
+                    }
                 }
-                .disabled(viewModel.validateMandatoryFields())
+                .disabled(viewModel.validateMandatoryFields() || viewModel.isSaving)
             }
         }
         .alert("Точно хотите отменить?", isPresented: $viewModel.showAlert, actions: {
@@ -64,6 +74,24 @@ struct EditFishingView: View {
         }, message: {
             Text("Все внесенные данные не сохранятся")
         })
+        .alert("Не удалось сохранить", isPresented: $viewModel.showSaveError, actions: {
+            Button("Ок", role: .cancel) {
+            }
+        }, message: {
+            Text(viewModel.saveErrorMessage)
+        })
+        .overlay {
+            if viewModel.isSaving {
+                ZStack {
+                    Color.black.opacity(0.15)
+                        .ignoresSafeArea()
+                    ProgressView("Сохранение...")
+                        .padding(16)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+            }
+        }
         
         .sheet(isPresented: $viewModel.showFishView) {
             NavigationStack {
